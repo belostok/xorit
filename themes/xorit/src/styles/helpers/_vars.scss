@@ -1,0 +1,34 @@
+@use 'sass:math';
+
+@import 'media-queries';
+
+// Font families
+$font-family-primary: 'Manrope', 'sans-serif';
+$font-family-second: 'Onest', 'sans-serif';
+
+// Colors
+$clr-bg: #EAEBED;
+$clr-base: #20202C;
+$clr-primary: blue;
+$clr-second: yellow;
+$clr-action: red;
+
+// Sizes
+$desktop-width: 1440px; // Which is in design
+$calc-font-size: 16px;
+$base-font-size:  inVw($calc-font-size, $desktop-width);
+$base-font-size-lg: inVw($calc-font-size, $responsive-lg);
+
+// Paths
+$path-images: '../images'; // Path to src images from default entry points
+$path-images-inline: '../../images'; // Path to src images from inlined entry points
+$path-static-media: '../../static_media'; // Path to non-compiling images from default entry points
+$path-static-media-inline: '../../../static_media'; // Path to non-compiling images from inlined entry points
+// Example of use: background: url(#{$path-images}/image-name.jpg);
+
+$transition-default: .3s ease;
+
+$base-outer-padding-desktop: inEm(40px);
+$base-outer-padding-mobile: inEm(16px);
+$base-container-width: 1300px;
+$small-container-width: 980px;
