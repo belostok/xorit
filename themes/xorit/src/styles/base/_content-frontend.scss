@@ -25,3 +25,40 @@
 		margin-bottom: 0;
 	}
 }
+
+.h2 {
+	font-family: $font-family-second;
+	font-weight: 600;
+	font-size: inEm(56px);
+	line-height: 1.15;
+}
+
+.h3 {
+	font-family: $font-family-second;
+	font-weight: 600;
+	font-size: inEm(28px);
+}
+
+.h4 {
+	font-family: $font-family-second;
+	font-weight: 600;
+	font-size: inEm(27px);
+}
+
+.h5 {
+	font-family: $font-family-second;
+	font-weight: 600;
+	font-size: inEm(20px);
+}
+
+.body-1 {
+	font-size: inEm(14px);
+}
+
+.body-2 {
+	font-size: inEm(13px);
+}
+
+.body-3 {
+	font-size: inEm(12px);
+}

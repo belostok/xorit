@@ -50,7 +50,7 @@ body.admin-bar {
 	width: 100%;
 }
 
-.xorit-container,
+.container,
 .wp-block-group {
 	width: 100%;
 	padding-inline: $base-outer-padding-desktop;
@@ -61,7 +61,7 @@ body.admin-bar {
 }
 
 // Section wrapper, set max-width according to theme design
-.xorit-wrapper,
+.wrapper,
 .wp-block-group__inner-container {
 	width: 100%;
 	max-width: $base-container-width;

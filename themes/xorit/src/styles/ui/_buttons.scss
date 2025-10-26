@@ -1,0 +1,34 @@
+.x-button {
+	background: $clr-action;
+	color: $clr-bg;
+	font-size: inEm(14px);
+	padding: inRem(20px) inRem(30px);
+	transition: background $transition-default;
+
+	&:hover {
+		background: $clr-red-hover;
+	}
+
+	&:active {
+		background: $clr-red-active;
+	}
+
+	&_white {
+		background: $clr-bg;
+		color: $clr-secondary-dark;
+		border: 1px solid $clr-secondary-dark;
+		transition: border-color $transition-default, color $transition-default;
+
+		&:hover {
+			background: $clr-bg;
+			border-color: $clr-red-disabled;
+			color: $clr-red-disabled;
+		}
+
+		&:active {
+			background: $clr-bg;
+			border-color: $clr-action;
+			color: $clr-action;
+		}
+	}
+}

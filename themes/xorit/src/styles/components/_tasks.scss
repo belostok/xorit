@@ -1,0 +1,40 @@
+.x-tasks {
+	position: relative;
+	margin-top: inEm(179px);
+	padding-bottom: inEm(177px);
+
+	&_even & {
+
+		&__button-container {
+			position: relative;
+			inset-inline-end: auto;
+			margin-top: inEm(60px);
+		}
+	}
+
+	&__items {
+		margin-top: inEm(64px);
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: inEm(20px);
+	}
+
+	&__item {
+		background: $clr-dark-gray;
+		row-gap: inEm(14px);
+		padding: inEm(28px);
+	}
+
+	&__item-icon-container {
+		width: inEm(53px);
+		height: inEm(44px);
+	}
+
+	&__button-container {
+		gap: inEm(23px);
+		width: max-content;
+		position: absolute;
+		bottom: 0;
+		inset-inline-end: 0;
+	}
+}
