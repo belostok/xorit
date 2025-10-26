@@ -31,8 +31,8 @@ function register_options_page() {
 
 	acf_add_options_page(
 		[
-			'page_title' => esc_attr__( 'Options', 'xorit' ),
-			'menu_title' => esc_attr__( 'Options', 'xorit' ),
+			'page_title' => esc_attr__( 'Настройки сайта', 'xorit' ),
+			'menu_title' => esc_attr__( 'Настройки сайта', 'xorit' ),
 			'menu_slug'  => 'xorit-options',
 			'capability' => 'edit_posts',
 			'redirect'   => false,
@@ -52,6 +52,7 @@ function register_fields() {
 
 	$items = [
 		'options',
+		'home',
 	];
 	foreach ( $items as $item ) {
 		include_once sprintf( '%s/acf-fields/%s.php', __DIR__, $item );

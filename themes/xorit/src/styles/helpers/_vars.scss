@@ -11,7 +11,14 @@ $clr-bg: #EAEBED;
 $clr-base: #20202C;
 $clr-primary: blue;
 $clr-second: yellow;
-$clr-action: red;
+$clr-action: #C32F33;
+
+$clr-soft-gray: #EAEBED;
+$clr-dark-gray: #E2E3E6;
+$clr-secondary-dark: #292E3E;
+$clr-red-hover: #A31418;
+$clr-red-active: #8E070B;
+$clr-red-disabled: #ECBCBD;
 
 // Sizes
 $desktop-width: 1440px; // Which is in design
@@ -30,5 +37,5 @@ $transition-default: .3s ease;
 
 $base-outer-padding-desktop: inEm(40px);
 $base-outer-padding-mobile: inEm(16px);
-$base-container-width: 1300px;
+$base-container-width: 1360px;
 $small-container-width: 980px;

@@ -15,7 +15,7 @@
 	font-family: $font-family-primary;
 	font-size: $base-font-size;
 	line-height: 1.25;
-	font-weight: 300;
+	font-weight: 500;
 
 	@media (min-width: $desktop-width) {
 		font-size: $calc-font-size;
@@ -34,6 +34,14 @@
 		&:hover {
 			@content;
 		}
+	}
+}
+
+@mixin link-hover($transition: $transition-default, $opacity: .7) {
+	transition: opacity $transition;
+
+	@include mouseover {
+		opacity: $opacity;
 	}
 }
 

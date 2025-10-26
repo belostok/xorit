@@ -1,2 +1,167 @@
 @import '../helpers';
 @import '../helpers/helpers-front-only';
+
+.x-header {
+	position: fixed;
+	z-index: 10;
+	line-height: 1;
+	color: $clr-soft-gray;
+	transition: background $transition-default;
+
+	&_sticky {
+		background: $clr-base;
+	}
+
+	&__upper-side {
+		min-height: inEm(94px);
+		padding-bottom: inEm(25px);
+		border-bottom: 1px solid $clr-soft-gray;
+	}
+
+	&__left-side {
+		column-gap: inEm(9px);
+	}
+
+	&__logo-container {
+
+		a {
+			@include link-hover;
+		}
+
+		img {
+			max-width: inEm(117px);
+			height: auto;
+		}
+	}
+
+	&__logo-note {
+		font-size: inEm(13px);
+		font-weight: 500;
+	}
+
+	&__menu-container {
+		column-gap: inEm(65px);
+
+		li {
+			list-style-type: none;
+
+			a {
+				font-size: inEm(14px);
+			}
+		}
+
+		& > ul { // main menu
+			display: flex;
+			margin-bottom: inEm(-26px);
+
+			& > li {
+				position: relative;
+				padding-bottom: inEm(14px);
+
+				&:hover {
+
+					& > ul {
+						visibility: visible;
+						opacity: 1;
+						transition: opacity $transition-default;
+					}
+
+					& > a {
+						background: $clr-action;
+					}
+				}
+
+				&:active {
+
+					& > a {
+						background: $clr-red-active;
+					}
+				}
+
+				&:nth-last-child(-n+2) {
+
+					& > ul {
+						inset-inline-end: 0;
+					}
+				}
+
+				& > a {
+					display: block;
+					padding: inRem(12px) inRem(22px);
+					transition: background $transition-default;
+				}
+
+				& > ul { // sub menu
+					position: absolute;
+					top: 100%;
+					background: $clr-base;
+					width: max-content;
+					max-width: inEm(317px);
+					padding: inEm(28px) inEm(38px) inEm(28px) inEm(43px);
+					display: flex;
+					flex-direction: column;
+					row-gap: inEm(12px);
+					visibility: hidden;
+					opacity: 0;
+					transition: opacity .3s ease, visibility 0s ease .3s;
+
+					li {
+
+						&.current-menu-item {
+
+							a {
+								font-weight: 800;
+
+								&::before {
+									opacity: 1;
+								}
+							}
+						}
+
+						a {
+							position: relative;
+							@include link-hover;
+
+							&::before {
+								content: '';
+								position: absolute;
+								width: 9px;
+								height: 9px;
+								border-radius: 50%;
+								background: $clr-action;
+								inset-inline-start: inRem(-21px);
+								top: 50%;
+								transform: translateY(-50%);
+								opacity: 0;
+								transition: opacity $transition-default;
+							}
+						}
+					}
+
+					ul {
+						display: none !important;
+					}
+				}
+			}
+		}
+	}
+
+	&__email {
+		font-size: inEm(14px);
+	}
+
+	&__lower-side {
+		padding: inEm(20px) 0;
+	}
+
+	&__address {
+		font-size: inEm(12px);
+	}
+
+	&__phone {
+		font-family: $font-family-second;
+		font-size: inEm(27px);
+		line-height: 1.15;
+		font-weight: 600;
+	}
+}
