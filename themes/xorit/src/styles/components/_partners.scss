@@ -1,0 +1,48 @@
+.x-partners {
+	$duration: 30s;
+
+	background: $clr-dark-gray;
+	margin-top: inEm(58px);
+	padding: inEm(96px) 0 inEm(94px);
+
+	&__wrapper {
+		overflow: hidden;
+	}
+
+	&__title-container {
+		text-align: center;
+	}
+
+	&__items {
+		display: flex;
+		margin-top: inEm(70px);
+	}
+
+	&__items-group {
+		display: flex;
+		align-items: center;
+		column-gap: inEm(40px);
+		padding-right: inEm(40px);
+		width: max-content;
+		animation: ticker $duration linear infinite;
+
+		&_g2 {
+			animation-delay: $duration / 2;
+		}
+	}
+
+	&__item {
+		width: max-content;
+	}
+}
+
+@keyframes ticker {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+

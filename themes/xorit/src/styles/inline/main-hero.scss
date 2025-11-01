@@ -11,9 +11,9 @@
 		content: '';
 		position: absolute;
 		top: 0;
-		inset-inline-end: 0;
-		width: inEm(1266px);
-		height: inEm(1173px);
+		inset-inline-end: inEm(-30px);
+		width: inEm(1298px);
+		height: inEm(1409px);
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-image: url($path-static-media-inline + '/hero-background.svg');
@@ -53,27 +53,15 @@
 	&__items-container {
 		flex-grow: 1;
 		padding-top: inEm(20px);
-		row-gap: inEm(45px);
+		row-gap: inEm(33px);
 	}
 
 	&__items-row {
 		display: flex;
 		flex-wrap: wrap;
 
-		&:nth-child(1) {
-			column-gap: inEm(60px);
-		}
-
-		&:nth-child(2) {
-			column-gap: inEm(100px);
-		}
-
-		&:nth-child(3) {
-			padding-left: inEm(100px);
-		}
-
-		&:nth-child(4) {
-			padding-left: inEm(340px);
+		&:nth-child(even) {
+			justify-content: flex-end;
 		}
 	}
 
@@ -106,6 +94,6 @@
 	}
 
 	&__item {
-		font-size: inEm(14px);
+		font-size: inEm(16px);
 	}
 }

@@ -40,13 +40,13 @@
 	}
 
 	&__menu-container {
-		column-gap: inEm(65px);
+		column-gap: inEm(24px);
 
 		li {
 			list-style-type: none;
 
 			a {
-				font-size: inEm(14px);
+				font-size: inEm(16px);
 			}
 		}
 
@@ -147,7 +147,7 @@
 	}
 
 	&__email {
-		font-size: inEm(14px);
+		font-size: inEm(16px);
 	}
 
 	&__lower-side {
@@ -160,7 +160,7 @@
 
 	&__phone {
 		font-family: $font-family-second;
-		font-size: inEm(27px);
+		font-size: inEm(28px);
 		line-height: 1.15;
 		font-weight: 600;
 	}

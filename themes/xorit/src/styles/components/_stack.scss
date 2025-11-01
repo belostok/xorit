@@ -1,0 +1,42 @@
+.x-stack {
+	margin-top: inEm(96px);
+	padding-bottom: inEm(28px);
+	text-align: center;
+
+	&__wrapper {
+		position: relative;
+	}
+
+	&__items {
+		position: relative;
+		margin: inEm(54px) inEm(-10px) 0;
+	}
+
+	&__image-container {
+		position: absolute;
+		inset-block-start: inEm(-38px);
+		inset-inline-start: -100%;
+		inset-inline-end: -100%;
+		width: inEm(1440px);
+		margin-inline: auto;
+	}
+
+	&__image {
+		width: 100%;
+		height: auto;
+	}
+
+	&__item {
+		position: relative;
+		max-width: 25%;
+		flex: 0 0 25%;
+		padding: inEm(10px);
+
+		&-inner {
+			background: $clr-dark-gray;
+			height: 100%;
+			padding: inEm(20px);
+			min-height: inEm(116px);
+		}
+	}
+}

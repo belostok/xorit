@@ -1,0 +1,64 @@
+.x-advantages {
+	margin-top: inEm(96px);
+	background: $clr-base;
+	color: $clr-soft-gray;
+	text-align: center;
+
+	&__image-container {
+		top: inEm(36px);
+		inset-inline-start: -100%;
+		inset-inline-end: -100%;
+		width: inEm(1440px);
+		margin-inline: auto;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	&__wrapper {
+		position: relative;
+		padding-block: inEm(96px);
+	}
+
+	&__items {
+		margin-top: inEm(64px);
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: inEm(75px);
+	}
+
+	&__item {
+		position: relative;
+		row-gap: inEm(30px);
+		padding-top: inEm(40px);
+
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: 1;
+			width: inEm(15px);
+			height: inEm(15px);
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-image: url($path-static-media + '/hero-point.svg');
+			top: 0;
+			inset-inline-start: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+
+		&:not(:first-child) {
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				inset-inline-end: 50%;
+				height: inEm(1px);
+				width: inEm(355px);
+				background: $clr-soft-gray;
+			}
+		}
+	}
+}
