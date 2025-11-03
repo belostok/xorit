@@ -30,6 +30,8 @@ if ( count( $tasks ) % 2 === 0 ) {
 		<?php endif; ?>
 		<div class="x-tasks__items">
 			<?php
+			$i = 0;
+			$d = 0;
 			foreach ( $tasks as $task ) :
 				$task_icon        = (int) ( $task['icon'] ?? 0 );
 				$task_title       = trim_string( $task['title'] ?? '' );
@@ -39,7 +41,10 @@ if ( count( $tasks ) % 2 === 0 ) {
 					continue;
 				}
 				?>
-				<div class="x-tasks__item flex fdc">
+				<div
+					class="x-tasks__item flex fdc js-x-fade-up-item"
+					data-delay="<?php echo esc_attr( $d ); ?>"
+				>
 					<?php if ( $task_icon ) : ?>
 						<div class="x-tasks__item-icon-container img-contain">
 							<?php xorit_the_image( $task_icon, 'x-tasks__item-icon' ); ?>
@@ -63,6 +68,8 @@ if ( count( $tasks ) % 2 === 0 ) {
 					<?php endif; ?>
 				</div>
 				<?php
+				$d = $i % 2 === 0 ? $d + 0.3 : 0;
+				$i ++;
 			endforeach;
 			?>
 		</div>
@@ -84,9 +91,9 @@ if ( count( $tasks ) % 2 === 0 ) {
 					'elements/button',
 					null,
 					array(
-						'link'    => $cta_red['url'] ?? '',
-						'title'   => $cta_red['title'] ?? '',
-						'target'  => $cta_red['target'] ?? '',
+						'link'    => $cta_white['url'] ?? '',
+						'title'   => $cta_white['title'] ?? '',
+						'target'  => $cta_white['target'] ?? '',
 						'classes' => 'x-button_white',
 					)
 				);

@@ -62,3 +62,31 @@
 	line-clamp: $rows;
 	-webkit-box-orient: vertical;
 }
+
+@mixin list($img-url: $path-static-media + '/list-point.svg') {
+	ul {
+		font-size: inRem(16px);
+		line-height: 1.46em;
+		display: flex;
+		flex-direction: column;
+		row-gap: inRem(16px);
+		list-style-type: none;
+
+		li {
+			position: relative;
+			padding-left: inRem(31px);
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: .2em;
+				inset-inline-start: 0;
+				width: inRem(15px);
+				height: inRem(15px);
+				background-image: url($img-url);
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+		}
+	}
+}

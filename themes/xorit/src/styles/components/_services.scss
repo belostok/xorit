@@ -1,0 +1,35 @@
+.x-services {
+	margin-top: inEm(96px);
+
+	&__items {
+		margin-top: inEm(64px);
+		overflow: hidden;
+	}
+
+	&__slider-group {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: inEm(20px);
+	}
+
+	&__slide {
+		background: $clr-base;
+		color: $clr-soft-gray;
+		min-height: inEm(280px);
+		padding: inEm(60px);
+
+		&-image-container {
+			top: 0;
+			inset-inline-start: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		&-title {
+			font-family: $font-family-second;
+			font-weight: 600;
+			font-size: inEm(28px);
+			text-align: center;
+		}
+	}
+}

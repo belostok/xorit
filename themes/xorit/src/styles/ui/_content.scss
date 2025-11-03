@@ -1,0 +1,30 @@
+.x-content {
+
+	& > * {
+
+		&:not(:first-child) {
+			margin-top: inRem(32px);
+		}
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+
+		&:not(:first-child) {
+			margin-top: inRem(40px);
+		}
+	}
+
+	ol {
+		font-size: inRem(16px);
+		line-height: 1.46em;
+		display: flex;
+		flex-direction: column;
+		row-gap: inRem(16px);
+
+		li {
+			margin-left: 1.1em;
+		}
+	}
+
+	@include list($path-static-media-inline + '/list-point.svg');
+}

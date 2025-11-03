@@ -1,0 +1,56 @@
+@import '../helpers/mixins';
+
+.x-clients {
+	background: $clr-base;
+	color: $clr-soft-gray;
+	overflow: hidden;
+
+	&__wrapper {
+		padding: inEm(94px) 0 inEm(90px);
+	}
+
+	&__dec {
+
+		&_blue {
+			width: inEm(798px);
+			height: inEm(798px);
+			inset-block-start: inEm(362px);
+			inset-inline-start: inEm(-261px);
+		}
+
+		&_red {
+			width: inEm(650px);
+			height: inEm(650px);
+			inset-block-start: inEm(164px);
+			inset-inline-start: inEm(355px);
+		}
+	}
+
+	&__grid {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	&__items {
+		row-gap: inEm(20px);
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		background: $clr-smoky-gray-blue;
+		padding: inEm(40px);
+		row-gap: inEm(24px);
+
+
+		&-description-container {
+
+			@include list($path-static-media + '/hero-point.svg');
+		}
+	}
+
+	&__button-container {
+		margin-top: inEm(64px);
+	}
+}

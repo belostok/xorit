@@ -39,10 +39,10 @@
 	font-size: inEm(28px);
 }
 
-.h4 {
+.h4, h4 {
 	font-family: $font-family-second;
 	font-weight: 600;
-	font-size: inEm(27px);
+	font-size: inEm(20px);
 }
 
 .h5 {
@@ -52,13 +52,22 @@
 }
 
 .body-1 {
-	font-size: inEm(14px);
+	font-size: inEm(16px);
+	line-height: 1.46;
 }
 
 .body-2 {
-	font-size: inEm(13px);
+	font-size: inEm(14px);
 }
 
 .body-3 {
+	font-size: inEm(12px);
+}
+
+.text-button-large {
+	font-size: inEm(14px);
+}
+
+.text-button-small {
 	font-size: inEm(12px);
 }

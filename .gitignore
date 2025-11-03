@@ -13,6 +13,7 @@ stubs.php
 /composer.json
 **/package-lock.json
 /phpcs.xml
+/plugins
 
 themes/xorit/build/
 themes/twentytwentyfour/

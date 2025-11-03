@@ -48,34 +48,17 @@ xorit_inline_style( 'main-hero' );
 		<?php if ( ! empty( $advantages ) ) : ?>
 			<div class="x-main-hero__items-container flex fdc">
 				<?php
-				$i     = 0;
-				$total = count( $advantages );
-
-				foreach ( $advantages as $index => $advantage ) {
-					if ( $i >= 6 ) {
-						break;
-					}
-
+				foreach ( $advantages as $advantage ) :
 					$text = trim_string( $advantage['advantage'] ?? '' );
-
-					if ( $i < 4 ) {
-						if ( $i % 2 === 0 ) {
-							echo '<div class="x-main-hero__items-row">';
-						}
-						echo '<div class="x-main-hero__item-wrapper"><div class="x-main-hero__item">' . wp_kses_post( $text ) . '</div></div>';
-						$i ++;
-						if ( $i % 2 === 0 || $i === $total ) {
-							echo '</div>';
-						}
-					} else {
-						echo '<div class="x-main-hero__items-row">';
-						echo '<div class="x-main-hero__item-wrapper"><div class="x-main-hero__item">' . wp_kses_post( $text ) . '</div></div>';
-						echo '</div>';
-						$i ++;
-					}
-				}
+					?>
+					<div class="x-main-hero__items-row">
+						<div class="x-main-hero__item-wrapper">
+							<div class="x-main-hero__item"><?php echo wp_kses_post( $text ); ?></div>
+						</div>
+					</div>
+					<?php
+				endforeach;
 				?>
 			</div>
 		<?php endif; ?>
-	</div>
 </section>
