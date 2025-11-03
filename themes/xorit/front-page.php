@@ -55,9 +55,11 @@ get_template_part(
 	'partials/tabs',
 	null,
 	array(
-		'hide'  => get_field( Constants::ACF_FIELD_HOME . '_tabs_hide' ),
-		'title' => get_field( Constants::ACF_FIELD_HOME . '_tabs_title' ),
-		'items' => get_field( Constants::ACF_FIELD_HOME . '_tabs_items' ),
+		'hide'         => get_field( Constants::ACF_FIELD_HOME . '_tabs_hide' ),
+		'title'        => get_field( Constants::ACF_FIELD_HOME . '_tabs_title' ),
+		'title_mobile' => get_field( Constants::ACF_FIELD_HOME . '_tabs_title_mobile' ),
+		'items'        => get_field( Constants::ACF_FIELD_HOME . '_tabs_items' ),
+		'items_mobile' => get_field( Constants::ACF_FIELD_HOME . '_tabs_items_mobile' ),
 	)
 );
 ?>
@@ -109,6 +111,34 @@ get_template_part(
 		'items'   => get_field( Constants::ACF_FIELD_HOME . '_clients_items' ),
 		'cta'     => get_field( Constants::ACF_FIELD_HOME . '_clients_cta' ),
 		'classes' => 'desktop',
+	)
+);
+?>
+
+<?php
+get_template_part(
+	'partials/request',
+	null,
+	array(
+		'hide'        => get_field( Constants::ACF_FIELD_HOME . '_request_hide' ),
+		'title'       => get_field( Constants::ACF_FIELD_HOME . '_request_title' ),
+		'description' => get_field( Constants::ACF_FIELD_HOME . '_request_description' ),
+		'phone'       => get_field( Constants::ACF_FIELD_HOME . '_request_phone' ),
+		'email'       => get_field( Constants::ACF_FIELD_HOME . '_request_email' ),
+		'cta'         => get_field( Constants::ACF_FIELD_HOME . '_request_cta' ),
+	)
+);
+?>
+
+<?php
+get_template_part(
+	'partials/companies',
+	null,
+	array(
+		'hide'         => get_field( Constants::ACF_FIELD_HOME . '_companies_hide' ),
+		'title'        => get_field( Constants::ACF_FIELD_HOME . '_companies_title' ),
+		'title_mobile' => get_field( Constants::ACF_FIELD_HOME . '_companies_title_mobile' ),
+		'items'        => get_field( Constants::ACF_FIELD_HOME . '_companies_items' ),
 	)
 );
 ?>

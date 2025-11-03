@@ -1,0 +1,100 @@
+<?php
+
+use xoritTheme\Constants\Constants;
+use function xoritTheme\Helpers\get_link_details;
+use function xoritTheme\Helpers\trim_string;
+
+$hide = (bool) ( $args['hide'] ?? false );
+
+if ( $hide ) {
+	return null;
+}
+
+$_title      = trim_string( $args['title'] ?? '' );
+$description = trim_string( $args['description'] ?? '' );
+$phone       = trim_string( $args['phone'] ?? '' );
+$phone       = $phone ? $phone : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'option' ) );
+$email       = trim_string( $args['email'] ?? '' );
+$email       = $email ? $email : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_email', 'option' ) );
+$cta         = get_link_details( $args['cta'] ?? array() );
+$classes     = trim_string( $args['classes'] ?? '' );
+?>
+<section class="x-request container <?php echo esc_attr( $classes ); ?>">
+	<div class="x-request__wrapper wrapper">
+		<?php if ( $_title ) : ?>
+			<div class="x-request__title-container js-x-fade-item">
+				<h2 class="x-request__title h2">
+					<?php echo wp_kses_post( $_title ); ?>
+				</h2>
+			</div>
+		<?php endif; ?>
+		<?php if ( $description ) : ?>
+			<div class="x-request__description-container">
+				<p class="x-request__description body-1">
+					<?php echo wp_kses_post( $description ); ?>
+				</p>
+			</div>
+		<?php endif; ?>
+		<?php
+		if ( $phone ) :
+			$tel = preg_replace( '/[^0-9]/', '', $phone );
+			?>
+			<div class="x-request__item-container flex jcc aic">
+				<svg width="48" height="42" viewBox="0 0 48 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g clip-path="url(#clip0_2375_928)">
+						<path
+							d="M41.8488 9C47.3836 15.3718 47.3836 25.7026 41.8488 32.0708M35.9229 13.1927C38.6902 17.2488 38.6902 23.822 35.9229 27.8781"
+							stroke="#C32F33" stroke-width="3" stroke-linejoin="round"/>
+						<path
+							d="M12.9977 33.3085H15.9988M25.0023 1H4.00117C3.20582 0.999999 2.44299 1.3238 1.88026 1.90026C1.31753 2.47673 1.00093 3.25871 1 4.07443V37.9256C1 39.6228 2.34281 41 3.99766 41H24.9988C25.7942 41 26.557 40.6762 27.1197 40.0997C27.6825 39.5233 27.9991 38.7413 28 37.9256V4.07443C28 3.25871 27.6843 2.47635 27.1222 1.89921C26.5601 1.32207 25.7977 1.00095 25.0023 1Z"
+							stroke="#20202C" stroke-width="2" stroke-linejoin="round"/>
+					</g>
+					<defs>
+						<clipPath id="clip0_2375_928">
+							<rect width="48" height="42" fill="white"/>
+						</clipPath>
+					</defs>
+				</svg>
+				<a href="tel:<?php echo esc_attr( $tel ); ?>" class="x-request__item h3 default-hover">
+					<?php echo esc_html( $phone ); ?>
+				</a>
+			</div>
+		<?php endif; ?>
+		<?php if ( $email ) : ?>
+			<div class="x-request__item-container flex jcc aic">
+				<svg width="49" height="32" viewBox="0 0 49 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g clip-path="url(#clip0_2375_931)">
+						<path d="M3.71429 17.7246H22.2857M7.42857 25.2246H26M13 10.2246H0" stroke="#C32F33"
+							stroke-width="3" stroke-linejoin="round"/>
+						<path
+							d="M11 1.22461L27.9384 11.5505C28.8974 12.135 30.1026 12.135 31.0615 11.5505L48 1.22461M11 1.22461H48M11 1.22461V5.72461M48 1.22461V27.2246C48 28.8815 46.6569 30.2246 45 30.2246H11"
+							stroke="#20202C" stroke-width="2" stroke-linejoin="round"/>
+					</g>
+					<defs>
+						<clipPath id="clip0_2375_931">
+							<rect width="49" height="32" fill="white"/>
+						</clipPath>
+					</defs>
+				</svg>
+				<a href="mailto:<?php echo esc_attr( $email ); ?>" class="x-request__item h3 default-hover">
+					<?php echo esc_html( $email ); ?>
+				</a>
+			</div>
+		<?php endif; ?>
+		<?php if ( ! empty( $cta ) ) : ?>
+			<div class="x-request__button-container">
+				<?php
+				get_template_part(
+					'elements/button',
+					null,
+					array(
+						'link'   => $cta['url'] ?? '',
+						'title'  => $cta['title'] ?? '',
+						'target' => $cta['target'] ?? '',
+					)
+				);
+				?>
+			</div>
+		<?php endif; ?>
+	</div>
+</section>

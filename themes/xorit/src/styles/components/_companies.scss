@@ -1,0 +1,21 @@
+.x-companies {
+	background: $clr-base;
+	color: $clr-soft-gray;
+	text-align: center;
+	padding: inEm(94px) 0 inEm(96px);
+
+	&__items {
+		margin: inEm(73px) inEm(-45px) inEm(-20px);
+	}
+
+	&__item {
+		max-width: 25%;
+		flex: 0 0 25%;
+		padding: inEm(20px) inEm(45px);
+	}
+
+	&__item-image {
+		max-width: inEm(278px);
+		max-height: inEm(116px);
+	}
+}
