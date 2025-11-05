@@ -1,0 +1,15 @@
+.x-post {
+
+	&__inner {
+		row-gap: inEm(33px);
+	}
+
+	&__image-container {
+		width: 100%;
+		aspect-ratio: 329/288;
+	}
+
+	&__content {
+		row-gap: inEm(16px);
+	}
+}

@@ -1,0 +1,10 @@
+.x-posts {
+	margin-top: inEm(96px);
+
+	&__items {
+		margin-top: inEm(64px);
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: inEm(15px);
+	}
+}

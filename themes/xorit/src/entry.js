@@ -6,11 +6,13 @@ import header from './scripts/header';
 import sliderServices from './scripts/slider-services';
 import tabs from './scripts/tabs';
 import simple from './scripts/animation/simple';
+import faq from './scripts/faq';
 
 documentReady( () => {
 	header();
 	sliderServices();
 	tabs();
+	faq();
 
 	// Animation
 	simple();

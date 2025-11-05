@@ -4,6 +4,7 @@
  */
 
 use xoritTheme\Constants\Constants;
+use function xoritTheme\Helpers\trim_string;
 
 get_header();
 ?>
@@ -141,6 +142,35 @@ get_template_part(
 		'items'        => get_field( Constants::ACF_FIELD_HOME . '_companies_items' ),
 	)
 );
+?>
+
+<?php
+get_template_part(
+	'partials/faq',
+	null,
+	array(
+		'hide'  => get_field( Constants::ACF_FIELD_HOME . '_faq_hide' ),
+		'title' => get_field( Constants::ACF_FIELD_HOME . '_faq_title' ),
+		'items' => get_field( Constants::ACF_FIELD_HOME . '_faq_items' ),
+	)
+);
+?>
+
+<?php
+$args         = array(
+	'post_type'      => 'post',
+	'posts_per_page' => 4,
+	'post_status'    => 'publish',
+);
+$latest_posts = new \WP_Query( $args );
+get_template_part(
+	'partials/posts',
+	null,
+	array(
+		'title' => esc_html__( 'Блог', 'xorit' ),
+		'items' => $latest_posts->get_posts(),
+	)
+)
 ?>
 
 <?php
