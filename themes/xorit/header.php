@@ -1,6 +1,7 @@
 <?php
 
 use xoritTheme\Constants\Constants;
+use function xoritTheme\Helpers\get_tel;
 use function xoritTheme\Helpers\trim_string;
 
 $logo_text = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_logo_text', 'option' ) );
@@ -68,7 +69,7 @@ $phone     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'o
 					<?php endif; ?>
 					<?php
 					if ( $phone ) :
-						$tel = preg_replace( '/[^\d+]/', '', $phone );
+						$tel = get_tel( $phone );
 						?>
 						<div class="x-header__phone-container">
 							<a href="tel:<?php echo esc_attr( $tel ); ?>" class="x-header__phone default-hover">

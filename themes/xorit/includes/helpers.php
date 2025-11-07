@@ -173,3 +173,19 @@ function get_tabs_html( $_tabs ) {
 		'content_html' => $content_html,
 	);
 }
+
+/**
+ * Strip phone number.
+ * @param $phone
+ *
+ * @return array|string|null
+ */
+function get_tel( $phone ): array|string|null {
+	$phone = trim_string( $phone );
+
+	if ( ! $phone ) {
+		return '';
+	}
+
+	return preg_replace( '/[^\d+]/', '', $phone );
+}
