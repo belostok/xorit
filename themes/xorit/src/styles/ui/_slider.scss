@@ -1,0 +1,34 @@
+.x-nav {
+	flex-shrink: 0;
+	font-size: initial;
+	width: inEm(21px);
+	aspect-ratio: 1/1;
+}
+
+.x-pagination {
+
+	.swiper-pagination-bullet {
+		flex-shrink: 0;
+		position: relative;
+		width: 15px;
+		aspect-ratio: 1/1;
+		border-radius: 50%;
+		border: 1px solid transparent;
+		transition: border-color $transition-default;
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			margin: auto;
+			width: 9px;
+			aspect-ratio: 1/1;
+			border-radius: inherit;
+			background: $clr-gray;
+		}
+
+		&.swiper-pagination-bullet-active {
+			border-color: $clr-gray;
+		}
+	}
+}

@@ -90,3 +90,7 @@
 		}
 	}
 }
+
+@mixin min-font($size: 12px) {
+	font-size: max($size, #{inEm($size)});
+}

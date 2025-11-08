@@ -29,6 +29,7 @@ body.admin-bar {
 .main-wrapper {
 	width: 100%;
 	min-height: 100vh;
+	overflow: hidden; // todo remove
 }
 
 .admin-bar .main-wrapper {
@@ -49,6 +50,11 @@ body.admin-bar {
 .main {
 	width: 100%;
 	padding-bottom: inEm(96px);
+
+	@include md-down {
+		display: flex;
+		flex-direction: column;
+	}
 }
 
 .container,
