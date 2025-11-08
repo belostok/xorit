@@ -11,11 +11,17 @@ import popup from './scripts/popup';
 
 documentReady( () => {
 	header();
-	sliderServices();
 	tabs();
 	faq();
 	popup();
 
+	// Sliders
+	sliderServices();
+
 	// Animation
 	simple();
+} );
+
+document.addEventListener( 'resize', () => {
+	sliderServices();
 } );

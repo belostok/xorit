@@ -31,12 +31,21 @@
 	font-weight: 600;
 	font-size: inEm(56px);
 	line-height: 1.15;
+
+	@include md-down {
+		font-size: inEm(30px);
+	}
 }
 
 .h3 {
 	font-family: $font-family-second;
 	font-weight: 600;
 	font-size: inEm(28px);
+
+	@include md-down {
+		font-size: inEm(18px);
+		line-height: 1.2;
+	}
 }
 
 .h4, h4 {
@@ -54,6 +63,11 @@
 .body-1 {
 	font-size: inEm(16px);
 	line-height: 1.46;
+
+	@include md-down {
+		@include min-font;
+		line-height: normal;
+	}
 }
 
 .body-2 {

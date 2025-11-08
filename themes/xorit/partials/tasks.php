@@ -74,7 +74,7 @@ if ( count( $tasks ) % 2 === 0 ) {
 			?>
 		</div>
 		<?php if ( ! empty( $cta_red ) || ! empty( $cta_white ) ) : ?>
-			<div class="x-tasks__button-container flex fwrap">
+			<div class="x-tasks__button-container desktop flex fwrap">
 				<?php
 				get_template_part(
 					'elements/button',

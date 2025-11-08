@@ -88,7 +88,7 @@ if ( empty( $items ) ) {
 							continue;
 						}
 						?>
-						<<?php echo esc_attr( $item_link ? 'a href=' . esc_url( $item_link ) : 'div' ); ?> class="x-services__slide relative flex jcc aic default-hover">
+						<<?php echo esc_attr( $item_link ? 'a href=' . esc_url( $item_link ) : 'div' ); ?> class="x-services__slide swiper-slide relative flex jcc aic default-hover">
 							<?php if ( $item_image ) : ?>
 								<div class="x-services__slide-image-container absolute img-contain">
 									<?php xorit_the_image( $item_image, 'x-services__slide-image' ); ?> ?>
@@ -106,15 +106,15 @@ if ( empty( $items ) ) {
 				</div>
 
 				<div class="x-services__slider-nav-container flex aic jcc">
-					<button class="x-services__slider-nav x-services__slider-nav_prev js-x-nav-prev">
+					<button class="x-services__slider-nav x-services__slider-nav_prev x-nav img-contain js-x-nav-prev">
 						<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<ellipse cx="10.5" cy="10.5" rx="10.5" ry="10.5"
 								transform="matrix(1 9.28593e-08 8.23045e-08 -1 0.5 21.5)" stroke="#20202C"/>
 							<path d="M12.5 7.5L8.5 11.0004L12.5 14.5" stroke="#20202C"/>
 						</svg>
 					</button>
-					<div class="x-services__slider-pagination js-x-pagination"></div>
-					<button class="x-services__slider-nav x-services__slider-nav_next js-x-nav-next">
+					<div class="x-services__slider-pagination x-pagination flex fwrap jcc js-x-pagination"></div>
+					<button class="x-services__slider-nav x-services__slider-nav_next x-nav img-contain js-x-nav-next">
 						<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<ellipse cx="11" cy="11" rx="10.5" ry="10.5" transform="rotate(180 11 11)"
 								stroke="#20202C"/>

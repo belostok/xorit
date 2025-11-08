@@ -1,9 +1,19 @@
 .x-services {
 	margin-top: inEm(96px);
 
+	@include md-down {
+		margin-top: inEm(48px);
+		text-align: center;
+	}
+
 	&__items {
 		margin-top: inEm(64px);
 		overflow: hidden;
+
+		@include md-down {
+			margin-top: inEm(48px);
+			overflow: visible;
+		}
 	}
 
 	&__slider-group {
@@ -18,6 +28,16 @@
 		min-height: inEm(280px);
 		padding: inEm(60px);
 
+
+		@include md-down {
+			min-height: auto;
+			width: inEm(260px);
+			padding: inEm(40px);
+			aspect-ratio: 1/1;
+			display: flex;
+			align-items: center;
+		}
+
 		&-image-container {
 			top: 0;
 			inset-inline-start: 0;
@@ -30,6 +50,19 @@
 			font-weight: 600;
 			font-size: inEm(28px);
 			text-align: center;
+
+			@include md-down {
+				font-size: inEm(14px);
+
+				br {
+					display: none;
+				}
+			}
 		}
+	}
+
+	&__slider-nav-container {
+		margin-top: inEm(16px);
+		column-gap: inEm(7px);
 	}
 }

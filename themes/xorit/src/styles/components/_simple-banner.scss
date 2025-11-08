@@ -4,8 +4,16 @@
 	color: $clr-soft-gray;
 	text-align: center;
 
+	@include md-down {
+		margin-top: inEm(51px);
+	}
+
 	&__wrapper {
 		padding: inEm(96px) 0 inEm(94px);
+
+		@include md-down {
+			padding: inEm(48px) 0;
+		}
 	}
 
 	&__title-container,
@@ -21,9 +29,17 @@
 	&__description-container {
 		width: inEm(535px);
 		margin-top: inEm(40px);
+
+		@include md-down {
+			margin-top: inEm(12px);
+		}
 	}
 
 	&__button-container {
 		margin-top: inEm(60px);
+
+		@include md-down {
+			margin-top: inEm(36px);
+		}
 	}
 }

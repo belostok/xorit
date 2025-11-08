@@ -32,7 +32,7 @@ $phone     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'o
 						<?php xorit_the_logo(); ?>
 					</div>
 					<?php if ( $logo_text ) : ?>
-						<div class="x-header__logo-note-container">
+						<div class="x-header__logo-note-container desktop">
 							<h2 class="x-header__logo-note">
 								<?php echo esc_html( $logo_text ); ?>
 							</h2>
@@ -61,7 +61,7 @@ $phone     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'o
 			<?php if ( $address || $phone ) : ?>
 				<div class="x-header__lower-side flex fwrap jcspb">
 					<?php if ( $address ) : ?>
-						<div class="x-header__address-container">
+						<div class="x-header__address-container desktop">
 							<p class="x-header__address">
 								<?php echo esc_html( $address ); ?>
 							</p>
@@ -77,6 +77,13 @@ $phone     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'o
 							</a>
 						</div>
 					<?php endif; ?>
+					<button class="x-header__mobile-menu-button img-contain mobile js-x-mobile-menu-button">
+						<svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M0 0.500004L40 0.499999" stroke="#EAEBED"/>
+							<path d="M0 7.5L40 7.5" stroke="#EAEBED"/>
+							<path d="M0 14.5L40 14.5" stroke="#EAEBED"/>
+						</svg>
+					</button>
 				</div>
 			<?php endif; ?>
 		</div>
