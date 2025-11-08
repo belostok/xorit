@@ -15,6 +15,7 @@
 	&__upper-side {
 		min-height: inEm(94px);
 		padding-bottom: inEm(25px);
+		row-gap: inEm(15px);
 		border-bottom: 1px solid $clr-soft-gray;
 	}
 
@@ -93,6 +94,7 @@
 
 				& > ul { // sub menu
 					position: absolute;
+					z-index: 1;
 					top: 100%;
 					background: $clr-base;
 					width: max-content;
@@ -144,6 +146,10 @@
 				}
 			}
 		}
+	}
+
+	&__email-container {
+		flex-shrink: 0;
 	}
 
 	&__email {

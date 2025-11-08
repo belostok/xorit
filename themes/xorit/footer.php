@@ -2,6 +2,7 @@
 
 use xoritTheme\Constants\Constants;
 use function xoritTheme\Helpers\trim_string;
+use function xoritTheme\Helpers\get_array;
 use function xoritTheme\Helpers\get_tel;
 
 $logo              = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_footer_logo', 'option' );
@@ -9,9 +10,11 @@ $logo_text         = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_lo
 $address           = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_footer_address', 'option' ) );
 $address           = $address ? $address : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_address', 'option' ) );
 $phone             = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_footer_phone', 'option' ) );
-$phone             = $phone ? $phone : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'option' ) );
+$options_phone     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'option' ) );
+$footer_phone      = $phone ? $phone : $options_phone;
 $email             = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_footer_email', 'option' ) );
-$email             = $email ? $email : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_email', 'option' ) );
+$options_email     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_email', 'option' ) );
+$footer_email      = $email ? $email : $options_email;
 $privacy_policy    = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_privacy_policy', 'option' );
 $personal_data     = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_personal_data', 'option' );
 $footer_form_title = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_footer_form_title', 'option' ) );
@@ -57,25 +60,25 @@ $form_id           = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_footer_fo
 								</p>
 							</div>
 							<?php
-							if ( $phone ) :
-								$tel = get_tel( $phone );
+							if ( $footer_phone ) :
+								$tel = get_tel( $footer_phone );
 								?>
 								<div class="x-footer__contacts-item x-footer__contacts-item__phone">
 									<a
 										href="tel:<?php echo esc_attr( $tel ); ?>"
 										class="x-footer__contacts-value h4 default-hover"
 									>
-										<?php echo esc_html( $phone ); ?>
+										<?php echo esc_html( $footer_phone ); ?>
 									</a>
 								</div>
 							<?php endif; ?>
-							<?php if ( $email ) : ?>
+							<?php if ( $footer_email ) : ?>
 								<div class="x-footer__contacts-item x-footer__contacts-item__email">
 									<a
-										href="mailto:<?php echo esc_attr( $email ); ?>"
+										href="mailto:<?php echo esc_attr( $footer_email ); ?>"
 										class="x-footer__contacts-value h4 default-hover"
 									>
-										<?php echo esc_html( $email ); ?>
+										<?php echo esc_html( $footer_email ); ?>
 									</a>
 								</div>
 							<?php endif; ?>
@@ -126,13 +129,28 @@ $form_id           = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_footer_fo
 						</div>
 					<?php endif; ?>
 					<div class="x-footer__form-container">
-						<?php echo do_shortcode( '[contact-form-7 id="' . $form_id . '" title="Footer form"]' ); ?>
+						<?php echo do_shortcode( '[contact-form-7 id="' . $form_id . '"]' ); ?>
 					</div>
 				</div>
 			<?php endif; ?>
 		</div>
 	</div>
 </footer>
+
+<div class="js-x-popups">
+	<?php
+	get_template_part(
+		'partials/popup',
+		'callback',
+		array(
+			'type'  => 'popup',
+			'group' => get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_popup_callback', 'option' ) ),
+			'phone' => $options_phone,
+			'email' => $options_email,
+		)
+	);
+	?>
+</div>
 
 </div><!-- /.main-wrapper -->
 <?php wp_footer(); ?>

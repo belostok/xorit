@@ -7,12 +7,14 @@ import sliderServices from './scripts/slider-services';
 import tabs from './scripts/tabs';
 import simple from './scripts/animation/simple';
 import faq from './scripts/faq';
+import popup from './scripts/popup';
 
 documentReady( () => {
 	header();
 	sliderServices();
 	tabs();
 	faq();
+	popup();
 
 	// Animation
 	simple();
