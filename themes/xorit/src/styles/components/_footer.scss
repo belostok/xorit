@@ -1,0 +1,78 @@
+.x-footer {
+	background: $clr-base;
+	color: $clr-soft-gray;
+	padding-block: inEm(96px);
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	&__logo-container {
+		width: max-content;
+	}
+
+	&__logo {
+		max-width: inEm(192px);
+		height: auto;
+	}
+
+	&__logo-text {
+		margin-top: inEm(16px);
+	}
+
+	&__inner-grid {
+		margin-top: inEm(46px);
+		padding-right: inEm(135px);
+		display: grid;
+		grid-template-columns: auto inEm(210px);
+		column-gap: inEm(31px);
+	}
+
+	&__nav {
+
+		& > ul {
+			list-style-type: none;
+			row-gap: inEm(16px);
+
+			li {
+
+				a {
+					font-size: inEm(16px);
+					line-height: 1.46;
+					@include link-hover;
+				}
+			}
+
+			ul {
+				display: none !important;
+			}
+		}
+	}
+
+	&__contacts {
+		row-gap: inEm(16px);
+	}
+
+	&__terms {
+		margin-top: inEm(44px);
+	}
+
+	&__terms-list {
+		list-style-type: none;
+		row-gap: inEm(8px);
+	}
+
+	&__terms-link {
+		color: rgba($clr-soft-gray, .6);
+	}
+
+	&__right {
+		padding-top: inEm(64px);
+		width: inEm(470px);
+	}
+
+	&__form-title-container {
+		margin-bottom: inEm(46px);
+	}
+}

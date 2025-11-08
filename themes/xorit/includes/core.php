@@ -36,6 +36,7 @@ function after_setup_theme() {
 	register_nav_menus(
 		[
 			'header' => esc_html__( 'Header Menu', 'xorit' ),
+			'footer' => esc_html__( 'Footer Menu', 'xorit' ),
 		]
 	);
 }

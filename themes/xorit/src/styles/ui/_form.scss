@@ -1,0 +1,106 @@
+body .wpcf7 {
+
+	&-form {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		row-gap: inRem(24px);
+	}
+
+	&-response-output {
+		display: none !important;
+	}
+
+	&-spinner {
+		position: absolute;
+		inset-block-end: inRem(17px);
+		inset-inline-start: inRem(172px);
+	}
+
+	&-form-control-wrap {
+		position: relative;
+
+		&[data-name="terms"] {
+			margin-top: inRem(24px);
+		}
+	}
+
+	&-text,
+	&-email {
+		background: transparent;
+		border: 1px solid rgba($clr-soft-gray, .6);
+		outline: none;
+		padding: 0 inRem(16px);
+		font-family: $font-family-primary;
+		font-size: inEm(14px);
+		height: inRem(46px);
+		width: 100%;
+		color: $clr-soft-gray;
+		transition: border-color $transition-default;
+
+		&:hover,
+		&:focus {
+			border-color: $clr-soft-gray;
+		}
+	}
+
+	&-not-valid {
+		border-color: $clr-action;
+	}
+
+	&-not-valid-tip {
+		position: absolute;
+		inset-block-start: calc(100% + #{inRem(6px)});
+		color: $clr-action;
+		font-size: inRem(12px);
+		line-height: 1;
+	}
+
+	&-submit {
+		padding: 0;
+		border: 0;
+		outline: none;
+		width: inRem(172px);
+		height: inRem(59px);
+		margin-top: inRem(24px);
+	}
+
+	&-list-item {
+		margin: 0;
+
+		label {
+			display: flex;
+		}
+	}
+
+	&-list-item-label {
+		font-size: inRem(14px);
+		line-height: normal;
+
+		a {
+			text-decoration: underline;
+			@include link-hover;
+		}
+	}
+}
+
+input {
+
+	&[type="checkbox"] {
+		flex-shrink: 0;
+		appearance: none;
+		width: inRem(23px);
+		height: inRem(23px);
+		border: 1px solid $clr-soft-gray;
+		outline: none;
+		cursor: pointer;
+		margin: inRem(3px) inRem(16px) 0 0;
+
+		&:checked {
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: inRem(12px) inRem(14px);
+			background-image: url($path-static-media-inline + '/check.svg');
+		}
+	}
+}

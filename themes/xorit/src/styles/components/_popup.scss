@@ -1,0 +1,92 @@
+.x-popup {
+	position: fixed;
+	background: rgba($clr-soft-gray, .6);
+	inset-block-start: 0;
+	inset-inline-start: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	opacity: 0;
+	transition: opacity .3s ease, z-index 0s .3s;
+
+	&_active {
+		z-index: 10;
+		opacity: 1;
+		transition: opacity $transition-default;
+	}
+
+	&__inner {
+		height: 100%;
+	}
+
+	&__content {
+		background: $clr-base;
+		color: $clr-soft-gray;
+		width: inEm(500px);
+		max-width: 100%;
+		padding: inEm(89px) inEm(50px) inEm(48px);
+	}
+
+	&__close {
+		width: inEm(41px);
+		aspect-ratio: 1/1;
+		inset-block-start: inEm(24px);
+		inset-inline-end: inEm(24px);
+
+		& > * {
+			pointer-events: none;
+		}
+	}
+
+	&__title-container {
+		text-align: center;
+	}
+
+	&__form-container {
+		margin-top: inEm(24px);
+
+		.wpcf7 {
+
+			&-submit {
+				align-self: center;
+				margin-top: inRem(20px);
+			}
+
+			&-form-control-wrap {
+
+				&[data-name=terms] {
+					margin-top: inRem(20px);
+				}
+			}
+
+			&-spinner {
+				inset-inline-start: inRem(275px);
+			}
+		}
+	}
+
+	&__contacts {
+		margin-top: inEm(32px);
+		row-gap: inEm(16px);
+	}
+
+	&__contact-item {
+		column-gap: inEm(8px);
+
+		svg {
+			width: inEm(32px);
+			height: auto;
+
+			path {
+
+				&:nth-child(2) {
+					stroke: $clr-soft-gray;
+				}
+			}
+		}
+
+		.x-contact-item__item {
+			font-size: inEm(20px);
+		}
+	}
+}
