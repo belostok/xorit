@@ -16,6 +16,25 @@ body {
 	min-height: 100%;
 	min-width: 320px;
 	overflow-x: hidden;
+
+	@include md-down {
+
+		&.home {
+
+			.main {
+				display: flex;
+				flex-direction: column;
+
+				& > section {
+					order: 2;
+
+					&:nth-of-type(-n+5) {
+						order: 0;
+					}
+				}
+			}
+		}
+	}
 }
 
 body.admin-bar {
@@ -50,11 +69,6 @@ body.admin-bar {
 .main {
 	width: 100%;
 	padding-bottom: inEm(96px);
-
-	@include md-down {
-		display: flex;
-		flex-direction: column;
-	}
 }
 
 .container,

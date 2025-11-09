@@ -1,6 +1,5 @@
 <?php
 
-use function xoritTheme\Helpers\get_link_details;
 use function xoritTheme\Helpers\get_tabs_html;
 use function xoritTheme\Helpers\trim_string;
 use function xoritTheme\Helpers\get_array;
@@ -36,7 +35,7 @@ if ( empty( $desktop_tabs['tabs_html'] ) || empty( $desktop_tabs['content_html']
 				<h2 class="x-tabs__title h2 desktop">
 					<?php echo wp_kses_post( $_title ); ?>
 				</h2>
-				<h2 class="x-tabs__title h2 desktop">
+				<h2 class="x-tabs__title h2 mobile">
 					<?php echo wp_kses_post( $title_mobile ); ?>
 				</h2>
 			</div>

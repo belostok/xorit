@@ -4,6 +4,10 @@
 	color: $clr-soft-gray;
 	text-align: center;
 
+	@include md-down {
+		margin-top: 0;
+	}
+
 	&__image-container {
 		top: inEm(36px);
 		inset-inline-start: -100%;
