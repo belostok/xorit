@@ -21,6 +21,11 @@
 		flex-direction: column;
 		row-gap: inRem(16px);
 
+		@include md-down {
+			@include min-font;
+			row-gap: inRem(14px);
+		}
+
 		li {
 			margin-left: 1.1em;
 		}

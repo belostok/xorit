@@ -117,9 +117,9 @@ function get_tabs_html( $_tabs ) {
 			data-tab="<?php echo esc_attr( $i ); ?>"
 			class="x-tabs__button default-hover js-x-tabs-button <?php echo esc_attr( $is_active ? 'x-tabs__button_prepare x-tabs__button_active' : '' ); ?>"
 		>
-		<span class="x-tabs__button-title">
-			<?php echo esc_html( $tab_title ); ?>
-		</span>
+			<span class="x-tabs__button-title">
+				<?php echo esc_html( $tab_title ); ?>
+			</span>
 		</button>
 		<?php
 		$tabs_html .= ob_get_clean();
@@ -135,6 +135,21 @@ function get_tabs_html( $_tabs ) {
 					<div class="x-tabs__text x-content">
 						<?php echo wp_kses_post( $tab_description ); ?>
 					</div>
+					<?php if ( ! empty( $tab_cta ) ) : ?>
+						<div class="x-tabs__button-container mobile">
+							<?php
+							get_template_part(
+								'elements/button',
+								null,
+								array(
+									'link'   => $tab_cta['url'] ?? '',
+									'title'  => $tab_cta['title'] ?? '',
+									'target' => $tab_cta['target'] ?? '',
+								)
+							);
+							?>
+						</div>
+					<?php endif; ?>
 				</div>
 			<?php endif; ?>
 			<?php if ( $tab_image || $tab_cta ) : ?>
@@ -145,7 +160,7 @@ function get_tabs_html( $_tabs ) {
 						</div>
 					<?php endif; ?>
 					<?php if ( ! empty( $tab_cta ) ) : ?>
-						<div class="x-tabs__button-container">
+						<div class="x-tabs__button-container desktop">
 							<?php
 							get_template_part(
 								'elements/button',

@@ -72,6 +72,11 @@
 		row-gap: inRem(16px);
 		list-style-type: none;
 
+		@include md-down {
+			@include min-font;
+			row-gap: inRem(14px);
+		}
+
 		li {
 			position: relative;
 			padding-left: inRem(31px);
@@ -91,6 +96,6 @@
 	}
 }
 
-@mixin min-font($size: 12px) {
+@mixin min-font($size: 14px) {
 	font-size: max($size, #{inEm($size)});
 }

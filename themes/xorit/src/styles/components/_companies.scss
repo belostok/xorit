@@ -4,6 +4,11 @@
 	text-align: center;
 	padding: inEm(94px) 0 inEm(96px);
 
+	@include md-down {
+		order: 1 !important;
+		margin-top: inEm(48px);
+	}
+
 	&__items {
 		margin: inEm(73px) inEm(-45px) inEm(-20px);
 	}
