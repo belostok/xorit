@@ -3,6 +3,11 @@
 	padding-bottom: inEm(28px);
 	text-align: center;
 
+	@include md-down {
+		margin-top: inEm(48px);
+		padding-bottom: inEm(48px);
+	}
+
 	&__wrapper {
 		position: relative;
 	}
@@ -10,6 +15,10 @@
 	&__items {
 		position: relative;
 		margin: inEm(54px) inEm(-10px) 0;
+
+		@include md-down {
+			margin: inEm(36px) 0 0;
+		}
 	}
 
 	&__image-container {
@@ -27,16 +36,35 @@
 	}
 
 	&__item {
-		position: relative;
-		max-width: 25%;
-		flex: 0 0 25%;
-		padding: inEm(10px);
+
+		@include md-up {
+			position: relative;
+			max-width: 25%;
+			flex: 0 0 25%;
+			padding: inEm(10px);
+		}
+
+		@include md-down {
+			height: auto;
+		}
 
 		&-inner {
 			background: $clr-dark-gray;
 			height: 100%;
 			padding: inEm(20px);
 			min-height: inEm(116px);
+
+			@include md-down {
+				min-height: inEm(130px);
+			}
+		}
+	}
+
+	@include md-down {
+
+		&__slider-nav-container {
+			margin-top: inEm(16px);
+			column-gap: inEm(7px);
 		}
 	}
 }

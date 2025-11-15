@@ -3,7 +3,13 @@
 
 	background: $clr-dark-gray;
 	margin-top: inEm(58px);
-	padding: inEm(96px) 0 inEm(94px);
+	padding-top: inEm(96px);
+	padding-bottom: inEm(94px);
+
+	@include md-down {
+		margin-top: 0;
+		padding-block: inEm(48px);
+	}
 
 	&__wrapper {
 		overflow: hidden;
@@ -16,6 +22,10 @@
 	&__items {
 		display: flex;
 		margin-top: inEm(70px);
+
+		@include md-down {
+			margin-top: inEm(36px);
+		}
 	}
 
 	&__items-group {
@@ -26,6 +36,11 @@
 		width: max-content;
 		animation: ticker $duration linear infinite;
 
+		@include md-down {
+			column-gap: inEm(23px);
+			padding-right: inEm(23px);
+		}
+
 		&_g2 {
 			animation-delay: $duration / 2;
 		}
@@ -33,6 +48,13 @@
 
 	&__item {
 		width: max-content;
+
+		@include md-down {
+
+			img {
+				max-height: inEm(37px);
+			}
+		}
 	}
 }
 

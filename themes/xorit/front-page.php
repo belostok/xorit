@@ -70,10 +70,11 @@ get_template_part(
 	'partials/advantages',
 	null,
 	array(
-		'hide'  => get_field( Constants::ACF_FIELD_HOME . '_advantages_hide' ),
-		'image' => get_field( Constants::ACF_FIELD_HOME . '_advantages_image' ),
-		'title' => get_field( Constants::ACF_FIELD_HOME . '_advantages_title' ),
-		'items' => get_field( Constants::ACF_FIELD_HOME . '_advantages_items' ),
+		'hide'         => get_field( Constants::ACF_FIELD_HOME . '_advantages_hide' ),
+		'image'        => get_field( Constants::ACF_FIELD_HOME . '_advantages_image' ),
+		'image_mobile' => get_field( Constants::ACF_FIELD_HOME . '_advantages_image_mobile' ),
+		'title'        => get_field( Constants::ACF_FIELD_HOME . '_advantages_title' ),
+		'items'        => get_field( Constants::ACF_FIELD_HOME . '_advantages_items' ),
 	)
 );
 ?>
@@ -83,9 +84,10 @@ get_template_part(
 	'partials/stack',
 	null,
 	array(
-		'hide'  => get_field( Constants::ACF_FIELD_HOME . '_stack_hide' ),
-		'title' => get_field( Constants::ACF_FIELD_HOME . '_stack_title' ),
-		'items' => get_field( Constants::ACF_FIELD_HOME . '_stack_items' ),
+		'hide'         => get_field( Constants::ACF_FIELD_HOME . '_stack_hide' ),
+		'title'        => get_field( Constants::ACF_FIELD_HOME . '_stack_title' ),
+		'title_mobile' => get_field( Constants::ACF_FIELD_HOME . '_stack_title_mobile' ),
+		'items'        => get_field( Constants::ACF_FIELD_HOME . '_stack_items' ),
 	)
 );
 ?>

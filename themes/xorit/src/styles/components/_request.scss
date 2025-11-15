@@ -3,15 +3,64 @@
 	padding-bottom: inEm(96px);
 	text-align: center;
 
+	@include md-down {
+		position: relative;
+		background: $clr-base;
+		color: $clr-soft-gray;
+		margin-top: 0;
+		padding-block: inEm(48px);
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-repeat: no-repeat;
+			background-size: calc(100% - #{inEm(40px)}) auto;
+			background-position: center;
+			background-image: url($path-static-media + '/request-bg.svg');
+		}
+	}
+
 	&__description-container {
 		margin: inEm(40px) 0 inEm(63px);
+
+		@include md-down {
+			margin: inEm(16px) 0 inEm(40px);
+		}
+	}
+
+	@include md-down {
+
+		&__description {
+
+			br {
+				display: none;
+			}
+		}
 	}
 
 	&__item-container {
 		margin-top: inEm(33px);
+
+		@include md-down {
+
+			svg {
+
+				path {
+
+					&:nth-child(2) {
+						stroke: $clr-soft-gray;
+					}
+				}
+			}
+		}
 	}
 
 	&__button-container {
 		margin-top: inEm(64px);
+
+		@include md-down {
+			margin-top: inEm(40px);
+		}
 	}
 }

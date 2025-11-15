@@ -1,0 +1,41 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.x-cookies {
+	display: none;
+	position: fixed;
+	inset-inline-start: 0;
+	inset-block-end: 0;
+	background: $clr-cookies;
+	width: inEm(760px);
+	max-width: 100%;
+	padding: inEm(30px);
+
+	@include md-down {
+		padding: inEm(28px);
+		inset-inline: inEm(30px);
+		inset-block-end: inEm(36px);
+		width: auto;
+	}
+
+	&_active {
+		display: block;
+	}
+
+	&__description {
+		line-height: 1.46;
+
+		@include md-down {
+			@include min-font;
+		}
+
+		a {
+			text-decoration: underline;
+			@include link-hover;
+		}
+	}
+
+	&__button-container {
+		margin-top: inEm(30px);
+	}
+}

@@ -1,6 +1,6 @@
 .x-popup {
 	position: fixed;
-	background: rgba($clr-soft-gray, .6);
+	background: rgba($clr-black, .5);
 	inset-block-start: 0;
 	inset-inline-start: 0;
 	width: 100%;
@@ -15,6 +15,17 @@
 		transition: opacity $transition-default;
 	}
 
+	&_message & {
+
+		&__content {
+			padding-block: inEm(64px);
+
+			@include md-down {
+				padding-block: inEm(48px);
+			}
+		}
+	}
+
 	&__inner {
 		height: 100%;
 	}
@@ -25,6 +36,11 @@
 		width: inEm(500px);
 		max-width: 100%;
 		padding: inEm(89px) inEm(50px) inEm(48px);
+
+		@include md-down {
+			width: inEm(330px);
+			padding: inEm(50px) inEm(30px) inEm(30px);
+		}
 	}
 
 	&__close {
@@ -32,6 +48,12 @@
 		aspect-ratio: 1/1;
 		inset-block-start: inEm(24px);
 		inset-inline-end: inEm(24px);
+
+		@include md-down {
+			width: inEm(27px);
+			inset-block-start: inEm(21px);
+			inset-inline-end: inEm(21px);
+		}
 
 		& > * {
 			pointer-events: none;
@@ -42,20 +64,51 @@
 		text-align: center;
 	}
 
+	&__description-container {
+		margin-top: inEm(16px);
+	}
+
+	&__description {
+		text-align: center;
+		font-size: inEm(16px);
+		line-height: 1.46;
+
+		@include md-down {
+			font-size: inEm(14px);
+			line-height: normal;
+
+			br {
+				display: none;
+			}
+		}
+	}
+
 	&__form-container {
 		margin-top: inEm(24px);
+
+		@include md-down {
+			margin-top: inEm(30px);
+		}
 
 		.wpcf7 {
 
 			&-submit {
 				align-self: center;
 				margin-top: inRem(20px);
+
+				@include md-down {
+					margin-top: inRem(10px);
+				}
 			}
 
 			&-form-control-wrap {
 
 				&[data-name=terms] {
 					margin-top: inRem(20px);
+
+					@include md-down {
+						margin-top: inRem(10px);
+					}
 				}
 			}
 
@@ -68,14 +121,27 @@
 	&__contacts {
 		margin-top: inEm(32px);
 		row-gap: inEm(16px);
+
+		@include md-down {
+			margin-top: inEm(24px);
+			row-gap: inEm(7px);
+		}
 	}
 
 	&__contact-item {
 		column-gap: inEm(8px);
 
+		@include md-down {
+			margin-top: 0 !important;
+		}
+
 		svg {
 			width: inEm(32px);
 			height: auto;
+
+			@include md-down {
+				width: inEm(27px);
+			}
 
 			path {
 
@@ -87,6 +153,14 @@
 
 		.x-contact-item__item {
 			font-size: inEm(20px);
+
+			@include md-down {
+				font-size: inEm(14px);
+			}
 		}
+	}
+
+	&__button-container {
+		margin-top: inEm(32px);
 	}
 }

@@ -4,6 +4,7 @@ use xoritTheme\Constants\Constants;
 use function xoritTheme\Helpers\trim_string;
 use function xoritTheme\Helpers\get_array;
 use function xoritTheme\Helpers\get_tel;
+use function xoritTheme\Helpers\get_link_details;
 
 $logo              = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_footer_logo', 'option' );
 $logo_text         = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_logo_text', 'option' ) );
@@ -19,6 +20,8 @@ $privacy_policy    = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_privacy_p
 $personal_data     = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_personal_data', 'option' );
 $footer_form_title = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_footer_form_title', 'option' ) );
 $form_id           = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_footer_form', 'option' );
+$cta               = get_link_details( get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_footer_cta', 'option' ) ) );
+$cookies           = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_cookies', 'option' ) );
 ?>
 </main><!-- /.main -->
 </div><!-- /.site-content -->
@@ -54,7 +57,7 @@ $form_id           = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_footer_fo
 					</nav>
 					<?php if ( $address || $phone || $email ) : ?>
 						<div class="x-footer__contacts flex fdc">
-							<div class="x-footer__contacts-title-container">
+							<div class="x-footer__contacts-title-container desktop">
 								<p class="x-footer__contacts-title body-1">
 									<?php echo esc_html__( 'Контакты', 'xorit' ); ?>:
 								</p>
@@ -89,11 +92,27 @@ $form_id           = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_footer_fo
 									</span>
 								</div>
 							<?php endif; ?>
+							<?php if ( ! empty( $cta ) ) : ?>
+								<div class="x-footer__button-container mobile">
+									<?php
+									get_template_part(
+										'elements/button',
+										null,
+										array(
+											'link'   => $cta['url'] ?? '',
+											'title'  => $cta['title'] ?? '',
+											'target' => $cta['target'] ?? '',
+										)
+									);
+									?>
+								</div>
+							<?php endif; ?>
 						</div>
 					<?php endif; ?>
+
 				</div>
 				<?php if ( $privacy_policy || $personal_data ) : ?>
-					<div class="x-footer__terms">
+					<div class="x-footer__terms desktop">
 						<ul class="x-footer__terms-list flex fdc">
 							<?php if ( $privacy_policy ) : ?>
 								<li class="x-footer__terms-item">
@@ -137,6 +156,22 @@ $form_id           = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_footer_fo
 	</div>
 </footer>
 
+<?php
+if ( $cookies ) :
+	xorit_inline_style( 'cookies' );
+	?>
+	<div class="x-cookies js-x-cookies">
+		<div class="x-cookies__description">
+			<?php echo wp_kses_post( $cookies ); ?>
+		</div>
+		<div class="x-cookies__button-container">
+			<button class="x-cookies__button x-button x-button_white js-x-cookies-button">
+				<?php echo esc_html__( 'OK', 'xorit' ); ?>
+			</button>
+		</div>
+	</div>
+<?php endif; ?>
+
 <div class="js-x-popups">
 	<?php
 	get_template_part(
@@ -145,6 +180,26 @@ $form_id           = (int) get_field( Constants::ACF_FIELD_OPTIONS . '_footer_fo
 		array(
 			'type'  => 'popup',
 			'group' => get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_popup_callback', 'option' ) ),
+			'phone' => $options_phone,
+			'email' => $options_email,
+		)
+	);
+
+	get_template_part(
+		'partials/popup',
+		'message',
+		array(
+			'type'  => 'success',
+			'group' => get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_popup_success', 'option' ) ),
+		)
+	);
+
+	get_template_part(
+		'partials/popup',
+		'message',
+		array(
+			'type'  => 'error',
+			'group' => get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_popup_error', 'option' ) ),
 			'phone' => $options_phone,
 			'email' => $options_email,
 		)
