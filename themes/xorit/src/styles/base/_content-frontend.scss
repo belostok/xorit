@@ -52,6 +52,10 @@
 	font-family: $font-family-second;
 	font-weight: 600;
 	font-size: inEm(20px);
+
+	@include md-down {
+		font-size: inEm(16px);
+	}
 }
 
 .h5 {

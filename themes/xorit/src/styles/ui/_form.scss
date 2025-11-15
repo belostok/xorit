@@ -5,6 +5,10 @@ body .wpcf7 {
 		display: flex;
 		flex-direction: column;
 		row-gap: inRem(24px);
+
+		@include md-down {
+			row-gap: inRem(20px);
+		}
 	}
 
 	&-response-output {
@@ -22,6 +26,10 @@ body .wpcf7 {
 
 		&[data-name="terms"] {
 			margin-top: inRem(24px);
+
+			@include md-down {
+				margin-top: inRem(10px);
+			}
 		}
 	}
 
@@ -37,6 +45,12 @@ body .wpcf7 {
 		width: 100%;
 		color: $clr-soft-gray;
 		transition: border-color $transition-default;
+
+		@include md-down {
+			font-size: inEm(12px);
+			height: inRem(36px);
+			padding: 0 inRem(12px);
+		}
 
 		&:hover,
 		&:focus {
@@ -54,6 +68,10 @@ body .wpcf7 {
 		color: $clr-action;
 		font-size: inRem(12px);
 		line-height: 1;
+
+		@include md-down {
+			inset-block-start: calc(100% + #{inRem(4px)});
+		}
 	}
 
 	&-submit {
@@ -63,6 +81,13 @@ body .wpcf7 {
 		width: inRem(172px);
 		height: inRem(59px);
 		margin-top: inRem(24px);
+
+		@include md-down {
+			width: 100%;
+			font-size: inEm(12px);
+			height: inRem(36px);
+			margin-top: inEm(10px);
+		}
 	}
 
 	&-list-item {
@@ -76,6 +101,10 @@ body .wpcf7 {
 	&-list-item-label {
 		font-size: inRem(14px);
 		line-height: normal;
+
+		@include md-down {
+			font-size: inEm(12px);
+		}
 
 		a {
 			text-decoration: underline;
@@ -95,6 +124,12 @@ input {
 		outline: none;
 		cursor: pointer;
 		margin: inRem(3px) inRem(16px) 0 0;
+
+		@include md-down {
+			width: inRem(20px);
+			height: inRem(20px);
+			margin: inRem(2px) inRem(12px) 0 0;
+		}
 
 		&:checked {
 			background-repeat: no-repeat;

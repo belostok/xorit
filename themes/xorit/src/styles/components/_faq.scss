@@ -2,14 +2,27 @@
 	padding-block: inEm(96px);
 	background: $clr-dark-gray;
 
+	@include md-down {
+		padding-block: inEm(48px);
+	}
+
 	&__items {
 		margin-top: inEm(64px);
 		row-gap: inEm(40px);
+
+		@include md-down {
+			margin-top: inEm(36px);
+			row-gap: inEm(24px);
+		}
 	}
 
 	&__item {
 		border-bottom: 1px solid $clr-base;
 		padding-bottom: inEm(24px);
+
+		@include md-down {
+			padding-bottom: inEm(12px);
+		}
 	}
 
 	&__input {
@@ -73,5 +86,9 @@
 		padding: inRem(32px) 0 0;
 		transform: translateY(inRem(-20px));
 		transition: transform $transition-default;
+
+		@include md-down {
+			padding-top: inRem(15px);
+		}
 	}
 }

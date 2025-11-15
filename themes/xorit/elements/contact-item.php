@@ -16,7 +16,7 @@ if ( ! $value || ! $_type ) {
 	if ( $_type === 'phone' ) :
 		$tel = get_tel( $value );
 		?>
-		<svg width="48" height="42" viewBox="0 0 48 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<svg class="x-contact-item__svg x-contact-item__svg_<?php echo esc_attr( $_type ); ?>" width="48" height="42" viewBox="0 0 48 42" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<g clip-path="url(#clip0_2375_928)">
 				<path
 					d="M41.8488 9C47.3836 15.3718 47.3836 25.7026 41.8488 32.0708M35.9229 13.1927C38.6902 17.2488 38.6902 23.822 35.9229 27.8781"
@@ -35,7 +35,7 @@ if ( ! $value || ! $_type ) {
 			<?php echo esc_html( $value ); ?>
 		</a>
 	<?php elseif ( $_type === 'email' ) : ?>
-		<svg width="49" height="32" viewBox="0 0 49 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<svg class="x-contact-item__svg x-contact-item__svg_<?php echo esc_attr( $_type ); ?>" width="49" height="32" viewBox="0 0 49 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<g clip-path="url(#clip0_2375_931)">
 				<path d="M3.71429 17.7246H22.2857M7.42857 25.2246H26M13 10.2246H0" stroke="#C32F33"
 					stroke-width="3" stroke-linejoin="round"/>

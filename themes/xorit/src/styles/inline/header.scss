@@ -61,10 +61,30 @@
 	}
 
 	&__menu-container {
+
+		@include md-down {
+			z-index: -1;
+			opacity: 0;
+			position: fixed;
+			top: inEm(48px);
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background: $clr-base;
+			overflow-y: auto;
+			scroll-behavior: smooth;
+			transition: opacity .3s ease, z-index 0s .3s;
+		}
+	}
+
+	&__menu-inner {
 		column-gap: inEm(24px);
 
 		@include md-down {
-			display: none;
+			align-items: flex-start;
+			padding: inEm(32px) 0 inEm(43px);
+			flex-direction: column;
 		}
 
 		li {
@@ -72,6 +92,15 @@
 
 			a {
 				font-size: inEm(16px);
+
+				@include md-down {
+					font-size: inEm(18px);
+					line-height: 1.2;
+				}
+
+				&[href="#"] {
+					pointer-events: none;
+				}
 			}
 		}
 
@@ -79,27 +108,46 @@
 			display: flex;
 			margin-bottom: inEm(-26px);
 
+			@include md-down {
+				flex-direction: column;
+				margin-bottom: 0;
+			}
+
 			& > li {
 				position: relative;
 				padding-bottom: inEm(14px);
 
-				&:hover {
+				@include md-down {
+					padding-bottom: 0;
 
-					& > ul {
-						visibility: visible;
-						opacity: 1;
-						transition: opacity $transition-default;
-					}
+					&.x-menu-item-opened {
 
-					& > a {
-						background: $clr-action;
+						ul.sub-menu {
+							display: flex;
+						}
 					}
 				}
 
-				&:active {
+				@media (hover: hover) {
 
-					& > a {
-						background: $clr-red-active;
+					&:hover {
+
+						& > ul {
+							visibility: visible;
+							opacity: 1;
+							transition: opacity $transition-default;
+						}
+
+						& > a {
+							background: $clr-action;
+						}
+					}
+
+					&:active {
+
+						& > a {
+							background: $clr-red-active;
+						}
 					}
 				}
 
@@ -114,6 +162,10 @@
 					display: block;
 					padding: inRem(12px) inRem(22px);
 					transition: background $transition-default;
+
+					@include md-down {
+						padding: inRem(5px) inRem(20px);
+					}
 				}
 
 				& > ul { // sub menu
@@ -130,6 +182,16 @@
 					visibility: hidden;
 					opacity: 0;
 					transition: opacity .3s ease, visibility 0s ease .3s;
+
+					@include md-down {
+						display: none;
+						position: relative;
+						opacity: 1;
+						visibility: visible;
+						max-width: none;
+						row-gap: inEm(10px);
+						padding: inEm(11px) inEm(20px) inEm(27px) inEm(44px);
+					}
 
 					li {
 
@@ -148,6 +210,14 @@
 							position: relative;
 							@include link-hover;
 
+							@include md-down {
+								font-size: inEm(14px);
+
+								&:focus {
+									color: $clr-graphite;
+								}
+							}
+
 							&::before {
 								content: '';
 								position: absolute;
@@ -156,10 +226,14 @@
 								border-radius: 50%;
 								background: $clr-action;
 								inset-inline-start: inRem(-21px);
-								top: 50%;
+								inset-block-start: 50%;
 								transform: translateY(-50%);
 								opacity: 0;
 								transition: opacity $transition-default;
+
+								@include md-down {
+									inset-block-start: 55%;
+								}
 							}
 						}
 					}
@@ -206,9 +280,62 @@
 		}
 	}
 
-	&__mobile-menu-button {
-		font-size: initial;
-		width: inEm(40px);
-		height: inEm(15px);
+	@include md-down {
+
+		&__mobile-menu-button {
+			font-size: initial;
+			width: inEm(40px);
+			height: inEm(30px);
+
+			svg {
+				pointer-events: none;
+				inset: 0;
+				margin: auto;
+				transition: opacity $transition-default;
+
+				&:nth-child(2) {
+					opacity: 0;
+				}
+			}
+		}
+
+		&__mobile-contacts {
+			border-top: 1px solid $clr-soft-gray;
+			width: calc(100% - #{inEm(40px)});
+			margin: inEm(16px) auto 0;
+
+			&-item {
+				margin-top: inEm(15px) !important;
+				justify-content: flex-start;
+			}
+		}
 	}
 }
+
+@include md-down {
+
+	body.x-menu-opened {
+		overflow: hidden;
+
+		.x-header {
+
+			&__mobile-menu-button {
+
+				svg {
+					opacity: 0;
+
+					&:nth-child(2) {
+						opacity: 1;
+					}
+				}
+			}
+
+			&__menu-container {
+				z-index: 9;
+				opacity: 1;
+				transition: opacity $transition-default;
+			}
+		}
+	}
+}
+

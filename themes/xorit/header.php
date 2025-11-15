@@ -39,23 +39,49 @@ $phone     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'o
 						</div>
 					<?php endif; ?>
 				</div>
-				<div class="x-header__menu-container flex aife">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'header',
-							'menu_class'     => 'flex fwrap',
-							'container'      => false,
-						)
-					);
-					?>
-					<?php if ( $email ) : ?>
-						<div class="x-header__email-container">
-							<a href="mailto:<?php echo esc_attr( $email ); ?>" class="x-header__email default-hover">
-								<?php echo esc_html( $email ); ?>
-							</a>
-						</div>
-					<?php endif; ?>
+				<div class="x-header__menu-container">
+					<div class="x-header__menu-inner flex aife">
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'header',
+								'menu_class'     => 'flex fwrap',
+								'container'      => false,
+							)
+						);
+						?>
+						<?php if ( $email ) : ?>
+							<div class="x-header__email-container desktop">
+								<a href="mailto:<?php echo esc_attr( $email ); ?>" class="x-header__email default-hover">
+									<?php echo esc_html( $email ); ?>
+								</a>
+							</div>
+						<?php endif; ?>
+						<?php if ( $phone || $email ) : ?>
+							<div class="x-header__mobile-contacts flex fdc mobile">
+								<?php
+								get_template_part(
+									'elements/contact-item',
+									null,
+									array(
+										'value'   => $phone,
+										'type'    => 'phone',
+										'classes' => 'x-contact-item_white x-header__mobile-contacts-item',
+									)
+								);
+								get_template_part(
+									'elements/contact-item',
+									null,
+									array(
+										'value'   => $email,
+										'type'    => 'email',
+										'classes' => 'x-contact-item_white x-header__mobile-contacts-item',
+									)
+								);
+								?>
+							</div>
+						<?php endif; ?>
+					</div>
 				</div>
 			</div>
 			<?php if ( $address || $phone ) : ?>
@@ -77,11 +103,15 @@ $phone     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'o
 							</a>
 						</div>
 					<?php endif; ?>
-					<button class="x-header__mobile-menu-button img-contain mobile js-x-mobile-menu-button">
-						<svg width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<button class="x-header__mobile-menu-button relative mobile js-x-mobile-menu-button">
+						<svg class="absolute" width="40" height="15" viewBox="0 0 40 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M0 0.500004L40 0.499999" stroke="#EAEBED"/>
 							<path d="M0 7.5L40 7.5" stroke="#EAEBED"/>
 							<path d="M0 14.5L40 14.5" stroke="#EAEBED"/>
+						</svg>
+						<svg class="absolute" width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M0.353516 0.637939L28.6378 28.9222" stroke="#EAEBED"/>
+							<path d="M0.353516 28.6379L28.6378 0.353669" stroke="#EAEBED"/>
 						</svg>
 					</button>
 				</div>

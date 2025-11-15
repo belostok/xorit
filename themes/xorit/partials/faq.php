@@ -21,7 +21,7 @@ if ( empty( $items ) ) {
 	<div class="x-faq__wrapper wrapper">
 		<?php if ( $_title ) : ?>
 			<div class="x-faq__title-container">
-				<h2 class="x-faq__title h2 desktop">
+				<h2 class="x-faq__title h2">
 					<?php echo wp_kses_post( $_title ); ?>
 				</h2>
 			</div>

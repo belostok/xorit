@@ -1,15 +1,34 @@
-.x-post {
+body .x-post {
 
 	&__inner {
 		row-gap: inEm(33px);
+
+		@include md-down {
+			row-gap: inEm(24px);
+		}
 	}
 
 	&__image-container {
 		width: 100%;
-		aspect-ratio: 329/288;
+
+		@include md-up {
+			aspect-ratio: 329/288;
+		}
+	}
+
+	&__image {
+
+		@include md-down {
+			object-fit: none;
+			height: auto;
+		}
 	}
 
 	&__content {
 		row-gap: inEm(16px);
+
+		@include md-down {
+			row-gap: inEm(12px);
+		}
 	}
 }

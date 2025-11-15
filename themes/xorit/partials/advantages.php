@@ -9,19 +9,27 @@ if ( $hide ) {
 	return null;
 }
 
-$_title  = trim_string( $args['title'] ?? '' );
-$image   = (int) ( $args['image'] ?? 0 );
-$items   = get_array( $args['items'] ?? array() );
-$classes = trim_string( $args['classes'] ?? '' );
+$_title       = trim_string( $args['title'] ?? '' );
+$image        = (int) ( $args['image'] ?? 0 );
+$image_mobile = (int) ( $args['image_mobile'] ?? 0 );
+$items        = get_array( $args['items'] ?? array() );
+$classes      = trim_string( $args['classes'] ?? '' );
 
 if ( empty( $items ) ) {
 	return null;
 }
 ?>
 <section class="x-advantages container relative <?php echo esc_attr( $classes ); ?>">
-	<?php if ( $image ) : ?>
+	<?php if ( $image || $image_mobile ) : ?>
 		<div class="x-advantages__image-container absolute js-x-fade-item">
-			<?php xorit_the_image( $image, 'x-advantages__image' ); ?>
+			<?php
+			if ( $image ) :
+				xorit_the_image( $image, 'x-advantages__image desktop' );
+			endif;
+			if ( $image_mobile ) :
+				xorit_the_image( $image_mobile, 'x-advantages__image mobile' );
+			endif;
+			?>
 		</div>
 	<?php endif; ?>
 	<div class="x-advantages__wrapper wrapper">

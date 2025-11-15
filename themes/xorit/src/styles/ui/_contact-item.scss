@@ -1,3 +1,28 @@
-.x-contact-item{
-	column-gap: inEm(16px);
+body .x-contact-item {
+
+	@include md-down {
+		column-gap: inEm(8px);
+		margin-top: inEm(28px);
+	}
+
+	&__svg {
+
+		@include md-down {
+			width: inEm(30px);
+			height: auto;
+		}
+	}
+
+	&_white {
+
+		.x-contact-item__svg {
+
+			path {
+
+				&:nth-child(2) {
+					stroke: $clr-soft-gray;
+				}
+			}
+		}
+	}
 }

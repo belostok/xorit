@@ -43,4 +43,25 @@
 			}
 		}
 	}
+
+	&_light {
+		background: transparent;
+		border: 1px solid $clr-soft-gray;
+		transition: border-color $transition-default, color $transition-default;
+
+		@media (hover: hover) {
+
+			&:hover {
+				background: transparent;
+				color: $clr-secondary-light;
+				border-color: $clr-secondary-light;
+			}
+
+			&:active {
+				background: transparent;
+				color: $clr-soft-gray;
+				border-color: $clr-soft-gray;
+			}
+		}
+	}
 }

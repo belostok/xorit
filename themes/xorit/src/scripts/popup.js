@@ -1,3 +1,14 @@
+export const closePopups = () => {
+	const popups = document.querySelectorAll( '.js-x-popup' );
+
+	if ( ! popups || popups.length === 0 ) {
+		return null;
+	}
+
+	popups.forEach( ( el ) => el.classList.remove( 'x-popup_active' ) );
+	history.replaceState( null, '', location.pathname + location.search );
+};
+
 export default () => {
 	const popups = document.querySelectorAll( '.js-x-popup' );
 
@@ -5,7 +16,8 @@ export default () => {
 		return null;
 	}
 
-	const popupCl      = 'x-popup_active';
+	const popupCl = 'x-popup_active';
+
 	const onHashChange = () => {
 		let hash = location.hash;
 
@@ -36,8 +48,7 @@ export default () => {
 		const target = e.target;
 
 		if ( target.classList.contains( 'js-x-popup-close' ) ) {
-			popups.forEach( ( el ) => el.classList.remove( popupCl ) );
-			history.replaceState( null, '', location.pathname + location.search );
+			closePopups();
 		}
 	} );
 }

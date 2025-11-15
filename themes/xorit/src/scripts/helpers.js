@@ -55,3 +55,48 @@ export const removeClass = ( el, className, force = false, timeout = 300 ) => {
 		}, timeout );
 	}
 }
+
+/**
+ * Sets a cookie with the specified name, value, and expiration time.
+ *
+ * @param {string} name - The name of the cookie.
+ * @param {string} value - The value to assign to the cookie.
+ * @param {number} [days=3650] - The number of days until the cookie expires. Defaults to 10 years.
+ */
+export const setCookie = ( name, value, days = 365 * 10 ) => {
+	const date = new Date();
+	date.setTime( date.getTime() + days * 24 * 60 * 60 * 1000 );
+	document.cookie = `${ name }=${ value }; expires=${ date.toUTCString() }; path=/`;
+};
+
+/**
+ * Retrieves the value of a specific cookie by its name.
+ *
+ * This function searches through the document's cookies and extracts the value
+ * of the cookie that matches the specified name. If no matching cookie is found,
+ * it returns null.
+ *
+ * @param {string} name - The name of the cookie to retrieve.
+ * @returns {string|null} The value of the cookie if found, or null if no such cookie exists.
+ */
+export const getCookie = ( name ) => {
+	const nameEQ  = `${ name }=`;
+	const cookies = document.cookie.split( ';' );
+	for ( let c of cookies ) {
+		c = c.trim();
+		if ( c.indexOf( nameEQ ) === 0 ) {
+			return c.substring( nameEQ.length );
+		}
+	}
+	return null;
+};
+
+/**
+ * Removes a specific cookie by its name.
+ * Sets the cookie's expiration date to a past date, effectively removing it from the browser.
+ *
+ * @param {string} name - The name of the cookie to be removed.
+ */
+export const removeCookie = ( name ) => {
+	document.cookie = `${ name }=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+};
