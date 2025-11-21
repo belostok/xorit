@@ -6,6 +6,18 @@
 
 	@include md-down {
 		margin-top: 0;
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset-block-start: inEm(196px);
+			inset-inline-start: inEm(-102px);
+			width: inEm(419px);
+			aspect-ratio: 1/1;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-image: url($path-static-media + '/blue-sphere.svg');
+		}
 	}
 
 	&__image-container {

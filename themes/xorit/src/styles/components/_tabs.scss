@@ -29,10 +29,20 @@
 	&__button {
 		font-size: initial;
 		position: relative;
-		padding: inEm(32px) inEm(38px);
+		padding: inEm(32px) inEm(50px);
 		transition: opacity $transition-default;
 
 		@include md-up {
+
+			&:first-child {
+				padding-left: 0;
+				text-align: left;
+			}
+
+			&:last-child {
+				padding-right: 0;
+				text-align: right;
+			}
 
 			&::after {
 				content: '';
@@ -112,6 +122,10 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: inEm(64px);
+
+		@include md-up {
+			justify-content: space-between;
+		}
 
 		@include md-down {
 			order: -1;
