@@ -42,6 +42,10 @@
 	&__item-container {
 		margin-top: inEm(33px);
 
+		@include md-up {
+			column-gap: inEm(16px);
+		}
+
 		@include md-down {
 
 			svg {

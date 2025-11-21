@@ -47,13 +47,13 @@ if ( empty( $items ) ) {
 							echo '<div class="x-services__slider-group swiper-slide">';
 						}
 						?>
-						<<?php echo esc_attr( $item_link ? 'a href=' . esc_url( $item_link ) : 'div' ); ?> class="x-services__slide relative flex jcc aic default-hover">
+						<<?php echo esc_attr( $item_link ? 'a href=' . esc_url( $item_link ) : 'div' ); ?> class="x-services__slide relative flex jcc aic">
 							<?php if ( $item_image ) : ?>
-								<div class="x-services__slide-image-container absolute img-contain">
+								<div class="x-services__slide-image-container absolute img-cover">
 									<?php xorit_the_image( $item_image, 'x-services__slide-image' ); ?>
 								</div>
 							<?php endif; ?>
-							<div class="x-services__slide-title-container">
+							<div class="x-services__slide-title-container relative">
 								<h3 class="x-services__slide-title">
 									<?php echo wp_kses_post( $item_title ); ?>
 								</h3>
@@ -80,18 +80,20 @@ if ( empty( $items ) ) {
 				<div class="swiper-wrapper">
 					<?php
 					foreach ( $items as $item ) :
-						$item_link  = trim_string( $item['link'] ?? '' );
-						$item_image = (int) ( $item['image'] ?? 0 );
-						$item_title = trim_string( $item['title'] ?? '' );
+						$item_link         = trim_string( $item['link'] ?? '' );
+						$item_image        = (int) ( $item['image'] ?? 0 );
+						$item_image_mobile = (int) ( $item['image_mobile'] ?? 0 );
+						$item_image_mobile = $item_image_mobile ? $item_image_mobile : $item_image;
+						$item_title        = trim_string( $item['title'] ?? '' );
 
 						if ( ! $item_title ) {
 							continue;
 						}
 						?>
 						<<?php echo esc_attr( $item_link ? 'a href=' . esc_url( $item_link ) : 'div' ); ?> class="x-services__slide swiper-slide relative flex jcc aic default-hover">
-							<?php if ( $item_image ) : ?>
-								<div class="x-services__slide-image-container absolute img-contain">
-									<?php xorit_the_image( $item_image, 'x-services__slide-image' ); ?> ?>
+							<?php if ( $item_image_mobile ) : ?>
+								<div class="x-services__slide-image-container absolute img-cover">
+									<?php xorit_the_image( $item_image_mobile, 'x-services__slide-image' ); ?> ?>
 								</div>
 							<?php endif; ?>
 							<div class="x-services__slide-title-container">

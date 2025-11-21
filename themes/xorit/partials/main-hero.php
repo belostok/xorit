@@ -14,7 +14,16 @@ xorit_inline_style( 'main-hero' );
 ?>
 <section class="x-main-hero container">
 	<div class="x-main-hero__wrapper wrapper flex">
-		<div class="x-main-hero__content-container">
+		<div class="x-main-hero__background-image-container img-contain absolute desktop js-x-scale-rotate-hero">
+			<img
+				width="665"
+				height="665"
+				src="<?php echo esc_url( XORIT_STATIC_MEDIA_URL . 'hero-background.svg' ); ?>"
+				alt="<?php echo esc_attr( $_title ); ?>"
+				class="x-main-hero__background-image"
+			>
+		</div>
+		<div class="x-main-hero__content-container relative">
 			<?php if ( $_title ) : ?>
 				<div class="x-main-hero__title-container">
 					<h1 class="x-main-hero__title">
@@ -46,12 +55,12 @@ xorit_inline_style( 'main-hero' );
 			<?php endif; ?>
 		</div>
 		<?php if ( ! empty( $advantages ) ) : ?>
-			<div class="x-main-hero__items-container flex fdc">
+			<div class="x-main-hero__items-container flex fdc relative">
 				<?php
 				foreach ( $advantages as $advantage ) :
 					$text = trim_string( $advantage['advantage'] ?? '' );
 					?>
-					<div class="x-main-hero__items-row">
+					<div class="x-main-hero__items-row js-x-fade-in-hero">
 						<div class="x-main-hero__item-wrapper">
 							<div class="x-main-hero__item"><?php echo wp_kses_post( $text ); ?></div>
 						</div>

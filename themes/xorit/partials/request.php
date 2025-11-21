@@ -20,7 +20,7 @@ $cta         = get_link_details( $args['cta'] ?? array() );
 $classes     = trim_string( $args['classes'] ?? '' );
 ?>
 <section class="x-request container <?php echo esc_attr( $classes ); ?>">
-	<div class="x-request__wrapper wrapper">
+	<div class="x-request__wrapper wrapper relative">
 		<?php if ( $_title ) : ?>
 			<div class="x-request__title-container js-x-fade-item">
 				<h2 class="x-request__title h2">

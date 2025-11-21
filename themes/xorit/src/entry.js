@@ -10,6 +10,14 @@ import faq from './scripts/faq';
 import popup from './scripts/popup';
 import sliderStack from './scripts/slider-stack';
 import cookies from './scripts/cookies';
+import formFields from './scripts/form-fields';
+
+// Prevent browser scroll restoration
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+// Force scroll to top
+window.scrollTo(0, 0);
 
 documentReady( () => {
 	header();
@@ -17,6 +25,7 @@ documentReady( () => {
 	faq();
 	popup();
 	cookies();
+	formFields();
 
 	// Sliders
 	sliderServices();
@@ -24,7 +33,8 @@ documentReady( () => {
 
 	// Animation
 	simple();
-} );
+} )
+
 
 // Resize
 document.addEventListener( 'resize', () => {

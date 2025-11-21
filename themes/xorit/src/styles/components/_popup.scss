@@ -45,12 +45,13 @@
 
 	&__close {
 		width: inEm(41px);
-		aspect-ratio: 1/1;
+		height: inEm(41px);
 		inset-block-start: inEm(24px);
 		inset-inline-end: inEm(24px);
 
 		@include md-down {
 			width: inEm(27px);
+			height: inEm(27px);
 			inset-block-start: inEm(21px);
 			inset-inline-end: inEm(21px);
 		}
