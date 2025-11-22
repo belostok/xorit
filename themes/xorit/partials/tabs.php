@@ -22,7 +22,7 @@ if ( empty( $_tabs ) ) {
 }
 
 $desktop_tabs = get_tabs_html( $_tabs );
-$mobile_tabs  = $tabs_mobile ? get_tabs_html( $tabs_mobile ) : $desktop_tabs;
+$mobile_tabs  = $tabs_mobile ? get_tabs_html( $tabs_mobile, true ) : $desktop_tabs;
 
 if ( empty( $desktop_tabs['tabs_html'] ) || empty( $desktop_tabs['content_html'] ) ) {
 	return null;
@@ -47,10 +47,7 @@ if ( empty( $desktop_tabs['tabs_html'] ) || empty( $desktop_tabs['content_html']
 			<?php echo $desktop_tabs['content_html']; // phpcs:ignore ?>
 		</div>
 		<div class="x-tabs__tabs mobile js-x-tabs-container">
-			<div class="x-tabs__buttons">
-				<?php echo $mobile_tabs['tabs_html']; // phpcs:ignore ?>
-			</div>
-			<?php echo $mobile_tabs['content_html']; // phpcs:ignore ?>
+			<?php echo $mobile_tabs['tabs_html']; // phpcs:ignore ?>
 		</div>
 	</div>
 </section>

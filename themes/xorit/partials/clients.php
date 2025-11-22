@@ -21,6 +21,7 @@ if ( empty( $items ) ) {
 ?>
 <section class="x-clients container <?php echo esc_attr( $classes ); ?>">
 	<div class="x-clients__wrapper wrapper relative">
+		<div class="js-x-clients-stop"></div>
 		<div class="x-clients__dec x-clients__dec_blue fit-contain absolute">
 			<img
 				width="798"
@@ -41,7 +42,7 @@ if ( empty( $items ) ) {
 		</div>
 		<div class="x-clients__grid">
 			<?php if ( $_title ) : ?>
-				<div class="x-clients__title-container">
+				<div class="x-clients__title-container js-x-clients-title">
 					<h2 class="x-clients__title h2">
 						<?php echo wp_kses_post( $_title ); ?>
 					</h2>
@@ -91,5 +92,6 @@ if ( empty( $items ) ) {
 				<?php endif; ?>
 			</div>
 		</div>
+		<div class="js-x-clients-start"></div>
 	</div>
 </section>

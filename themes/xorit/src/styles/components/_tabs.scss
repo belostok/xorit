@@ -26,6 +26,18 @@
 		}
 	}
 
+	@include md-down {
+
+		&__mobile-wrapper {
+			margin-inline: inEm(-20px);
+			padding: 0 inEm(20px) inEm(36px);
+
+			&:nth-child(even) {
+				background-color: $clr-dark-gray;
+			}
+		}
+	}
+
 	&__button {
 		font-size: initial;
 		position: relative;
@@ -66,12 +78,8 @@
 		}
 
 		@include md-down {
-			padding: inEm(25px) inEm(20px);
+			padding: inEm(25px) 0;
 			text-align: left;
-
-			&:nth-child(even) {
-				background: $clr-dark-gray;
-			}
 		}
 	}
 

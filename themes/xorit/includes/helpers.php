@@ -76,15 +76,12 @@ function get_link_details( $link ): array {
 }
 
 /**
- * Generates HTML for tabs and their associated content.
+ * @param $_tabs
+ * @param bool $is_mobile
  *
- * @param array $_tabs An array of tabs, where each tab contains details such as title, description, image, and call-to-action link.
- *
- * @return array An array with two keys:
- *               'tabs_html' containing the HTML structure of the tabs buttons,
- *               and 'content_html' containing the HTML structure for the content of each tab.
+ * @return array|string[]
  */
-function get_tabs_html( $_tabs ) {
+function get_tabs_html( $_tabs, bool $is_mobile = false ) {
 	$_tabs = get_array( $_tabs );
 
 	if ( empty( $_tabs ) ) {
@@ -112,74 +109,138 @@ function get_tabs_html( $_tabs ) {
 		}
 
 		ob_start();
+
+		if ( $is_mobile ) :
+			echo '<div class="x-tabs__mobile-wrapper">';
+		endif;
 		?>
 		<button
 			data-tab="<?php echo esc_attr( $i ); ?>"
-			class="x-tabs__button default-hover js-x-tabs-button <?php echo esc_attr( $is_active ? 'x-tabs__button_prepare x-tabs__button_active' : '' ); ?>"
+			class="x-tabs__button <?php echo esc_attr( $is_mobile ? '' : 'default-hover js-x-tabs-button' ); ?> <?php echo esc_attr( ( ! $is_mobile && $is_active ) ? 'x-tabs__button_prepare x-tabs__button_active' : '' ); ?>"
 		>
 			<span class="x-tabs__button-title">
 				<?php echo esc_html( $tab_title ); ?>
 			</span>
 		</button>
+		<?php if ( $is_mobile ) : ?>
+			<div
+				data-tab="<?php echo esc_attr( $i ); ?>"
+				class="x-tabs__content x-tabs__content_prepare x-tabs__content_active"
+			>
+				<?php if ( $tab_description ) : ?>
+					<div class="x-tabs__left-side">
+						<div class="x-tabs__text x-content">
+							<?php echo wp_kses_post( $tab_description ); ?>
+						</div>
+						<?php if ( ! empty( $tab_cta ) ) : ?>
+							<div class="x-tabs__button-container mobile">
+								<?php
+								get_template_part(
+									'elements/button',
+									null,
+									array(
+										'link'   => $tab_cta['url'] ?? '',
+										'title'  => $tab_cta['title'] ?? '',
+										'target' => $tab_cta['target'] ?? '',
+									)
+								);
+								?>
+							</div>
+						<?php endif; ?>
+					</div>
+				<?php endif; ?>
+				<?php if ( $tab_image || $tab_cta ) : ?>
+					<div class="x-tabs__right-side">
+						<?php if ( $tab_image ) : ?>
+							<div class="x-tabs__image-container">
+								<?php xorit_the_image( $tab_image, 'x-tabs__image' ); ?>
+							</div>
+						<?php endif; ?>
+						<?php if ( ! empty( $tab_cta ) ) : ?>
+							<div class="x-tabs__button-container desktop">
+								<?php
+								get_template_part(
+									'elements/button',
+									null,
+									array(
+										'link'    => $tab_cta['url'] ?? '',
+										'title'   => $tab_cta['title'] ?? '',
+										'target'  => $tab_cta['target'] ?? '',
+										'classes' => 'x-button_white',
+									)
+								);
+								?>
+							</div>
+						<?php endif; ?>
+					</div>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
 		<?php
+		if ( $is_mobile ) :
+			echo '</div>';
+		endif;
+
 		$tabs_html .= ob_get_clean();
 
-		ob_start();
-		?>
-		<div
-			data-tab="<?php echo esc_attr( $i ); ?>"
-			class="x-tabs__content js-x-tabs-content <?php echo esc_attr( $is_active ? 'x-tabs__content_prepare x-tabs__content_active' : '' ); ?>"
-		>
-			<?php if ( $tab_description ) : ?>
-				<div class="x-tabs__left-side">
-					<div class="x-tabs__text x-content">
-						<?php echo wp_kses_post( $tab_description ); ?>
+		if ( ! $is_mobile ) :
+			ob_start();
+			?>
+			<div
+				data-tab="<?php echo esc_attr( $i ); ?>"
+				class="x-tabs__content js-x-tabs-content <?php echo esc_attr( $is_active ? 'x-tabs__content_prepare x-tabs__content_active' : '' ); ?>"
+			>
+				<?php if ( $tab_description ) : ?>
+					<div class="x-tabs__left-side">
+						<div class="x-tabs__text x-content">
+							<?php echo wp_kses_post( $tab_description ); ?>
+						</div>
+						<?php if ( ! empty( $tab_cta ) ) : ?>
+							<div class="x-tabs__button-container mobile">
+								<?php
+								get_template_part(
+									'elements/button',
+									null,
+									array(
+										'link'   => $tab_cta['url'] ?? '',
+										'title'  => $tab_cta['title'] ?? '',
+										'target' => $tab_cta['target'] ?? '',
+									)
+								);
+								?>
+							</div>
+						<?php endif; ?>
 					</div>
-					<?php if ( ! empty( $tab_cta ) ) : ?>
-						<div class="x-tabs__button-container mobile">
-							<?php
-							get_template_part(
-								'elements/button',
-								null,
-								array(
-									'link'   => $tab_cta['url'] ?? '',
-									'title'  => $tab_cta['title'] ?? '',
-									'target' => $tab_cta['target'] ?? '',
-								)
-							);
-							?>
-						</div>
-					<?php endif; ?>
-				</div>
-			<?php endif; ?>
-			<?php if ( $tab_image || $tab_cta ) : ?>
-				<div class="x-tabs__right-side">
-					<?php if ( $tab_image ) : ?>
-						<div class="x-tabs__image-container">
-							<?php xorit_the_image( $tab_image, 'x-tabs__image' ); ?>
-						</div>
-					<?php endif; ?>
-					<?php if ( ! empty( $tab_cta ) ) : ?>
-						<div class="x-tabs__button-container desktop">
-							<?php
-							get_template_part(
-								'elements/button',
-								null,
-								array(
-									'link'    => $tab_cta['url'] ?? '',
-									'title'   => $tab_cta['title'] ?? '',
-									'target'  => $tab_cta['target'] ?? '',
-									'classes' => 'x-button_white',
-								)
-							);
-							?>
-						</div>
-					<?php endif; ?>
-				</div>
-			<?php endif; ?>
-		</div>
-		<?php
-		$content_html .= ob_get_clean();
+				<?php endif; ?>
+				<?php if ( $tab_image || $tab_cta ) : ?>
+					<div class="x-tabs__right-side">
+						<?php if ( $tab_image ) : ?>
+							<div class="x-tabs__image-container">
+								<?php xorit_the_image( $tab_image, 'x-tabs__image' ); ?>
+							</div>
+						<?php endif; ?>
+						<?php if ( ! empty( $tab_cta ) ) : ?>
+							<div class="x-tabs__button-container desktop">
+								<?php
+								get_template_part(
+									'elements/button',
+									null,
+									array(
+										'link'    => $tab_cta['url'] ?? '',
+										'title'   => $tab_cta['title'] ?? '',
+										'target'  => $tab_cta['target'] ?? '',
+										'classes' => 'x-button_white',
+									)
+								);
+								?>
+							</div>
+						<?php endif; ?>
+					</div>
+				<?php endif; ?>
+			</div>
+			<?php
+			$content_html .= ob_get_clean();
+		endif;
 		$i ++;
 	}
 

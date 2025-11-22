@@ -50,6 +50,10 @@
 		}
 	}
 
+	&__title-container {
+		height: max-content;
+	}
+
 	&__button-container {
 		margin-top: inEm(64px);
 	}
