@@ -1,9 +1,6 @@
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { isMobile } from '../helpers';
 
-export default () => {
-	gsap.registerPlugin( ScrollTrigger );
+export default ( gsap) => {
 
 	gsap.utils.toArray( '.js-x-fade-up-item' ).forEach( ( el ) => {
 		const delay = parseFloat( el.dataset.delay ) || 0;
