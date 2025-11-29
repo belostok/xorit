@@ -26,6 +26,17 @@
 	}
 }
 
+.h1 {
+	font-family: $font-family-second;
+	font-weight: 600;
+	font-size: inEm(60px);
+	line-height: 1.15;
+
+	@include md-down {
+		font-size: inEm(30px);
+	}
+}
+
 .h2 {
 	font-family: $font-family-second;
 	font-weight: 600;

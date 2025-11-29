@@ -4,14 +4,11 @@
  */
 
 use xoritTheme\Constants\Constants;
-use function xoritTheme\Helpers\trim_string;
 
 get_header();
-?>
 
-<?php get_template_part( 'partials/main-hero' ); ?>
+get_template_part( 'partials/main-hero' );
 
-<?php
 get_template_part(
 	'partials/tasks',
 	null,
@@ -23,9 +20,7 @@ get_template_part(
 		'cta_white' => get_field( Constants::ACF_FIELD_HOME . '_tasks_cta_white' ),
 	)
 );
-?>
 
-<?php
 get_template_part(
 	'partials/simple-banner',
 	null,
@@ -37,9 +32,7 @@ get_template_part(
 		'cta'          => get_field( Constants::ACF_FIELD_HOME . '_simple_banner_cta' ),
 	)
 );
-?>
 
-<?php
 get_template_part(
 	'partials/services',
 	null,
@@ -49,9 +42,7 @@ get_template_part(
 		'items' => get_field( Constants::ACF_FIELD_HOME . '_services_items' ),
 	)
 );
-?>
 
-<?php
 get_template_part(
 	'partials/tabs',
 	null,
@@ -63,9 +54,7 @@ get_template_part(
 		'items_mobile' => get_field( Constants::ACF_FIELD_HOME . '_tabs_items_mobile' ),
 	)
 );
-?>
 
-<?php
 get_template_part(
 	'partials/advantages',
 	null,
@@ -77,9 +66,7 @@ get_template_part(
 		'items'        => get_field( Constants::ACF_FIELD_HOME . '_advantages_items' ),
 	)
 );
-?>
 
-<?php
 get_template_part(
 	'partials/stack',
 	null,
@@ -90,9 +77,7 @@ get_template_part(
 		'items'        => get_field( Constants::ACF_FIELD_HOME . '_stack_items' ),
 	)
 );
-?>
 
-<?php
 get_template_part(
 	'partials/partners',
 	null,
@@ -102,9 +87,7 @@ get_template_part(
 		'items' => get_field( Constants::ACF_FIELD_HOME . '_partners_items' ),
 	)
 );
-?>
 
-<?php
 get_template_part(
 	'partials/clients',
 	null,
@@ -116,9 +99,7 @@ get_template_part(
 		'classes' => 'desktop',
 	)
 );
-?>
 
-<?php
 get_template_part(
 	'partials/request',
 	null,
@@ -131,9 +112,7 @@ get_template_part(
 		'cta'         => get_field( Constants::ACF_FIELD_HOME . '_request_cta' ),
 	)
 );
-?>
 
-<?php
 get_template_part(
 	'partials/companies',
 	null,
@@ -144,9 +123,7 @@ get_template_part(
 		'items'        => get_field( Constants::ACF_FIELD_HOME . '_companies_items' ),
 	)
 );
-?>
 
-<?php
 get_template_part(
 	'partials/faq',
 	null,
@@ -156,9 +133,7 @@ get_template_part(
 		'items' => get_field( Constants::ACF_FIELD_HOME . '_faq_items' ),
 	)
 );
-?>
 
-<?php
 $args         = array(
 	'post_type'      => 'post',
 	'posts_per_page' => 4,
@@ -172,8 +147,6 @@ get_template_part(
 		'title' => esc_html__( 'Блог', 'xorit' ),
 		'items' => $latest_posts->get_posts(),
 	)
-)
-?>
+);
 
-<?php
 get_footer();

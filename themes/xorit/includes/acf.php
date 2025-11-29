@@ -50,11 +50,16 @@ function register_fields() {
 		return;
 	}
 
+	// Load reusable field sets
+	include_once sprintf( '%s/acf-fields/field-sets.php', __DIR__ );
+
 	$items = [
 		'options',
+		'services',
 		'home',
 	];
 	foreach ( $items as $item ) {
 		include_once sprintf( '%s/acf-fields/%s.php', __DIR__, $item );
 	}
 }
+

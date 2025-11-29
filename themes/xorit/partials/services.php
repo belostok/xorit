@@ -1,5 +1,7 @@
 <?php
 
+use xoritTheme\Constants\Constants;
+
 use function xoritTheme\Helpers\trim_string;
 use function xoritTheme\Helpers\get_array;
 
@@ -9,15 +11,29 @@ if ( $hide ) {
 	return null;
 }
 
-$_title  = trim_string( $args['title'] ?? '' );
-$items   = get_array( $args['items'] ?? array() );
-$classes = trim_string( $args['classes'] ?? '' );
+$_post_id = get_the_ID();
+$_title   = trim_string( $args['title'] ?? '' );
+$_title   = $_title ? $_title : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_services_title', 'option' ) );
+$items    = get_array( $args['items'] ?? array() );
+$items    = ! empty( $items ) ? $items : get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_services_items', 'option' ) );
+$classes  = trim_string( $args['classes'] ?? '' );
+
+if ( empty( $items ) ) {
+	$args  = array(
+		'post_type'      => Constants::PT_SLUG_SERVICES,
+		'posts_per_page' => 100,
+		'post_status'    => array( 'publish', 'draft' ),
+		'fields'         => 'ids',
+	);
+	$query = new \WP_Query( $args );
+	$items = $query->posts;
+}
 
 if ( empty( $items ) ) {
 	return null;
 }
 ?>
-<section class="x-services container <?php echo esc_attr( $classes ); ?>">
+<section id="services" class="x-services container <?php echo esc_attr( $classes ); ?>">
 	<div class="x-services__wrapper wrapper">
 		<?php if ( $_title ) : ?>
 			<div class="x-services__title-container">
@@ -35,13 +51,22 @@ if ( empty( $items ) ) {
 					<?php
 					$i = 0;
 					foreach ( $items as $item ) :
-						$item_link  = trim_string( $item['link'] ?? '' );
-						$item_image = (int) ( $item['image'] ?? 0 );
-						$item_title = trim_string( $item['title'] ?? '' );
+						$item_status = get_post_status( $item );
+						$is_draft    = $item_status === 'draft';
+
+						if ( $item === $_post_id || ( $item_status !== 'publish' && ! $is_draft ) ) {
+							continue;
+						}
+
+						$item_title = trim_string( get_field( Constants::ACF_FIELD_SERVICES . '_preview_title', $item ) );
+						$item_title = $item_title ? $item_title : get_the_title( $item );
 
 						if ( ! $item_title ) {
 							continue;
 						}
+
+						$item_link  = $is_draft ? '' : get_the_permalink( $item );
+						$item_image = (int) get_field( Constants::ACF_FIELD_SERVICES . '_preview_image', $item );
 
 						if ( $i % 4 === 0 ) {
 							echo '<div class="x-services__slider-group swiper-slide">';
@@ -80,15 +105,24 @@ if ( empty( $items ) ) {
 				<div class="swiper-wrapper">
 					<?php
 					foreach ( $items as $item ) :
-						$item_link         = trim_string( $item['link'] ?? '' );
-						$item_image        = (int) ( $item['image'] ?? 0 );
-						$item_image_mobile = (int) ( $item['image_mobile'] ?? 0 );
-						$item_image_mobile = $item_image_mobile ? $item_image_mobile : $item_image;
-						$item_title        = trim_string( $item['title'] ?? '' );
+						$item_status = get_post_status( $item );
+						$is_draft    = $item_status === 'draft';
+
+						if ( $item === $_post_id || ( $item_status !== 'publish' && ! $is_draft ) ) {
+							continue;
+						}
+
+						$item_title = trim_string( get_field( Constants::ACF_FIELD_SERVICES . '_preview_title', $item ) );
+						$item_title = $item_title ? $item_title : get_the_title( $item );
 
 						if ( ! $item_title ) {
 							continue;
 						}
+
+						$item_link         = $is_draft ? '' : get_the_permalink( $item );
+						$item_image        = (int) get_field( Constants::ACF_FIELD_SERVICES . '_preview_image', $item );
+						$item_image_mobile = (int) get_field( Constants::ACF_FIELD_SERVICES . '_preview_image_mobile', $item );
+						$item_image_mobile = $item_image_mobile ? $item_image_mobile : $item_image;
 						?>
 						<<?php echo esc_attr( $item_link ? 'a href=' . esc_url( $item_link ) : 'div' ); ?> class="x-services__slide swiper-slide relative flex jcc aic default-hover">
 							<?php if ( $item_image_mobile ) : ?>

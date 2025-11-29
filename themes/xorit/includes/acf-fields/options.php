@@ -1,6 +1,13 @@
 <?php
 
 use xoritTheme\Constants\Constants;
+use function xoritTheme\ACF\FieldSets\get_simple_banner_fields;
+use function xoritTheme\ACF\FieldSets\get_stack_fields;
+use function xoritTheme\ACF\FieldSets\get_request_fields;
+use function xoritTheme\ACF\FieldSets\get_services_fields;
+use function xoritTheme\ACF\FieldSets\get_faq_fields;
+
+$suffix = md5( Constants::ACF_FIELD_OPTIONS );
 
 acf_add_local_field_group(
 	array(
@@ -207,6 +214,62 @@ acf_add_local_field_group(
 				'append'            => '',
 			),
 
+			// Single banner
+			...get_simple_banner_fields(
+				Constants::ACF_FIELD_OPTIONS,
+				array(
+					'show_hide_toggle'          => false,
+					'title_instructions'        => esc_attr__( 'Десктоп', 'xorit' ),
+					'title_mobile_instructions' => esc_attr__( 'Мобайл', 'xorit' ),
+					'description_instructions'  => '',
+					'cta_instructions'          => '',
+				)
+			),
+
+			// Stack
+			...get_stack_fields(
+				Constants::ACF_FIELD_OPTIONS,
+				array(
+					'show_hide_toggle'          => false,
+					'title_instructions'        => esc_attr__( 'Десктоп', 'xorit' ),
+					'title_mobile_instructions' => esc_attr__( 'Мобайл', 'xorit' ),
+					'items_instructions'        => '',
+				)
+			),
+
+			// Request
+			...get_request_fields(
+				Constants::ACF_FIELD_OPTIONS,
+				array(
+					'show_hide_toggle'         => false,
+					'hide_contacts'            => true,
+					'title_instructions'       => '',
+					'description_instructions' => '',
+					'cta_instructions'         => '',
+				)
+			),
+
+			// Services
+			...get_services_fields(
+				Constants::ACF_FIELD_OPTIONS,
+				array(
+					'show_hide_toggle'   => false,
+					'title_instructions' => '',
+					'items_instructions' => '',
+				)
+			),
+
+			// FAQ
+			...get_faq_fields(
+				Constants::ACF_FIELD_OPTIONS,
+				array(
+					'show_hide_toggle'   => false,
+					'title_instructions' => '',
+					'items_instructions' => '',
+				)
+			),
+
+			// Footer
 			array(
 				'key'               => 'field_6904a439b5hj6',
 				'label'             => esc_attr__( 'Подвал', 'xorit' ),

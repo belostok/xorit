@@ -21,6 +21,22 @@
 		}
 	}
 
+	&_dark {
+		background: $clr-base;
+		color: $clr-soft-gray;
+		padding-top: inEm(96px);
+
+		.x-contact-item__svg {
+
+			path {
+
+				&:nth-child(2) {
+					stroke: $clr-soft-gray;
+				}
+			}
+		}
+	}
+
 	&__description-container {
 		margin: inEm(40px) 0 inEm(63px);
 

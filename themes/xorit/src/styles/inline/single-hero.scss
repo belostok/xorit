@@ -1,0 +1,33 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.x-single-hero {
+	background: $clr-base;
+	color: $clr-soft-gray;
+	min-height: inEm(650px);
+
+	@include md-down {
+		min-height: auto;
+	}
+
+	&__wrapper {
+		position: relative;
+		padding: inEm(194px) 0 inEm(96px);
+
+		@include md-down {
+			padding: inEm(83px) 0 inEm(48px);
+		}
+	}
+
+	&__content-container {
+		max-width: inEm(1071px);
+	}
+
+	&__description-container {
+		margin-top: inEm(32px);
+	}
+
+	&__button-container {
+		margin-top: inEm(64px);
+	}
+}
