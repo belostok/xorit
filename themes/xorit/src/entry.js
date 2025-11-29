@@ -11,6 +11,7 @@ import sliderStack from './scripts/slider-stack';
 import cookies from './scripts/cookies';
 import formFields from './scripts/form-fields';
 import { documentReady } from './scripts/helpers';
+import linkScroll from './scripts/linkScroll';
 
 // Prevent browser scroll restoration
 if ('scrollRestoration' in history) {
@@ -26,6 +27,7 @@ documentReady( () => {
 	popup();
 	cookies();
 	formFields();
+	linkScroll();
 
 	// Sliders
 	sliderServices();

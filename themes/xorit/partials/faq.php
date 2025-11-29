@@ -1,5 +1,6 @@
 <?php
 
+use xoritTheme\Constants\Constants;
 use function xoritTheme\Helpers\trim_string;
 use function xoritTheme\Helpers\get_array;
 
@@ -10,7 +11,9 @@ if ( $hide ) {
 }
 
 $_title  = trim_string( $args['title'] ?? '' );
+$_title  = $_title ? $_title : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_faq_title', 'option' ) );
 $items   = get_array( $args['items'] ?? array() );
+$items   = ! empty( $items ) ? $items : get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_faq_items', 'option' ) );
 $classes = trim_string( $args['classes'] ?? '' );
 
 if ( empty( $items ) ) {

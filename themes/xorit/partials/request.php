@@ -3,6 +3,7 @@
 use xoritTheme\Constants\Constants;
 use function xoritTheme\Helpers\get_link_details;
 use function xoritTheme\Helpers\trim_string;
+use function xoritTheme\Helpers\get_array;
 
 $hide = (bool) ( $args['hide'] ?? false );
 
@@ -11,12 +12,15 @@ if ( $hide ) {
 }
 
 $_title      = trim_string( $args['title'] ?? '' );
+$_title      = $_title ? $_title : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_request_title', 'option' ) );
 $description = trim_string( $args['description'] ?? '' );
+$description = $description ? $description : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_request_description', 'option' ) );
 $phone       = trim_string( $args['phone'] ?? '' );
 $phone       = $phone ? $phone : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'option' ) );
 $email       = trim_string( $args['email'] ?? '' );
 $email       = $email ? $email : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_email', 'option' ) );
 $cta         = get_link_details( $args['cta'] ?? array() );
+$cta         = ! empty( $cta ) ? $cta : get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_request_cta', 'option' ) );
 $classes     = trim_string( $args['classes'] ?? '' );
 ?>
 <section class="x-request container <?php echo esc_attr( $classes ); ?>">

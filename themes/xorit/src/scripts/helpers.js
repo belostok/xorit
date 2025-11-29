@@ -100,3 +100,17 @@ export const getCookie = ( name ) => {
 export const removeCookie = ( name ) => {
 	document.cookie = `${ name }=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 };
+
+/**
+ * Scrolls the page smoothly to the specified element while accounting for a sticky header's height.
+ *
+ * @param {Element} el - The DOM element to which the page should scroll.
+ */
+export const scrollToElem = ( el ) => {
+
+	const header = document.querySelector( '.x-header' );
+	const offset = header ? header.offsetHeight : 0; // keep in mind the sticky header height
+	const topPos = el.getBoundingClientRect().top + window.scrollY - offset;
+
+	window.scrollTo( { top: topPos, behavior: 'smooth' } );
+}

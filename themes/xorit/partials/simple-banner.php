@@ -1,5 +1,6 @@
 <?php
 
+use xoritTheme\Constants\Constants;
 use function xoritTheme\Helpers\trim_string;
 use function xoritTheme\Helpers\get_array;
 use function xoritTheme\Helpers\get_link_details;
@@ -11,10 +12,14 @@ if ( $hide ) {
 }
 
 $_title       = trim_string( $args['title'] ?? '' );
+$_title       = $_title ? $_title : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_simple_banner_title', 'option' ) );
 $title_mobile = trim_string( $args['title_mobile'] ?? '' );
+$title_mobile = $title_mobile ? $title_mobile : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_simple_banner_title_mobile', 'option' ) );
 $title_mobile = $title_mobile ? $title_mobile : $_title;
 $description  = trim_string( $args['description'] ?? '' );
+$description  = $description ? $description : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_simple_banner_description', 'option' ) );
 $cta          = get_link_details( get_array( $args['cta'] ?? array() ) );
+$cta          = ! empty( $cta ) ? $cta : get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_simple_banner_cta', 'option' ) );
 $classes      = trim_string( $args['classes'] ?? '' );
 
 if ( ! $_title && ! $description ) {

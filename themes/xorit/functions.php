@@ -38,6 +38,7 @@ xoritTheme\CF7\start();
 xoritTheme\Cleaner\start();
 xoritTheme\Content\start();
 xoritTheme\Core\start();
+xoritTheme\CPT\start();
 xoritTheme\Customizer\start();
 xoritTheme\Enqueue\start();
 xoritTheme\Media\start();

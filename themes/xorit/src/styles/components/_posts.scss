@@ -5,6 +5,18 @@
 		margin-top: inEm(48px);
 	}
 
+	&_dark {
+		background: $clr-dark-gray;
+		margin-top: 0;
+		margin-bottom: inEm(-96px);
+		padding-block: inEm(96px);
+
+		@include md-down {
+			margin-bottom: inEm(-48px);
+			padding-block: inEm(48px);
+		}
+	}
+
 	&__items {
 		margin-top: inEm(64px);
 		display: grid;

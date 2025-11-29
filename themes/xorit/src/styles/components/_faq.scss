@@ -6,6 +6,10 @@
 		padding-block: inEm(48px);
 	}
 
+	&_light {
+		background: initial;
+	}
+
 	&__items {
 		margin-top: inEm(64px);
 		row-gap: inEm(40px);
