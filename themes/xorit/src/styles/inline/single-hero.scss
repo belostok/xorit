@@ -5,6 +5,7 @@
 	background: $clr-base;
 	color: $clr-soft-gray;
 	min-height: inEm(650px);
+	overflow: hidden;
 
 	@include md-down {
 		min-height: auto;
@@ -17,6 +18,14 @@
 		@include md-down {
 			padding: inEm(83px) 0 inEm(48px);
 		}
+	}
+
+	&__background-image-container {
+		width: inEm(1537px);
+		aspect-ratio: 1537 / 790;
+		top: inEm(150px);
+		left: inEm(-83px);
+		right: inEm(-62px);
 	}
 
 	&__content-container {

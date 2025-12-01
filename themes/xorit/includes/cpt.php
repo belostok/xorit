@@ -43,8 +43,6 @@ function register_post_types() {
 			'query_var'             => true,
 			'supports'              => [
 				'title',
-				'editor',
-				'thumbnail',
 			],
 			'menu_icon'             => 'dashicons-star-filled',
 		]

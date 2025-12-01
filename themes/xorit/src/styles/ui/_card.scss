@@ -1,0 +1,22 @@
+.x-card {
+	text-align: center;
+
+	&_no-image & {
+
+		&__inner {
+			justify-content: flex-end;
+		}
+	}
+
+	&__inner {
+		background: $clr-dark-gray;
+		padding: inEm(30px);
+		row-gap: inEm(20px);
+		height: 100%;
+	}
+
+	&__image-container {
+		width: inEm(62px);
+		height: inEm(57px);
+	}
+}
