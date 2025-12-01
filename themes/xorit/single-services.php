@@ -20,6 +20,15 @@ get_template_part(
 );
 
 get_template_part(
+	'partials/four-cards',
+	null,
+	array(
+		'hide'  => get_field( Constants::ACF_FIELD_SERVICES . '_cards_hide' ),
+		'items' => get_field( Constants::ACF_FIELD_SERVICES . '_cards_items' ),
+	)
+);
+
+get_template_part(
 	'partials/advantages',
 	null,
 	array(

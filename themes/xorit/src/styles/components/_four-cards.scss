@@ -1,0 +1,15 @@
+.x-four-cards {
+	padding-top: inEm(96px);
+	padding-bottom: inEm(96px);
+
+	&__items {
+		margin: inEm(-10px);
+		width: auto;
+	}
+
+	&__item {
+		padding: inEm(10px);
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+}
