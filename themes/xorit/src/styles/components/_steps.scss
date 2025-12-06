@@ -1,0 +1,55 @@
+.x-steps {
+	margin-top: inEm(96px);
+
+	@include md-down {
+		margin-top: inEm(48px);
+	}
+
+	&__grid {
+		margin-top: inEm(38px);
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: inEm(20px);
+
+		@include md-down {
+			grid-template-columns: 1fr;
+			margin-top: inEm(35px);
+			row-gap: inEm(35px);
+		}
+	}
+
+	&__text {
+		padding-right: inEm(40px);
+
+		@include md-down {
+			padding-right: 0;
+		}
+	}
+
+	&__items {
+		row-gap: inEm(32px);
+
+		@include md-down {
+			row-gap: inEm(28px);
+		}
+	}
+
+	&__item {
+		row-gap: inEm(16px);
+
+		@include md-down {
+			row-gap: inEm(14px);
+		}
+	}
+
+	&__image-container {
+
+		@include md-down {
+			order: -1;
+		}
+	}
+
+	&__image {
+		width: 100%;
+	}
+}

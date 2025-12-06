@@ -13,6 +13,11 @@
 		padding: inEm(30px);
 		row-gap: inEm(20px);
 		height: 100%;
+
+		@include md-down {
+			padding-block: inEm(40px);
+			min-height: inEm(200px);
+		}
 	}
 
 	&__image-container {

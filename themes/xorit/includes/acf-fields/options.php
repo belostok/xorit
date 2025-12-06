@@ -214,7 +214,7 @@ acf_add_local_field_group(
 				'append'            => '',
 			),
 
-			// Single banner
+			// Simple banner
 			...get_simple_banner_fields(
 				Constants::ACF_FIELD_OPTIONS,
 				array(
@@ -223,6 +223,7 @@ acf_add_local_field_group(
 					'title_mobile_instructions' => esc_attr__( 'Мобайл', 'xorit' ),
 					'description_instructions'  => '',
 					'cta_instructions'          => '',
+					'image_instructions'        => '',
 				)
 			),
 

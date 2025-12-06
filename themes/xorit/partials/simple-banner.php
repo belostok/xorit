@@ -20,6 +20,8 @@ $description  = trim_string( $args['description'] ?? '' );
 $description  = $description ? $description : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_simple_banner_description', 'option' ) );
 $cta          = get_link_details( get_array( $args['cta'] ?? array() ) );
 $cta          = ! empty( $cta ) ? $cta : get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_simple_banner_cta', 'option' ) );
+$image        = (int) ( $args['image'] ?? 0 );
+$image        = $image ? $image : (int) get_field( Constants::ACF_FIELD_OPTIONS . '_simple_banner_image', 'option' );
 $classes      = trim_string( $args['classes'] ?? '' );
 
 if ( ! $_title && ! $description ) {
@@ -27,9 +29,14 @@ if ( ! $_title && ! $description ) {
 }
 ?>
 <section class="x-simple-banner container <?php echo esc_attr( $classes ); ?>">
-	<div class="x-simple-banner__wrapper wrapper flex fdc">
+	<div class="x-simple-banner__wrapper wrapper flex fdc relative">
+		<?php if ( $image ) : ?>
+			<div class="x-simple-banner__image-container img-contain absolute">
+				<?php xorit_the_image( $image, 'x-simple-banner__image' ); ?>
+			</div>
+		<?php endif; ?>
 		<?php if ( $_title ) : ?>
-			<div class="x-simple-banner__title-container js-x-fade-item">
+			<div class="x-simple-banner__title-container relative js-x-fade-item">
 				<h2 class="x-simple-banner__title h2 desktop">
 					<?php echo wp_kses_post( $_title ); ?>
 				</h2>
@@ -39,14 +46,14 @@ if ( ! $_title && ! $description ) {
 			</div>
 		<?php endif; ?>
 		<?php if ( $description ) : ?>
-			<div class="x-simple-banner__description-container">
+			<div class="x-simple-banner__description-container relative">
 				<p class="x-simple-banner__description body-1">
 					<?php echo wp_kses_post( $description ); ?>
 				</p>
 			</div>
 		<?php endif; ?>
 		<?php if ( ! empty( $cta ) ) : ?>
-			<div class="x-simple-banner__button-container">
+			<div class="x-simple-banner__button-container relative">
 				<?php
 				get_template_part(
 					'elements/button',
