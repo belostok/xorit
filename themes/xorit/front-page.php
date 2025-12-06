@@ -30,6 +30,7 @@ get_template_part(
 		'title_mobile' => get_field( Constants::ACF_FIELD_HOME . '_simple_banner_title_mobile' ),
 		'description'  => get_field( Constants::ACF_FIELD_HOME . '_simple_banner_description' ),
 		'cta'          => get_field( Constants::ACF_FIELD_HOME . '_simple_banner_cta' ),
+		'image'        => get_field( Constants::ACF_FIELD_HOME . '_simple_banner_image' ),
 	)
 );
 

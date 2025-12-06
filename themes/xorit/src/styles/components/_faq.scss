@@ -10,89 +10,58 @@
 		background: initial;
 	}
 
+	&_columns {
+		overflow: hidden;
+		margin-bottom: inEm(-96px);
+
+		@include md-down {
+			margin-bottom: 0;
+		}
+	}
+	&_columns & {
+
+		&__wrapper {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			column-gap: inEm(20px);
+
+			@include md-down {
+				grid-template-columns: 1fr;
+				row-gap: inEm(34px);
+			}
+		}
+
+		@include md-up {
+
+			&__title-container {
+				padding-right: inEm(40px);
+			}
+		}
+
+		&__items {
+			margin-top: 0;
+		}
+	}
+
+	&__image-container {
+		width: inEm(1145px);
+		aspect-ratio: 1 / 1;
+		inset-block-start: inEm(-135px);
+		inset-inline-start: inEm(-278px);
+
+		@include md-down {
+			width: inEm(764px);
+			inset-block-start: inEm(21px);
+			inset-inline-start: auto;
+			inset-inline-end: inEm(-89px);
+		}
+	}
+
 	&__items {
 		margin-top: inEm(64px);
-		row-gap: inEm(40px);
 
 		@include md-down {
 			margin-top: inEm(36px);
-			row-gap: inEm(24px);
-		}
-	}
-
-	&__item {
-		border-bottom: 1px solid $clr-base;
-		padding-bottom: inEm(24px);
-
-		@include md-down {
-			padding-bottom: inEm(12px);
-		}
-	}
-
-	&__input {
-		display: none;
-
-		&:checked {
-
-			& ~ .x-faq__question {
-
-				.x-faq__question-icon {
-
-					svg {
-						transform: rotate(45deg);
-					}
-				}
-			}
-
-			& ~ .x-faq__answer {
-				z-index: auto;
-				opacity: 1;
-				height: auto;
-
-				.x-faq__answer-inner {
-					transform: translateY(0);
-				}
-			}
-		}
-	}
-
-	&__question {
-		position: relative;
-		cursor: pointer;
-		column-gap: inEm(40px);
-	}
-
-	&__question-title {
-		display: block;
-	}
-
-	&__question-icon {
-		flex-shrink: 0;
-		width: inEm(30px);
-		height: inEm(30px);
-
-		svg {
-			transition: transform $transition-default;
-		}
-	}
-
-	&__answer {
-		position: relative;
-		height: 0;
-		z-index: -1;
-		opacity: 0;
-		overflow: hidden;
-		transition: opacity $transition-default;
-	}
-
-	&__answer-inner {
-		position: relative;
-		padding: inRem(32px) 0 0;
-		transform: translateY(inRem(-20px));
-		transition: transform $transition-default;
-
-		@include md-down {
-			padding-top: inRem(15px);
 		}
 	}
 }

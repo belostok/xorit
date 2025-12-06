@@ -29,6 +29,35 @@ get_template_part(
 );
 
 get_template_part(
+	'partials/infographics',
+	null,
+	array(
+		'hide'       => get_field( Constants::ACF_FIELD_SERVICES . '_infograph_hide' ),
+		'image'      => get_field( Constants::ACF_FIELD_SERVICES . '_infograph_image' ),
+		'title'      => get_field( Constants::ACF_FIELD_SERVICES . '_infograph_title' ),
+		'hide_upper' => get_field( Constants::ACF_FIELD_SERVICES . '_infograph_hide_upper' ),
+		'you_do'     => get_field( Constants::ACF_FIELD_SERVICES . '_infograph_you' ),
+		'we_do'      => get_field( Constants::ACF_FIELD_SERVICES . '_infograph_we' ),
+		'cards'      => get_field( Constants::ACF_FIELD_SERVICES . '_infograph_cards' ),
+	)
+);
+
+$services_key = Constants::ACF_FIELD_SERVICES . '_services';
+get_template_part(
+	'partials/faq',
+	null,
+	array(
+		'hide'        => get_field( $services_key . '_faq_hide' ),
+		'title'       => get_field( $services_key . '_faq_title' ),
+		'items'       => get_field( $services_key . '_faq_items' ),
+		'is_columns'  => get_field( $services_key . '_faq_columns' ),
+		'image'       => get_field( $services_key . '_faq_image' ),
+		'no_override' => true,
+		'classes'     => 'x-faq_light',
+	)
+);
+
+get_template_part(
 	'partials/advantages',
 	null,
 	array(
@@ -41,6 +70,17 @@ get_template_part(
 );
 
 get_template_part(
+	'partials/steps',
+	null,
+	array(
+		'hide'  => get_field( Constants::ACF_FIELD_SERVICES . '_steps_hide' ),
+		'image' => get_field( Constants::ACF_FIELD_SERVICES . '_steps_image' ),
+		'title' => get_field( Constants::ACF_FIELD_SERVICES . '_steps_title' ),
+		'items' => get_field( Constants::ACF_FIELD_SERVICES . '_steps_items' ),
+	)
+);
+
+get_template_part(
 	'partials/simple-banner',
 	null,
 	array(
@@ -49,6 +89,25 @@ get_template_part(
 		'title_mobile' => get_field( Constants::ACF_FIELD_SERVICES . '_simple_banner_title_mobile' ),
 		'description'  => get_field( Constants::ACF_FIELD_SERVICES . '_simple_banner_description' ),
 		'cta'          => get_field( Constants::ACF_FIELD_SERVICES . '_simple_banner_cta' ),
+		'image'        => get_field( Constants::ACF_FIELD_SERVICES . '_simple_banner_image' ),
+	)
+);
+
+get_template_part(
+	'partials/three-cards',
+	null,
+	array(
+		'hide'  => get_field( Constants::ACF_FIELD_SERVICES . '_three_cards_hide' ),
+		'items' => get_field( Constants::ACF_FIELD_SERVICES . '_three_cards_items' ),
+	)
+);
+
+get_template_part(
+	'partials/logo-groups',
+	null,
+	array(
+		'hide'   => get_field( Constants::ACF_FIELD_SERVICES . '_logo_groups_hide' ),
+		'groups' => get_field( Constants::ACF_FIELD_SERVICES . '_logo_groups_groups' ),
 	)
 );
 
@@ -91,10 +150,12 @@ get_template_part(
 	'partials/faq',
 	null,
 	array(
-		'hide'    => get_field( Constants::ACF_FIELD_SERVICES . '_faq_hide' ),
-		'title'   => get_field( Constants::ACF_FIELD_SERVICES . '_faq_title' ),
-		'items'   => get_field( Constants::ACF_FIELD_SERVICES . '_faq_items' ),
-		'classes' => 'x-faq_light',
+		'hide'       => get_field( Constants::ACF_FIELD_SERVICES . '_faq_hide' ),
+		'title'      => get_field( Constants::ACF_FIELD_SERVICES . '_faq_title' ),
+		'items'      => get_field( Constants::ACF_FIELD_SERVICES . '_faq_items' ),
+		'is_columns' => get_field( Constants::ACF_FIELD_SERVICES . '_faq_columns' ),
+		'image'      => get_field( Constants::ACF_FIELD_SERVICES . '_faq_image' ),
+		'classes'    => 'x-faq_light',
 	)
 );
 

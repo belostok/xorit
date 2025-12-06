@@ -30,6 +30,7 @@ function get_simple_banner_fields( $field_prefix = '', $args = array() ) {
 	// Default arguments
 	$defaults = array(
 		'show_hide_toggle'          => true,
+		'image_instructions'        => esc_attr__( 'Используется поле из Настроек сайта, если пусто', 'xorit' ),
 		'title_instructions'        => esc_attr__( 'Десктоп. Используется поле из Настроек сайта, если пусто', 'xorit' ),
 		'title_mobile_instructions' => esc_attr__( 'Мобайл. Используется поле из Настроек сайта, если пусто', 'xorit' ),
 		'description_instructions'  => esc_attr__( 'Используется поле из Настроек сайта, если пусто', 'xorit' ),
@@ -85,6 +86,34 @@ function get_simple_banner_fields( $field_prefix = '', $args = array() ) {
 			'ui'                => 1,
 		);
 	}
+
+	// Image
+	$fields[] = array(
+		'key'               => 'field_6904a5ddb5lk7' . $suffix,
+		'label'             => esc_attr__( 'Изображение', 'xorit' ),
+		'name'              => $field_prefix . '_simple_banner_image',
+		'aria-label'        => '',
+		'type'              => 'image',
+		'instructions'      => $args['image_instructions'],
+		'required'          => 0,
+		'conditional_logic' => 0,
+		'wrapper'           => array(
+			'width' => '',
+			'class' => '',
+			'id'    => '',
+		),
+		'return_format'     => 'id',
+		'library'           => 'all',
+		'min_width'         => '',
+		'min_height'        => '',
+		'min_size'          => '',
+		'max_width'         => '',
+		'max_height'        => '',
+		'max_size'          => '',
+		'mime_types'        => '',
+		'allow_in_bindings' => 0,
+		'preview_size'      => 'medium',
+	);
 
 	// Title (Desktop)
 	$fields[] = array(
@@ -678,12 +707,13 @@ function get_services_fields( $field_prefix = '', $args = array() ) {
  *
  * @param string $field_prefix Field name prefix (e.g., 'services', 'home').
  * @param array $args Optional. Additional arguments to customize fields.
+ * @param string $suffix Optional. Suffix to append to field names.
  *
  * @return array Array of ACF field configurations.
  */
-function get_faq_fields( $field_prefix = '', $args = array() ) {
+function get_faq_fields( $field_prefix = '', $args = array(), $suffix = '' ) {
 	// Calculate suffix from field prefix
-	$suffix = md5( $field_prefix );
+	$suffix = md5( $suffix ? $suffix : $field_prefix );
 
 	// Default arguments
 	$defaults = array(
@@ -691,6 +721,7 @@ function get_faq_fields( $field_prefix = '', $args = array() ) {
 		'title_instructions' => esc_attr__( 'Если не заполнено, используются настройки сайта', 'xorit' ),
 		'items_instructions' => esc_attr__( 'Если не заполнено, используются настройки сайта', 'xorit' ),
 		'conditional_logic'  => 0,
+		'tab_title'          => esc_attr__( 'Вопросы и ответы', 'xorit' ),
 	);
 
 	$args = wp_parse_args( $args, $defaults );
@@ -699,7 +730,7 @@ function get_faq_fields( $field_prefix = '', $args = array() ) {
 		// Tab
 		array(
 			'key'               => 'field_6904a439b5xr4' . $suffix,
-			'label'             => esc_attr__( 'Вопросы и ответы', 'xorit' ),
+			'label'             => $args['tab_title'],
 			'name'              => '',
 			'aria-label'        => '',
 			'type'              => 'tab',
@@ -727,6 +758,27 @@ function get_faq_fields( $field_prefix = '', $args = array() ) {
 			'type'              => 'true_false',
 			'instructions'      => '',
 			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'message'           => '',
+			'default_value'     => 0,
+			'allow_in_bindings' => 0,
+			'ui_on_text'        => '',
+			'ui_off_text'       => '',
+			'ui'                => 1,
+		);
+		$fields[] = array(
+			'key'               => 'field_68fc79681xlk8' . $suffix,
+			'label'             => esc_attr__( 'Колонки', 'xorit' ),
+			'name'              => $field_prefix . '_faq_columns',
+			'aria-label'        => '',
+			'type'              => 'true_false',
+			'instructions'      => '',
+			'required'          => 0,
 			'conditional_logic' => $args['conditional_logic'],
 			'wrapper'           => array(
 				'width' => '',
@@ -740,6 +792,40 @@ function get_faq_fields( $field_prefix = '', $args = array() ) {
 			'ui_off_text'       => '',
 			'ui'                => 1,
 		);
+		$fields[] = array(
+			'key'               => 'field_6904a5ddb5kk8' . $suffix,
+			'label'             => esc_attr__( 'Изображение', 'xorit' ),
+			'name'              => $field_prefix . '_faq_image',
+			'aria-label'        => '',
+			'type'              => 'image',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field'    => 'field_68fc79681xlk8' . $suffix,
+						'operator' => '==',
+						'value'    => '1',
+					),
+				),
+			),
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'return_format'     => 'id',
+			'library'           => 'all',
+			'min_width'         => '',
+			'min_height'        => '',
+			'min_size'          => '',
+			'max_width'         => '',
+			'max_height'        => '',
+			'max_size'          => '',
+			'mime_types'        => '',
+			'allow_in_bindings' => 0,
+			'preview_size'      => 'medium',
+		);
 	}
 
 	// Title
@@ -751,7 +837,7 @@ function get_faq_fields( $field_prefix = '', $args = array() ) {
 		'type'              => 'textarea',
 		'instructions'      => $args['title_instructions'],
 		'required'          => 0,
-		'conditional_logic' => $args['conditional_logic'],
+		'conditional_logic' => 0,
 		'wrapper'           => array(
 			'width' => '',
 			'class' => '',
@@ -768,13 +854,13 @@ function get_faq_fields( $field_prefix = '', $args = array() ) {
 	// FAQ Items Repeater
 	$fields[] = array(
 		'key'               => 'field_6904a44fb5nh3' . $suffix,
-		'label'             => esc_attr__( 'Вопросы и ответы', 'xorit' ),
+		'label'             => esc_attr__( 'Элементы', 'xorit' ),
 		'name'              => $field_prefix . '_faq_items',
 		'aria-label'        => '',
 		'type'              => 'repeater',
 		'instructions'      => $args['items_instructions'],
 		'required'          => 0,
-		'conditional_logic' => $args['conditional_logic'],
+		'conditional_logic' => 0,
 		'wrapper'           => array(
 			'width' => '',
 			'class' => '',
@@ -940,7 +1026,7 @@ function get_advantages_fields( $field_prefix = '', $args = array() ) {
 	if ( ! $args['hide_images'] ) {
 		// Image (Desktop)
 		$fields[] = array(
-			'key'               => 'field_6904a5ddb5kl5' . $suffix,
+			'key'               => 'field_6904a5ddb5li6' . $suffix,
 			'label'             => esc_attr__( 'Изображение', 'xorit' ),
 			'name'              => $field_prefix . '_advantages_image',
 			'aria-label'        => '',
@@ -965,35 +1051,35 @@ function get_advantages_fields( $field_prefix = '', $args = array() ) {
 			'allow_in_bindings' => 0,
 			'preview_size'      => 'medium',
 		);
-
-		// Image (Mobile)
-		$fields[] = array(
-			'key'               => 'field_6904a5ddb5fg3' . $suffix,
-			'label'             => esc_attr__( 'Изображение', 'xorit' ),
-			'name'              => $field_prefix . '_advantages_image_mobile',
-			'aria-label'        => '',
-			'type'              => 'image',
-			'instructions'      => $args['image_mobile_instructions'],
-			'required'          => 0,
-			'conditional_logic' => $args['conditional_logic'],
-			'wrapper'           => array(
-				'width' => $args['image_width'],
-				'class' => '',
-				'id'    => '',
-			),
-			'return_format'     => 'id',
-			'library'           => 'all',
-			'min_width'         => '',
-			'min_height'        => '',
-			'min_size'          => '',
-			'max_width'         => '',
-			'max_height'        => '',
-			'max_size'          => '',
-			'mime_types'        => '',
-			'allow_in_bindings' => 0,
-			'preview_size'      => 'medium',
-		);
 	}
+
+	// Image (Mobile)
+	$fields[] = array(
+		'key'               => 'field_6904a5ddb5ll7' . $suffix,
+		'label'             => esc_attr__( 'Изображение', 'xorit' ),
+		'name'              => $field_prefix . '_advantages_image_mobile',
+		'aria-label'        => '',
+		'type'              => 'image',
+		'instructions'      => $args['image_mobile_instructions'],
+		'required'          => 0,
+		'conditional_logic' => $args['conditional_logic'],
+		'wrapper'           => array(
+			'width' => $args['image_width'],
+			'class' => '',
+			'id'    => '',
+		),
+		'return_format'     => 'id',
+		'library'           => 'all',
+		'min_width'         => '',
+		'min_height'        => '',
+		'min_size'          => '',
+		'max_width'         => '',
+		'max_height'        => '',
+		'max_size'          => '',
+		'mime_types'        => '',
+		'allow_in_bindings' => 0,
+		'preview_size'      => 'medium',
+	);
 
 	// Title
 	$fields[] = array(

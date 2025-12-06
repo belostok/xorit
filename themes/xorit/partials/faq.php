@@ -10,64 +10,46 @@ if ( $hide ) {
 	return null;
 }
 
-$_title  = trim_string( $args['title'] ?? '' );
-$_title  = $_title ? $_title : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_faq_title', 'option' ) );
-$items   = get_array( $args['items'] ?? array() );
-$items   = ! empty( $items ) ? $items : get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_faq_items', 'option' ) );
-$classes = trim_string( $args['classes'] ?? '' );
+$no_override = (bool) ( $args['no_override'] ?? false );
+$_title      = trim_string( $args['title'] ?? '' );
+$_title      = $_title ? $_title : ( $no_override ? '' : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_faq_title', 'option' ) ) );
+$items       = get_array( $args['items'] ?? array() );
+$items       = ! empty( $items ) ? $items : ( $no_override ? array() : get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_faq_items', 'option' ) ) );
+$is_columns  = (bool) ( $args['is_columns'] ?? false );
+$image       = (int) ( $args['image'] ?? 0 );
+$classes     = trim_string( $args['classes'] ?? '' );
 
 if ( empty( $items ) ) {
 	return null;
 }
+
+if ( $is_columns ) {
+	$classes .= ' x-faq_columns';
+}
 ?>
 <section class="x-faq container <?php echo esc_attr( $classes ); ?>">
-	<div class="x-faq__wrapper wrapper">
+	<div class="x-faq__wrapper wrapper relative">
+		<?php if ( $image ) : ?>
+			<div class="x-faq__image-container img-contain absolute">
+				<?php xorit_the_image( $image, 'x-faq__image' ); ?>
+			</div>
+		<?php endif; ?>
 		<?php if ( $_title ) : ?>
-			<div class="x-faq__title-container">
+			<div class="x-faq__title-container relative">
 				<h2 class="x-faq__title h2">
 					<?php echo wp_kses_post( $_title ); ?>
 				</h2>
 			</div>
 		<?php endif; ?>
-		<div class="x-faq__items flex fdc js-x-faq-container">
-			<?php
-			$i = 0;
-			foreach ( $items as $item ) :
-				$item_id  = 'x-faq-item-' . $i;
-				$opened   = (bool) ( $item['opened'] ?? false );
-				$question = trim_string( $item['question'] ?? '' );
-				$answer   = trim_string( $item['answer'] ?? '' );
-
-				if ( ! $question || ! $answer ) {
-					continue;
-				}
-				?>
-				<div class="x-faq__item">
-					<input
-						type="checkbox"
-						id="<?php echo esc_attr( $item_id ); ?>"
-						class="x-faq__input js-x-faq-item"
-						<?php echo esc_attr( $opened ? 'checked' : '' ); ?>
-					>
-					<label for="<?php echo esc_attr( $item_id ); ?>" class="x-faq__question flex aic jcspb">
-						<span class="x-faq__question-title h3"><?php echo wp_kses_post( $question ); ?></span>
-						<span class="x-faq__question-icon img-contain">
-						<svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M0.171997 14.999L30.17 15.3428" stroke="#20202C"/>
-						<path d="M15.3429 0.171875L14.9991 30.1699" stroke="#20202C"/>
-						</svg>
-					</span>
-					</label>
-					<div class="x-faq__answer">
-						<div class="x-faq__answer-inner body-1">
-							<?php echo wp_kses_post( $answer ); ?>
-						</div>
-					</div>
-				</div>
-				<?php
-				$i ++;
-			endforeach;
-			?>
-		</div>
+		<?php
+		get_template_part(
+			'elements/faq-items',
+			null,
+			array(
+				'items'   => $items,
+				'classes' => 'x-faq__items',
+			)
+		);
+		?>
 	</div>
 </section>

@@ -16,6 +16,17 @@
 		}
 	}
 
+	&__image-container {
+		width: inEm(454px);
+		aspect-ratio: 1 / 1;
+		inset: 0;
+		margin: auto;
+
+		@include md-down {
+			width: inEm(308px);
+		}
+	}
+
 	&__title-container,
 	&__description-container {
 		max-width: 100%;
@@ -27,7 +38,7 @@
 	}
 
 	&__description-container {
-		width: inEm(535px);
+		max-width: inEm(670px);
 		margin-top: inEm(40px);
 
 		@include md-down {

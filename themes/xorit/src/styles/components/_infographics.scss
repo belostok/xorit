@@ -1,0 +1,272 @@
+.x-infographics {
+	padding-top: inEm(96px);
+	padding-bottom: inEm(96px);
+	background: $clr-base;
+	color: $clr-soft-gray;
+
+	@include md-down {
+		padding-top: inEm(48px);
+		padding-bottom: 0;
+	}
+
+	@include md-up {
+
+		&__title-container {
+			text-align: center;
+		}
+	}
+
+	&__graph {
+		$graph: &;
+
+		margin-top: inEm(40px);
+
+		@include md-down {
+			margin-top: inEm(35px);
+			padding-left: inEm(7px);
+		}
+
+		&-inner {
+			margin-inline: auto;
+			width: inEm(930px);
+			max-width: 100%;
+			row-gap: inEm(32px);
+
+			&::before {
+				content: '';
+				position: absolute;
+				inset-block-start: inEm(17px);
+				inset-block-end: 0;
+				inset-inline-start: 50%;
+				width: inEm(1px);
+				background: $clr-bg;
+
+				@include md-down {
+					inset-inline-start: 0;
+				}
+			}
+		}
+
+		&-group {
+			$group: &;
+
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+
+			@include md-down {
+				grid-template-columns: 1fr;
+			}
+
+			&-inner {
+				row-gap: inEm(16px);
+				padding-left: inEm(28px);
+
+				@include md-down {
+					row-gap: inEm(14px);
+					padding-left: inEm(22px);
+				}
+			}
+
+			@include md-up {
+
+				&_you {
+					text-align: right;
+
+					#{$graph} {
+
+						&-title-icon {
+							inset-inline-end: inEm(-36px);
+							inset-inline-start: auto;
+						}
+					}
+
+					#{$group} {
+
+						&-inner {
+							padding-right: inEm(28px);
+						}
+					}
+				}
+			}
+
+			&_we {
+
+				#{$graph} {
+
+					&-description-container {
+						position: relative;
+
+						&::after {
+							content: '';
+							position: absolute;
+							width: inEm(16px);
+							height: inEm(16px);
+							border-radius: 50%;
+							border: 1px solid $clr-light-point;
+							background: $clr-base;
+							inset-block-start: inEm(4px);
+							inset-inline-start: inEm(-36px);
+
+							@include md-down {
+								width: inEm(15px);
+								height: inEm(15px);
+								inset-block-start: inEm(3px);
+								inset-inline-start: inEm(-29px);
+							}
+						}
+
+						&:last-child {
+
+							&::before {
+								content: '';
+								position: absolute;
+								width: inEm(3px);
+								height: calc(100% - #{inEm(10px)});
+								background: $clr-base;
+								inset-block-end: -1px;
+								inset-inline-start: inEm(-29px);
+
+								@include md-down {
+									inset-inline-start: inEm(-23px);
+								}
+							}
+						}
+					}
+				}
+
+				#{$group} {
+
+					&-inner {
+						grid-column: 2 / 3;
+					}
+				}
+			}
+		}
+
+		&-title-icon {
+			width: inEm(16px);
+			height: inEm(16px);
+			border-radius: 50%;
+			border: 1px solid $clr-light-point;
+			background: $clr-base;
+			margin-block: auto;
+			inset-block: 0;
+			inset-inline-start: inEm(-36px);
+
+			@include md-down {
+				width: inEm(15px);
+				height: inEm(15px);
+				inset-inline-start: inEm(-29px);
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				margin: auto;
+				width: inEm(10px);
+				height: inEm(10px);
+				border-radius: 50%;
+				background: $clr-muted-blue;
+
+				@include md-down {
+					width: inEm(9px);
+					height: inEm(9px);
+				}
+			}
+		}
+	}
+
+	&__image-container {
+		opacity: .2;
+		inset-block-start: inEm(20px);
+		inset-inline: inEm(-40px);
+
+		@include md-down {
+			inset-block-start: inEm(-14px);
+			inset-inline: -100%;
+			height: inEm(353px);
+			margin-inline: auto;
+		}
+	}
+
+	&__image {
+
+		@include md-down {
+			max-width: none;
+			height: 100%;
+		}
+	}
+
+	&__cards {
+		margin-top: inEm(86px);
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: inEm(20px);
+
+		@include md-down {
+			margin: inEm(48px) inEm(-20px) 0;
+			grid-template-columns: 1fr;
+			gap: 0;
+		}
+	}
+
+	&__card {
+		row-gap: inEm(87px);
+		padding: inEm(40px) inEm(40px) inEm(55px);
+
+		@include md-down {
+			row-gap: inEm(14px);
+			padding: inEm(49px) inEm(20px);
+		}
+
+		&-title-container {
+
+			@include md-down {
+				padding-left: inEm(38px);
+			}
+		}
+
+		&-points {
+			row-gap: inEm(32px);
+
+			@include md-down {
+				row-gap: inEm(14px);
+			}
+		}
+
+		&-point {
+			column-gap: inEm(32px);
+
+			@include md-down {
+				align-items: flex-start;
+				column-gap: inEm(13px);
+			}
+
+			&-icon {
+				flex-shrink: 0;
+				width: inEm(43px);
+				height: inEm(43px);
+
+				@include md-down {
+					width: inEm(35px);
+					height: inEm(35px);
+					margin-left: inEm(-7px);
+					margin-right: inEm(-3px);
+				}
+
+				&_yes {
+					width: inEm(30px);
+					height: inEm(30px);
+
+					@include md-down {
+						width: inEm(25px);
+						height: inEm(25px);
+						margin-left: 0;
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+}

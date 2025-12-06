@@ -1,0 +1,61 @@
+.x-logo-groups {
+	background: $clr-base;
+	color: $clr-soft-gray;
+	padding-bottom: inEm(24px);
+
+	@include md-down {
+		padding-block: inEm(14px);
+	}
+
+	&__title-container {
+		flex-shrink: 0;
+		width: inEm(465px);
+
+		@include md-down {
+			width: 100%;
+		}
+	}
+
+	@include md-down {
+
+		&__title {
+			font-size: inEm(30px);
+		}
+	}
+
+	&__group {
+		padding-top: inEm(64px);
+		padding-bottom: inEm(40px);
+
+		@include md-down {
+			padding-top: inEm(48px);
+			padding-bottom: inEm(34px);
+			flex-direction: column;
+			row-gap: inEm(28px);
+		}
+
+		&:not(:last-child) {
+			border-bottom: 1px solid $clr-soft-gray;
+		}
+	}
+
+	&__logos {
+		row-gap: inEm(30px);
+		column-gap: inEm(50px);
+
+		@include md-down {
+			row-gap: inEm(14px);
+			column-gap: inEm(27px);
+		}
+	}
+
+	&__logo {
+		max-width: inEm(155px);
+		max-height: inEm(55px);
+
+		@include md-down {
+			max-width: inEm(115px);
+			max-height: inEm(30px);
+		}
+	}
+}
