@@ -21,8 +21,9 @@ if ( empty( $items ) ) {
 		<div class="x-four-cards__items flex fwrap jcc">
 			<?php
 			foreach ( $items as $item ) :
-				$item_title = trim_string( $item['title'] ?? '' );
-				$item_image = (int) ( $item['image'] ?? 0 );
+				$item_title       = trim_string( $item['title'] ?? '' );
+				$item_description = trim_string( $item['description'] ?? '' );
+				$item_image       = (int) ( $item['image'] ?? 0 );
 
 				if ( ! $item_title ) {
 					continue;
@@ -32,9 +33,10 @@ if ( empty( $items ) ) {
 					'elements/card',
 					null,
 					array(
-						'title'   => $item_title,
-						'image'   => $item_image,
-						'classes' => 'x-four-cards__item',
+						'title'       => $item_title,
+						'description' => $item_description,
+						'image'       => $item_image,
+						'classes'     => 'x-four-cards__item',
 					)
 				);
 			endforeach;

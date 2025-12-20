@@ -1,0 +1,24 @@
+.x-simple-three-cards {
+	background: $clr-base;
+	text-align: center;
+
+	&__title-container {
+		color: $clr-soft-gray;
+	}
+
+	&__items {
+		margin: inEm(54px) inEm(-10px) inEm(-10px);
+	}
+
+	&__item {
+		flex: 0 0 33.3333%;
+		max-width: 33.3333%;
+		padding: inEm(10px);
+
+		&-inner {
+			background: $clr-soft-gray;
+			min-height: inEm(158px);
+			padding: inEm(30px);
+		}
+	}
+}

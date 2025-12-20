@@ -247,6 +247,7 @@ acf_add_local_field_group(
 					'title_instructions'       => '',
 					'description_instructions' => '',
 					'cta_instructions'         => '',
+					'threats_instructions'     => '',
 				)
 			),
 

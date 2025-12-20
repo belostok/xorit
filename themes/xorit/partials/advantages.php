@@ -1,5 +1,6 @@
 <?php
 
+use function xoritTheme\Helpers\get_link_details;
 use function xoritTheme\Helpers\trim_string;
 use function xoritTheme\Helpers\get_array;
 
@@ -13,6 +14,7 @@ $_title       = trim_string( $args['title'] ?? '' );
 $image        = (int) ( $args['image'] ?? 0 );
 $image_mobile = (int) ( $args['image_mobile'] ?? 0 );
 $items        = get_array( $args['items'] ?? array() );
+$cta          = get_link_details( $args['cta'] ?? array() );
 $classes      = trim_string( $args['classes'] ?? '' );
 
 if ( empty( $items ) ) {
@@ -68,5 +70,20 @@ if ( empty( $items ) ) {
 			endforeach;
 			?>
 		</div>
+		<?php if ( ! empty( $cta ) ) : ?>
+			<div class="x-advantages__button-container flex jcc">
+				<?php
+				get_template_part(
+					'elements/button',
+					null,
+					array(
+						'link'   => $cta['url'] ?? '',
+						'title'  => $cta['title'] ?? '',
+						'target' => $cta['target'] ?? '',
+					)
+				);
+				?>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>

@@ -1,4 +1,9 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
 .x-infographics {
+	$gap: inEm(32px);
+
 	padding-top: inEm(96px);
 	padding-bottom: inEm(96px);
 	background: $clr-base;
@@ -16,6 +21,96 @@
 		}
 	}
 
+	&_service-hero {
+		padding-top: inEm(242px);
+	}
+
+	&_service-hero & {
+
+		&__graph {
+			margin-top: inEm(52px);
+
+			&-inner {
+				width: inEm(1050px);
+
+				&::before {
+					content: none;
+				}
+			}
+
+			&-group_you {
+
+				.x-infographics__graph-title-icon {
+
+					&::after {
+						background: $clr-dec-red;
+					}
+				}
+
+				.x-infographics__graph-group-inner {
+					position: relative;
+
+					&::before {
+						content: '';
+						position: absolute;
+						inset-block-start: inEm(17px);
+						inset-block-end: calc(-#{$gap} - #{inEm(17px)} );
+						inset-inline-end: 0;
+						width: inEm(1px);
+						background: $clr-bg;
+
+						@include md-down {
+							inset-block-end: auto;
+							inset-inline-start: 0;
+						}
+					}
+				}
+			}
+
+			&-group_we {
+
+				.x-infographics__graph-description-container {
+
+					&::after,
+					&::before {
+						content: none;
+					}
+				}
+			}
+		}
+
+		&__cards {
+			margin-top: inEm(96px);
+		}
+
+		&__card {
+			padding: inEm(40px) inEm(40px) inEm(50px);
+			row-gap: inEm(32px);
+
+			&-title {
+				font-size: inEm(40px);
+			}
+
+			&-points {
+				row-gap: inEm(15px);
+			}
+
+			&-point {
+				column-gap: inEm(16px);
+			}
+
+			&-point-icon {
+				width: inEm(36px);
+				height: inEm(24px);
+
+				&_yes {
+					width: inEm(31px);
+					height: inEm(21px);
+				}
+			}
+		}
+	}
+
 	&__graph {
 		$graph: &;
 
@@ -30,7 +125,7 @@
 			margin-inline: auto;
 			width: inEm(930px);
 			max-width: 100%;
-			row-gap: inEm(32px);
+			row-gap: $gap;
 
 			&::before {
 				content: '';

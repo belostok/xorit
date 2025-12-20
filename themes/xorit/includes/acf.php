@@ -56,6 +56,7 @@ function register_fields() {
 	$items = [
 		'options',
 		'services',
+		'services-child',
 		'home',
 	];
 	foreach ( $items as $item ) {

@@ -49,6 +49,10 @@
 
 	&__question-title {
 		display: block;
+
+		@include md-up {
+			max-width: inRem(870px);
+		}
 	}
 
 	&__question-icon {
@@ -76,8 +80,31 @@
 		transform: translateY(inRem(-20px));
 		transition: transform $transition-default;
 
+		@include md-up {
+			max-width: inRem(870px);
+		}
+
 		@include md-down {
 			padding-top: inRem(15px);
+		}
+
+		> * {
+
+			&:not(:first-child) {
+				margin-top: inRem(16px);
+			}
+
+			&:has(strong) {
+
+				&:not(:first-child) {
+					margin-top: inRem(24px);
+				}
+			}
+		}
+
+		strong {
+			font-size: inRem(20px);
+			font-weight: 600;
 		}
 	}
 }

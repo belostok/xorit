@@ -8,6 +8,7 @@ use function xoritTheme\ACF\FieldSets\get_services_fields;
 use function xoritTheme\ACF\FieldSets\get_faq_fields;
 use function xoritTheme\ACF\FieldSets\get_advantages_fields;
 use function xoritTheme\ACF\FieldSets\get_hero_fields;
+use function xoritTheme\ACF\FieldSets\get_infofraph_fields;
 
 $suffix = md5( Constants::ACF_FIELD_SERVICES );
 
@@ -222,172 +223,8 @@ acf_add_local_field_group(
 						'new_lines'         => 'br',
 						'parent_repeater'   => 'field_692c86a4c9f14' . $suffix,
 					),
-				),
-			),
-
-			// Infographic
-			array(
-				'key'               => 'field_692dd146b4efe' . $suffix,
-				'label'             => esc_attr__( 'Инфографика', 'xorit' ),
-				'name'              => '',
-				'aria-label'        => '',
-				'type'              => 'tab',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'placement'         => 'left',
-				'endpoint'          => 0,
-				'selected'          => 0,
-			),
-			array(
-				'key'               => 'field_68fc79681xkly' . $suffix,
-				'label'             => esc_attr__( 'Скрыть блок', 'xorit' ),
-				'name'              => Constants::ACF_FIELD_SERVICES . '_infograph_hide',
-				'aria-label'        => '',
-				'type'              => 'true_false',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'message'           => '',
-				'default_value'     => 0,
-				'allow_in_bindings' => 0,
-				'ui_on_text'        => '',
-				'ui_off_text'       => '',
-				'ui'                => 1,
-			),
-			array(
-				'key'               => 'field_692dd7fed4be6' . $suffix,
-				'label'             => esc_attr__( 'Изображение', 'xorit' ),
-				'name'              => Constants::ACF_FIELD_SERVICES . '_infograph_image',
-				'aria-label'        => '',
-				'type'              => 'image',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => array(
 					array(
-						array(
-							'field'    => 'field_692dd73ad7lk7' . $suffix,
-							'operator' => '!=',
-							'value'    => '1',
-						),
-					),
-				),
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'return_format'     => 'id',
-				'library'           => 'all',
-				'min_width'         => '',
-				'min_height'        => '',
-				'min_size'          => '',
-				'max_width'         => '',
-				'max_height'        => '',
-				'max_size'          => '',
-				'mime_types'        => '',
-				'allow_in_bindings' => 0,
-				'preview_size'      => 'medium',
-			),
-			array(
-				'key'               => 'field_692dd15fb4eff' . $suffix,
-				'label'             => esc_attr__( 'Заголовок', 'xorit' ),
-				'name'              => Constants::ACF_FIELD_SERVICES . '_infograph_title',
-				'aria-label'        => '',
-				'type'              => 'textarea',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'default_value'     => '',
-				'maxlength'         => 150,
-				'allow_in_bindings' => 0,
-				'rows'              => 2,
-				'placeholder'       => '',
-				'new_lines'         => 'br',
-			),
-			array(
-				'key'               => 'field_692dd73ad7lk7' . $suffix,
-				'label'             => esc_attr__( 'Скрыть верхнюю часть', 'xorit' ),
-				'name'              => Constants::ACF_FIELD_SERVICES . '_infograph_hide_upper',
-				'aria-label'        => '',
-				'type'              => 'true_false',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'message'           => '',
-				'default_value'     => 0,
-				'allow_in_bindings' => 0,
-				'ui_on_text'        => '',
-				'ui_off_text'       => '',
-				'ui'                => 1,
-			),
-			array(
-				'key'               => 'field_692dd207b4f00' . $suffix,
-				'label'             => esc_attr__( 'Что делаете вы', 'xorit' ),
-				'name'              => Constants::ACF_FIELD_SERVICES . '_infograph_you',
-				'aria-label'        => '',
-				'type'              => 'group',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => array(
-					array(
-						array(
-							'field'    => 'field_692dd73ad7lk7' . $suffix,
-							'operator' => '!=',
-							'value'    => '1',
-						),
-					),
-				),
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'layout'            => 'row',
-				'sub_fields'        => array(
-					array(
-						'key'               => 'field_692dd23bb4f01' . $suffix,
-						'label'             => esc_attr__( 'Заголовок', 'xorit' ),
-						'name'              => 'title',
-						'aria-label'        => '',
-						'type'              => 'text',
-						'instructions'      => '',
-						'required'          => 0,
-						'conditional_logic' => 0,
-						'wrapper'           => array(
-							'width' => '',
-							'class' => '',
-							'id'    => '',
-						),
-						'default_value'     => '',
-						'maxlength'         => 150,
-						'allow_in_bindings' => 0,
-						'placeholder'       => '',
-						'prepend'           => '',
-						'append'            => '',
-					),
-					array(
-						'key'               => 'field_692dd264b4f02' . $suffix,
+						'key'               => 'field_692c8702c9kn5' . $suffix,
 						'label'             => esc_attr__( 'Описание', 'xorit' ),
 						'name'              => 'description',
 						'aria-label'        => '',
@@ -406,108 +243,18 @@ acf_add_local_field_group(
 						'rows'              => 4,
 						'placeholder'       => '',
 						'new_lines'         => 'br',
+						'parent_repeater'   => 'field_692c86a4c9f14' . $suffix,
 					),
 				),
 			),
+
+			// Child services
 			array(
-				'key'               => 'field_692dd29fdd23c' . $suffix,
-				'label'             => esc_attr__( 'Что делаем мы', 'xorit' ),
-				'name'              => Constants::ACF_FIELD_SERVICES . '_infograph_we',
+				'key'               => 'field_6945537ea522a' . $suffix,
+				'label'             => esc_attr__( 'Дочерние услуги', 'xorit' ),
+				'name'              => '',
 				'aria-label'        => '',
-				'type'              => 'group',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => array(
-					array(
-						array(
-							'field'    => 'field_692dd73ad7lk7' . $suffix,
-							'operator' => '!=',
-							'value'    => '1',
-						),
-					),
-				),
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'layout'            => 'row',
-				'sub_fields'        => array(
-					array(
-						'key'               => 'field_692dd2d4dd23d' . $suffix,
-						'label'             => esc_attr__( 'Заголовок', 'xorit' ),
-						'name'              => 'title',
-						'aria-label'        => '',
-						'type'              => 'text',
-						'instructions'      => '',
-						'required'          => 0,
-						'conditional_logic' => 0,
-						'wrapper'           => array(
-							'width' => '',
-							'class' => '',
-							'id'    => '',
-						),
-						'default_value'     => '',
-						'maxlength'         => 150,
-						'allow_in_bindings' => 0,
-						'placeholder'       => '',
-						'prepend'           => '',
-						'append'            => '',
-					),
-					array(
-						'key'               => 'field_692dd317dd23e' . $suffix,
-						'label'             => esc_attr__( 'Пункты', 'xorit' ),
-						'name'              => 'points',
-						'aria-label'        => '',
-						'type'              => 'repeater',
-						'instructions'      => '',
-						'required'          => 0,
-						'conditional_logic' => 0,
-						'wrapper'           => array(
-							'width' => '',
-							'class' => '',
-							'id'    => '',
-						),
-						'layout'            => 'table',
-						'pagination'        => 0,
-						'min'               => 0,
-						'max'               => 0,
-						'collapsed'         => '',
-						'button_label'      => esc_attr__( 'Добавить', 'xorit' ),
-						'rows_per_page'     => 20,
-						'sub_fields'        => array(
-							array(
-								'key'               => 'field_692dd348dd23f' . $suffix,
-								'label'             => esc_attr__( 'Пункт', 'xorit' ),
-								'name'              => 'point',
-								'aria-label'        => '',
-								'type'              => 'textarea',
-								'instructions'      => '',
-								'required'          => 0,
-								'conditional_logic' => 0,
-								'wrapper'           => array(
-									'width' => '',
-									'class' => '',
-									'id'    => '',
-								),
-								'default_value'     => '',
-								'maxlength'         => '',
-								'allow_in_bindings' => 0,
-								'rows'              => 2,
-								'placeholder'       => '',
-								'new_lines'         => 'br',
-								'parent_repeater'   => 'field_692dd317dd23e' . $suffix,
-							),
-						),
-					),
-				),
-			),
-			array(
-				'key'               => 'field_692dd38d9c00f' . $suffix,
-				'label'             => esc_attr__( 'Карточки', 'xorit' ),
-				'name'              => Constants::ACF_FIELD_SERVICES . '_infograph_cards',
-				'aria-label'        => '',
-				'type'              => 'repeater',
+				'type'              => 'tab',
 				'instructions'      => '',
 				'required'          => 0,
 				'conditional_logic' => 0,
@@ -516,155 +263,102 @@ acf_add_local_field_group(
 					'class' => '',
 					'id'    => '',
 				),
-				'layout'            => 'row',
-				'pagination'        => 0,
-				'min'               => 0,
-				'max'               => 0,
-				'collapsed'         => '',
-				'button_label'      => esc_attr__( 'Добавить', 'xorit' ),
-				'rows_per_page'     => 20,
-				'sub_fields'        => array(
-					array(
-						'key'                   => 'field_692dd62b9c011' . $suffix,
-						'label'                 => esc_attr__( 'Цвет бэкграунда', 'xorit' ),
-						'name'                  => 'background',
-						'aria-label'            => '',
-						'type'                  => 'color_picker',
-						'instructions'          => '',
-						'required'              => 0,
-						'conditional_logic'     => 0,
-						'wrapper'               => array(
-							'width' => '50',
-							'class' => '',
-							'id'    => '',
-						),
-						'default_value'         => '',
-						'enable_opacity'        => 0,
-						'return_format'         => 'string',
-						'allow_in_bindings'     => 0,
-						'show_custom_palette'   => 0,
-						'show_color_wheel'      => 1,
-						'custom_palette_source' => '',
-						'palette_colors'        => '',
-						'parent_repeater'       => 'field_692dd38d9c00f' . $suffix,
-					),
-					array(
-						'key'                   => 'field_692dd6b09c012' . $suffix,
-						'label'                 => esc_attr__( 'Цвет текста', 'xorit' ),
-						'name'                  => 'color',
-						'aria-label'            => '',
-						'type'                  => 'color_picker',
-						'instructions'          => '',
-						'required'              => 0,
-						'conditional_logic'     => 0,
-						'wrapper'               => array(
-							'width' => '50',
-							'class' => '',
-							'id'    => '',
-						),
-						'default_value'         => '',
-						'enable_opacity'        => 0,
-						'return_format'         => 'string',
-						'allow_in_bindings'     => 0,
-						'show_custom_palette'   => 0,
-						'show_color_wheel'      => 1,
-						'custom_palette_source' => '',
-						'palette_colors'        => '',
-						'parent_repeater'       => 'field_692dd38d9c00f' . $suffix,
-					),
-					array(
-						'key'               => 'field_692dd5729c010' . $suffix,
-						'label'             => esc_attr__( 'Заголовок', 'xorit' ),
-						'name'              => 'title',
-						'aria-label'        => '',
-						'type'              => 'text',
-						'instructions'      => '',
-						'required'          => 0,
-						'conditional_logic' => 0,
-						'wrapper'           => array(
-							'width' => '',
-							'class' => '',
-							'id'    => '',
-						),
-						'default_value'     => '',
-						'maxlength'         => 150,
-						'allow_in_bindings' => 0,
-						'placeholder'       => '',
-						'prepend'           => '',
-						'append'            => '',
-						'parent_repeater'   => 'field_692dd38d9c00f' . $suffix,
-					),
-					array(
-						'key'               => 'field_692dd70ed7f7b' . $suffix,
-						'label'             => esc_attr__( 'Пункты', 'xorit' ),
-						'name'              => 'points',
-						'aria-label'        => '',
-						'type'              => 'repeater',
-						'instructions'      => '',
-						'required'          => 0,
-						'conditional_logic' => 0,
-						'wrapper'           => array(
-							'width' => '',
-							'class' => '',
-							'id'    => '',
-						),
-						'layout'            => 'table',
-						'pagination'        => 0,
-						'min'               => 0,
-						'max'               => 0,
-						'collapsed'         => '',
-						'button_label'      => esc_attr__( 'Добавить', 'xorit' ),
-						'rows_per_page'     => 20,
-						'sub_fields'        => array(
-							array(
-								'key'               => 'field_692dd73ad7f7c' . $suffix,
-								'label'             => '',
-								'name'              => 'yes_no',
-								'aria-label'        => '',
-								'type'              => 'true_false',
-								'instructions'      => '',
-								'required'          => 0,
-								'conditional_logic' => 0,
-								'wrapper'           => array(
-									'width' => '20',
-									'class' => '',
-									'id'    => '',
-								),
-								'message'           => '',
-								'default_value'     => 0,
-								'allow_in_bindings' => 0,
-								'ui_on_text'        => esc_attr__( 'Да', 'xorit' ),
-								'ui_off_text'       => esc_attr__( 'Нет', 'xorit' ),
-								'ui'                => 1,
-								'parent_repeater'   => 'field_692dd70ed7f7b' . $suffix,
-							),
-							array(
-								'key'               => 'field_692dd7c2d7f7d' . $suffix,
-								'label'             => esc_attr__( 'Пункт', 'xorit' ),
-								'name'              => 'point',
-								'aria-label'        => '',
-								'type'              => 'textarea',
-								'instructions'      => '',
-								'required'          => 0,
-								'conditional_logic' => 0,
-								'wrapper'           => array(
-									'width' => '',
-									'class' => '',
-									'id'    => '',
-								),
-								'default_value'     => '',
-								'maxlength'         => '',
-								'allow_in_bindings' => 0,
-								'rows'              => 4,
-								'placeholder'       => '',
-								'new_lines'         => 'br',
-								'parent_repeater'   => 'field_692dd70ed7f7b' . $suffix,
-							),
-						),
-						'parent_repeater'   => 'field_692dd38d9c00f' . $suffix,
-					),
-				),
+				'placement'         => 'left',
+				'endpoint'          => 0,
+				'selected'          => 0,
 			),
+			array(
+				'key'               => 'field_6945542ea522c' . $suffix,
+				'label'             => esc_attr__( 'Скрыть блок', 'xorit' ),
+				'name'              => Constants::ACF_FIELD_SERVICES . '_child_hide',
+				'aria-label'        => '',
+				'type'              => 'true_false',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'message'           => '',
+				'default_value'     => 0,
+				'allow_in_bindings' => 0,
+				'ui_on_text'        => '',
+				'ui_off_text'       => '',
+				'ui'                => 1,
+			),
+			array(
+				'key'               => 'field_69455466a522d' . $suffix,
+				'label'             => esc_attr__( 'Заголовок', 'xorit' ),
+				'name'              => Constants::ACF_FIELD_SERVICES . '_child_title',
+				'aria-label'        => '',
+				'type'              => 'textarea',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'maxlength'         => '',
+				'allow_in_bindings' => 0,
+				'rows'              => 4,
+				'placeholder'       => '',
+				'new_lines'         => 'br',
+			),
+			array(
+				'key'               => 'field_69455496a522e' . $suffix,
+				'label'             => esc_attr__( 'Описание', 'xorit' ),
+				'name'              => Constants::ACF_FIELD_SERVICES . '_child_description',
+				'aria-label'        => '',
+				'type'              => 'textarea',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'maxlength'         => '',
+				'allow_in_bindings' => 0,
+				'rows'              => 4,
+				'placeholder'       => '',
+				'new_lines'         => 'br',
+			),
+			array(
+				'key'               => 'field_6945539fa522b' . $suffix,
+				'label'             => esc_attr__( 'Дочерние услуги', 'xorit' ),
+				'name'              => Constants::ACF_FIELD_SERVICES . '_child_services',
+				'aria-label'        => '',
+				'type'              => 'select',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'choices'           => array(),
+				'default_value'     => array(),
+				'return_format'     => 'value',
+				'multiple'          => 1,
+				'allow_null'        => 1,
+				'allow_in_bindings' => 0,
+				'ui'                => 1,
+				'ajax'              => 0,
+				'create_options'    => 0,
+				'placeholder'       => '',
+				'save_options'      => 0,
+			),
+
+			// Infographic
+			get_infofraph_fields( Constants::ACF_FIELD_SERVICES ),
 
 			// Services
 			...get_faq_fields(
@@ -1133,6 +827,11 @@ acf_add_local_field_group(
 					'operator' => '==',
 					'value'    => Constants::PT_SLUG_SERVICES,
 				),
+				array(
+					'param'    => 'post_parent',
+					'operator' => '==',
+					'value'    => '0',
+				),
 			),
 		),
 		'menu_order'            => 0,
@@ -1147,3 +846,66 @@ acf_add_local_field_group(
 		'display_title'         => '',
 	)
 );
+
+/**
+ * Populate child services field with children posts of the current post
+ */
+add_filter(
+	'acf/load_field/name=' . Constants::ACF_FIELD_SERVICES . '_child_services',
+	function ( $field ) {
+		// Reset choices
+		$field['choices'] = [];
+
+		// Get current post ID
+		$post_id = 0;
+
+		if ( isset( $_GET['post'] ) ) {
+			$post_id = absint( $_GET['post'] );
+		} elseif ( isset( $_POST['post_ID'] ) ) {
+			$post_id = absint( $_POST['post_ID'] );
+		}
+
+		// If no post ID, return field as is
+		if ( ! $post_id ) {
+			return $field;
+		}
+
+		// Verify this is a services post
+		if ( get_post_type( $post_id ) !== Constants::PT_SLUG_SERVICES ) {
+			return $field;
+		}
+
+		// Get children posts
+		$args = [
+			'post_type'      => Constants::PT_SLUG_SERVICES,
+			'post_parent'    => $post_id,
+			'posts_per_page' => -1,
+			'orderby'        => 'menu_order title',
+			'order'          => 'ASC',
+			'post_status'    => [ 'publish', 'draft', 'pending' ],
+		];
+
+		$children = get_posts( $args );
+
+		// Populate choices with child posts
+		if ( ! empty( $children ) && ! is_wp_error( $children ) ) {
+			foreach ( $children as $child ) {
+				if ( ! $child instanceof \WP_Post ) {
+					continue;
+				}
+
+				$status_label = '';
+				if ( 'draft' === $child->post_status ) {
+					$status_label = ' [' . esc_attr__( 'Черновик', 'xorit' ) . ']';
+				} elseif ( 'pending' === $child->post_status ) {
+					$status_label = ' [' . esc_attr__( 'Ожидает', 'xorit' ) . ']';
+				}
+
+				$field['choices'][ $child->ID ] = esc_html( $child->post_title ) . $status_label;
+			}
+		}
+
+		return $field;
+	}
+);
+
