@@ -4,10 +4,16 @@ use xoritTheme\Constants\Constants;
 use function xoritTheme\Helpers\get_tel;
 use function xoritTheme\Helpers\trim_string;
 
-$logo_text = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_logo_text', 'option' ) );
-$email     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_email', 'option' ) );
-$address   = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_address', 'option' ) );
-$phone     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'option' ) );
+$logo_text   = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_logo_text', 'option' ) );
+$email       = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_email', 'option' ) );
+$address     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_address', 'option' ) );
+$phone       = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'option' ) );
+$body_class  = 'flex';
+$post_parent = wp_get_post_parent_id( get_the_ID() );
+
+if ( is_singular( 'services' ) && $post_parent ) {
+	$body_class .= ' child-service';
+}
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -19,7 +25,7 @@ $phone     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'o
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( 'flex' ); ?>>
+<body <?php body_class( $body_class ); ?>>
 <?php wp_body_open(); ?>
 
 <div class="main-wrapper flex fdc relative">

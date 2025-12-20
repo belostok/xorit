@@ -13,6 +13,8 @@ if ( $hide ) {
 
 $_title      = trim_string( $args['title'] ?? '' );
 $_title      = $_title ? $_title : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_request_title', 'option' ) );
+$threats     = get_array( $args['threats'] ?? array() );
+$threats     = ! empty( $threats ) ? $threats : get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_request_threats', 'option' ) );
 $description = trim_string( $args['description'] ?? '' );
 $description = $description ? $description : trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_request_description', 'option' ) );
 $phone       = trim_string( $args['phone'] ?? '' );
@@ -32,6 +34,32 @@ $classes     = trim_string( $args['classes'] ?? '' );
 				</h2>
 			</div>
 		<?php endif; ?>
+	<?php if ( ! empty( $threats ) ) : ?>
+		<div class="x-request__threats-container relative">
+			<div class="x-request__threats-inner flex absolute">
+				<?php
+				$i = 0;
+				while ( $i < 2 ) :
+					echo '<div class="x-request__threats-group x-request__threats-group_g' . esc_html( $i ) . '">';
+					foreach ( $threats as $threat ) :
+						$threat = trim_string( $threat['threat'] ?? '' );
+
+						if ( ! $threat ) {
+							continue;
+						}
+						?>
+						<p class="x-request__threat relative">
+							<?php echo esc_html( $threat ); ?>
+						</p>
+						<?php
+					endforeach;
+					echo '</div>';
+					$i++;
+				endwhile;
+				?>
+			</div>
+		</div>
+	<?php endif; ?>
 		<?php if ( $description ) : ?>
 			<div class="x-request__description-container">
 				<p class="x-request__description body-1">

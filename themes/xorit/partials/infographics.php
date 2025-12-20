@@ -9,21 +9,29 @@ if ( $hide ) {
 	return null;
 }
 
-$image      = (int) ( $args['image'] ?? 0 );
-$_title     = trim_string( $args['title'] ?? '' );
-$hide_upper = (bool) ( $args['hide_upper'] ?? false );
-$you_do     = get_array( $args['you_do'] ?? array() );
-$we_do      = get_array( $args['we_do'] ?? array() );
-$cards      = get_array( $args['cards'] ?? array() );
-$classes    = trim_string( $args['classes'] ?? '' );
+$image       = (int) ( $args['image'] ?? 0 );
+$is_h1       = (bool) ( $args['is_h1'] ?? false );
+$heading_tag = $is_h1 ? 'h1' : 'h2';
+$_title      = trim_string( $args['title'] ?? '' );
+$hide_upper  = (bool) ( $args['hide_upper'] ?? false );
+$you_do      = get_array( $args['you_do'] ?? array() );
+$we_do       = get_array( $args['we_do'] ?? array() );
+$cards       = get_array( $args['cards'] ?? array() );
+$classes     = trim_string( $args['classes'] ?? '' );
+
+if ( empty( $you_do ) && empty( $we_do ) && empty( $cards ) ) {
+	return null;
+}
+
+xorit_inline_style( 'infographics' );
 ?>
 <section class="x-infographics container <?php echo esc_attr( $classes ); ?>">
 	<div class="x-infographics__wrapper wrapper">
 		<?php if ( $_title ) : ?>
 			<div class="x-infographics__title-container">
-				<h2 class="x-infographics__title h2">
+				<<?php echo esc_attr( $heading_tag ); ?> class="x-infographics__title <?php echo esc_attr( $heading_tag ); ?>">
 					<?php echo wp_kses_post( $_title ); ?>
-				</h2>
+				</<?php echo esc_attr( $heading_tag ); ?>>
 			</div>
 		<?php endif; ?>
 		<?php if ( ! $hide_upper && ( ! empty( $you_do ) || ! empty( $we_do ) ) ) : ?>
@@ -156,19 +164,31 @@ $classes    = trim_string( $args['classes'] ?? '' );
 								<div class="x-infographics__card-point flex aic">
 									<div class="x-infographics__card-point-icon img-contain <?php echo esc_attr( $yes ? 'x-infographics__card-point-icon_yes' : '' ); ?>">
 										<?php if ( $yes ) : ?>
-											<svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-												xmlns="http://www.w3.org/2000/svg">
-												<path d="M0 15L30 15" stroke="#597DA6" stroke-width="2"/>
-												<path d="M15 0L15 30" stroke="#597DA6" stroke-width="2"/>
-											</svg>
+											<?php if ( $is_h1 ) : ?>
+												<svg width="33" height="24" viewBox="0 0 33 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M0.755859 5.65366L14.6365 21.6318L31.7559 0.631836" stroke="#C32F33" stroke-width="2"/>
+												</svg>
+											<?php else : ?>
+												<svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path d="M0 15L30 15" stroke="#597DA6" stroke-width="2"/>
+													<path d="M15 0L15 30" stroke="#597DA6" stroke-width="2"/>
+												</svg>
+											<?php endif; ?>
 										<?php else : ?>
-											<svg width="43" height="43" viewBox="0 0 43 43" fill="none"
-												xmlns="http://www.w3.org/2000/svg">
-												<path d="M10.6058 10.6074L31.819 31.8206" stroke="#C32F33"
-													stroke-width="2"/>
-												<path d="M31.8206 10.6074L10.6074 31.8206" stroke="#C32F33"
-													stroke-width="2"/>
-											</svg>
+											<?php if ( $is_h1 ) : ?>
+												<svg width="38" height="26" viewBox="0 0 38 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M0 12.2947H36M36 12.2947L20.9455 0.794678M36 12.2947L20.9455 24.7947" stroke="#597DA6" stroke-width="2"/>
+												</svg>
+											<?php else : ?>
+												<svg width="43" height="43" viewBox="0 0 43 43" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path d="M10.6058 10.6074L31.819 31.8206" stroke="#C32F33"
+														stroke-width="2"/>
+													<path d="M31.8206 10.6074L10.6074 31.8206" stroke="#C32F33"
+														stroke-width="2"/>
+												</svg>
+											<?php endif; ?>
 										<?php endif; ?>
 									</div>
 									<div class="x-infographics__card-point-title-container">

@@ -5,6 +5,60 @@
 	color: $clr-soft-gray;
 	overflow: hidden;
 
+	&_categories & {
+
+		&__dec {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&_blue {
+				width: inEm(850px);
+				aspect-ratio: 1/1;
+				height: auto;
+				inset-block-start: inEm(1289px);
+				inset-inline-start: inEm(-246px);
+
+				&::before {
+					background: rgba($clr-muted-blue, .15);
+				}
+
+				img {
+					width: inEm(407px);
+					height: inEm(407px);
+				}
+			}
+
+			&_red {
+				width: inEm(1100px);
+				aspect-ratio: 1/1;
+				height: auto;
+				inset-block-start: inEm(7px);
+				inset-inline-start: inEm(67px);
+
+				&::before {
+					background: rgba($clr-dec-red, .15);
+				}
+
+				img {
+					width: inRem(592px);
+					height: inRem(592px);
+				}
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				inset-block-start: 0;
+				inset-inline-start: 0;
+				width: 100%;
+				height: 100%;
+				filter: blur(#{inEm(250px)});
+				border-radius: 50%;
+			}
+		}
+	}
+
 	&__wrapper {
 		padding: inEm(94px) 0 inEm(90px);
 	}
@@ -30,6 +84,7 @@
 		position: relative;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
+		column-gap: inEm(87px);
 	}
 
 	&__items {
@@ -45,13 +100,23 @@
 
 
 		&-description-container {
-
 			@include list($path-static-media + '/hero-point.svg');
+		}
+
+		&-quote {
+			font-size: inEm(20px);
+			line-height: normal;
+			color: $clr-muted-blue;
 		}
 	}
 
-	&__title-container {
+	&__title-wrapper {
 		height: max-content;
+	}
+
+	&__description-container {
+		margin-top: inEm(16px);
+		max-width: inEm(550px);
 	}
 
 	&__button-container {

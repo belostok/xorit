@@ -11,7 +11,7 @@
 	&__inner {
 		background: $clr-dark-gray;
 		padding: inEm(30px);
-		row-gap: inEm(20px);
+		row-gap: inEm(18px);
 		height: 100%;
 
 		@include md-down {

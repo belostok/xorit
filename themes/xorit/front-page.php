@@ -65,6 +65,7 @@ get_template_part(
 		'image_mobile' => get_field( Constants::ACF_FIELD_HOME . '_advantages_image_mobile' ),
 		'title'        => get_field( Constants::ACF_FIELD_HOME . '_advantages_title' ),
 		'items'        => get_field( Constants::ACF_FIELD_HOME . '_advantages_items' ),
+		'cta'          => get_field( Constants::ACF_FIELD_HOME . '_advantages_cta' ),
 	)
 );
 
@@ -93,11 +94,12 @@ get_template_part(
 	'partials/clients',
 	null,
 	array(
-		'hide'    => get_field( Constants::ACF_FIELD_HOME . '_clients_hide' ),
-		'title'   => get_field( Constants::ACF_FIELD_HOME . '_clients_title' ),
-		'items'   => get_field( Constants::ACF_FIELD_HOME . '_clients_items' ),
-		'cta'     => get_field( Constants::ACF_FIELD_HOME . '_clients_cta' ),
-		'classes' => 'desktop',
+		'hide'        => get_field( Constants::ACF_FIELD_HOME . '_clients_hide' ),
+		'title'       => get_field( Constants::ACF_FIELD_HOME . '_clients_title' ),
+		'description' => get_field( Constants::ACF_FIELD_SERVICES . '_clients_description' ),
+		'items'       => get_field( Constants::ACF_FIELD_HOME . '_clients_items' ),
+		'cta'         => get_field( Constants::ACF_FIELD_HOME . '_clients_cta' ),
+		'classes'     => 'desktop',
 	)
 );
 
@@ -107,6 +109,7 @@ get_template_part(
 	array(
 		'hide'        => get_field( Constants::ACF_FIELD_HOME . '_request_hide' ),
 		'title'       => get_field( Constants::ACF_FIELD_HOME . '_request_title' ),
+		'threats'     => get_field( Constants::ACF_FIELD_HOME . '_request_threats' ),
 		'description' => get_field( Constants::ACF_FIELD_HOME . '_request_description' ),
 		'phone'       => get_field( Constants::ACF_FIELD_HOME . '_request_phone' ),
 		'email'       => get_field( Constants::ACF_FIELD_HOME . '_request_email' ),

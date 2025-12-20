@@ -39,10 +39,11 @@ function register_post_types() {
 			'exclude_from_search'   => false,
 			'capability_type'       => 'post',
 			'map_meta_cap'          => true,
-			'hierarchical'          => false,
+			'hierarchical'          => true,
 			'query_var'             => true,
 			'supports'              => [
 				'title',
+				'page-attributes',
 			],
 			'menu_icon'             => 'dashicons-star-filled',
 		]
