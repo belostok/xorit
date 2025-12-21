@@ -41,6 +41,11 @@
 		margin-top: inEm(40px);
 		margin-bottom: inEm(64px);
 		height: inEm(26px);
+
+		@include md-down {
+			height: inEm(22px);
+			margin-block: inEm(21px);
+		}
 	}
 
 	&__threats-inner {
@@ -63,6 +68,12 @@
 		font-weight: 600;
 		padding: 0 inRem(40px) 0 inRem(31px);
 		width: max-content;
+
+		@include md-down {
+			font-size: inEm(18px);
+			line-height: 1.2;
+			padding-right: inRem(35px);
+		}
 
 		&::before {
 			content: '';
