@@ -25,3 +25,4 @@ uploads/
 .phpunit.result.cache
 
 debug.log
+/ai1wm-backups
