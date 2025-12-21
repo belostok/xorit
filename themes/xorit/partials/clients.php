@@ -34,7 +34,7 @@ if ( $is_categories ) {
 				<img
 					width="592"
 					height="592"
-					class="x-clients__dec-image"
+					class="x-clients__dec-image desktop"
 					src="<?php echo esc_url( XORIT_STATIC_MEDIA_URL . 'target.svg' ); ?>"
 					alt="<?php echo esc_attr__( 'цель', 'xorit' ); ?>"
 				>
@@ -43,8 +43,26 @@ if ( $is_categories ) {
 				<img
 					width="592"
 					height="592"
-					class="x-clients__dec-image"
+					class="x-clients__dec-image desktop"
 					src="<?php echo esc_url( XORIT_STATIC_MEDIA_URL . 'target.svg' ); ?>"
+					alt="<?php echo esc_attr__( 'цель', 'xorit' ); ?>"
+				>
+			</div>
+			<div class="x-clients__dec x-clients__dec_blue fit-contain absolute">
+				<img
+					width="114"
+					height="114"
+					class="x-clients__dec-image mobile"
+					src="<?php echo esc_url( XORIT_STATIC_MEDIA_URL . 'target-mobile.svg' ); ?>"
+					alt="<?php echo esc_attr__( 'цель', 'xorit' ); ?>"
+				>
+			</div>
+			<div class="x-clients__dec x-clients__dec_red fit-contain absolute">
+				<img
+					width="167"
+					height="167"
+					class="x-clients__dec-image mobile"
+					src="<?php echo esc_url( XORIT_STATIC_MEDIA_URL . 'target-mobile.svg' ); ?>"
 					alt="<?php echo esc_attr__( 'цель', 'xorit' ); ?>"
 				>
 			</div>

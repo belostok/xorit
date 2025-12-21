@@ -19,8 +19,7 @@ body .x-post {
 	&__image {
 
 		@include md-down {
-			object-fit: none;
-			height: auto;
+			object-fit: contain;
 		}
 	}
 

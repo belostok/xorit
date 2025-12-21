@@ -19,13 +19,29 @@
 				inset-block-start: inEm(1289px);
 				inset-inline-start: inEm(-246px);
 
+				@include md-down {
+					width: inEm(237px);
+					inset-block-start: auto;
+					inset-block-end: inEm(-92px);
+					inset-inline-start: inEm(-70px);
+				}
+
 				&::before {
 					background: rgba($clr-muted-blue, .15);
+
+					@include md-down {
+						background: rgba($clr-muted-blue, .5);
+					}
 				}
 
 				img {
 					width: inEm(407px);
 					height: inEm(407px);
+
+					@include md-down {
+						width: inEm(114px);
+						height: inEm(114px);
+					}
 				}
 			}
 
@@ -36,13 +52,29 @@
 				inset-block-start: inEm(7px);
 				inset-inline-start: inEm(67px);
 
+				@include md-down {
+					width: inEm(307px);
+					inset-block-start: inEm(17px);
+					inset-inline-start: auto;
+					inset-inline-end: inEm(-76px);
+				}
+
 				&::before {
 					background: rgba($clr-dec-red, .15);
+
+					@include md-down {
+						background: rgba($clr-dec-red, .5);
+					}
 				}
 
 				img {
 					width: inRem(592px);
 					height: inRem(592px);
+
+					@include md-down {
+						width: inRem(165px);
+						height: inRem(165px);
+					}
 				}
 			}
 
@@ -55,12 +87,21 @@
 				height: 100%;
 				filter: blur(#{inEm(250px)});
 				border-radius: 50%;
+
+				@include md-down {
+					filter: blur(#{inEm(280px)});
+				}
 			}
 		}
 	}
 
 	&__wrapper {
 		padding: inEm(94px) 0 inEm(90px);
+
+		@include md-down {
+			text-align: center;
+			padding: inEm(48px) 0;
+		}
 	}
 
 	&__dec {
@@ -85,10 +126,19 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		column-gap: inEm(87px);
+
+		@include md-down {
+			grid-template-columns: 1fr;
+			row-gap: inEm(35px);
+		}
 	}
 
 	&__items {
 		row-gap: inEm(20px);
+
+		@include md-down {
+			row-gap: inEm(14px);
+		}
 	}
 
 	&__item {
@@ -98,15 +148,43 @@
 		padding: inEm(40px);
 		row-gap: inEm(24px);
 
+		@include md-down {
+			padding: inEm(30px);
+			row-gap: 0;
+		}
+
 
 		&-description-container {
 			@include list($path-static-media + '/hero-point.svg');
+
+			@include md-down {
+				margin-top: inEm(21px);
+			}
+		}
+
+		&-quote-container {
+
+			@include md-down {
+				margin-top: inEm(14px);
+			}
 		}
 
 		&-quote {
 			font-size: inEm(20px);
 			line-height: normal;
 			color: $clr-muted-blue;
+
+			@include md-down {
+				font-size: inEm(18px);
+				line-height: 1.2;
+			}
+		}
+
+		&-link-container {
+
+			@include md-down {
+				margin-top: inEm(32px);
+			}
 		}
 	}
 
@@ -117,6 +195,10 @@
 	&__description-container {
 		margin-top: inEm(16px);
 		max-width: inEm(550px);
+
+		@include md-down {
+			margin-inline: auto;
+		}
 	}
 
 	&__button-container {

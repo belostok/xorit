@@ -1,7 +1,6 @@
 import './styles/main.scss'; // main styles file
 
 // Here is a list of scripts, that must be loaded before the user interaction
-import './scripts/animation';
 import header from './scripts/header';
 import sliderServices from './scripts/slider-services';
 import tabs from './scripts/tabs';
@@ -12,6 +11,7 @@ import cookies from './scripts/cookies';
 import formFields from './scripts/form-fields';
 import { documentReady } from './scripts/helpers';
 import linkScroll from './scripts/linkScroll';
+import animation from './scripts/animation';
 
 // Prevent browser scroll restoration
 if ('scrollRestoration' in history) {
@@ -21,6 +21,8 @@ if ('scrollRestoration' in history) {
 window.scrollTo(0, 0);
 
 documentReady( () => {
+	animation();
+
 	header();
 	tabs();
 	faq();
@@ -37,6 +39,7 @@ documentReady( () => {
 
 // Resize
 document.addEventListener( 'resize', () => {
+	animation();
 	sliderServices();
 	sliderStack();
 } );
