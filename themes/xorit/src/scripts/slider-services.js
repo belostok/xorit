@@ -26,7 +26,7 @@ export default () => {
 					modules: [ Autoplay ],
 					slidesPerView: 1,
 					spaceBetween: 20,
-					loop: true,
+					loop: slides.length > 1,
 					autoplay: isAutoplay && slides.length > 1 ? autoplay : false,
 				} );
 			}
@@ -52,8 +52,8 @@ export default () => {
 					slidesPerView: 'auto',
 					centeredSlides: true,
 					spaceBetween: 7,
-					loop: true,
-					autoplay: isAutoplay && slides.length > 1 ? autoplay : false,
+					loop: slides.length > 2,
+					autoplay: isAutoplay && slides.length > 2 ? autoplay : false,
 					navigation: {
 						prevEl: sliderContainer.querySelector( '.js-x-nav-prev' ),
 						nextEl: sliderContainer.querySelector( '.js-x-nav-next' ),

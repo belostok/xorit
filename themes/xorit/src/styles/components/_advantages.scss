@@ -116,15 +116,41 @@
 	&_service & {
 
 		&__wrapper {
-			padding-bottom: 0;
+			padding-top: inEm(128px);
+
+			@include md-down {
+				padding-top: inEm(48px);
+			}
 		}
 
 		&__image-container {
-			inset-block-start: inEm(64px);
+			inset-block-start: inEm(96px);
+
+			@include md-down {
+				display: block;
+				width: auto;
+				height: max-content;
+				inset: 0;
+				margin-block: auto;
+			}
+		}
+
+		&__items {
+
+			@include md-down {
+				row-gap: inEm(14px);
+			}
 		}
 
 		&__item-title {
 			font-size: inEm(28px);
+
+			@include md-down {
+
+				br {
+					display: none;
+				}
+			}
 		}
 	}
 
@@ -235,5 +261,10 @@
 
 	&__button-container {
 		margin-top: inEm(64px);
+
+		@include md-down {
+			margin-top: inEm(35px);
+			justify-content: flex-start;
+		}
 	}
 }

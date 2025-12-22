@@ -859,11 +859,13 @@ add_filter(
 		// Get current post ID
 		$post_id = 0;
 
+		// phpcs:disable
 		if ( isset( $_GET['post'] ) ) {
 			$post_id = absint( $_GET['post'] );
 		} elseif ( isset( $_POST['post_ID'] ) ) {
 			$post_id = absint( $_POST['post_ID'] );
 		}
+		// phpcs:enable
 
 		// If no post ID, return field as is
 		if ( ! $post_id ) {
@@ -879,7 +881,7 @@ add_filter(
 		$args = [
 			'post_type'      => Constants::PT_SLUG_SERVICES,
 			'post_parent'    => $post_id,
-			'posts_per_page' => -1,
+			'posts_per_page' => 100,
 			'orderby'        => 'menu_order title',
 			'order'          => 'ASC',
 			'post_status'    => [ 'publish', 'draft', 'pending' ],

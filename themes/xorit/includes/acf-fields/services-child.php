@@ -3,6 +3,8 @@
 use xoritTheme\Constants\Constants;
 use function xoritTheme\ACF\FieldSets\get_infofraph_fields;
 use function xoritTheme\ACF\FieldSets\get_advantages_fields;
+use function xoritTheme\ACF\FieldSets\get_services_fields;
+use function xoritTheme\ACF\FieldSets\get_request_fields;
 
 $key    = Constants::ACF_FIELD_SERVICES . '_child';
 $suffix = md5( $key );
@@ -214,6 +216,12 @@ acf_add_local_field_group(
 
 			// Advantages
 			...get_advantages_fields( $key ),
+
+			// Services
+			...get_services_fields( $key ),
+
+			// Request
+			...get_request_fields( $key ),
 		),
 		'location'              => array(
 			array(

@@ -51,6 +51,32 @@ if ( $post_parent ) {
 			'classes'      => 'x-advantages_mobile-points x-advantages_service',
 		)
 	);
+
+	get_template_part(
+		'partials/services',
+		null,
+		array(
+			'hide'    => get_field( $key . '_services_hide' ),
+			'title'   => get_field( $key . '_services_title' ),
+			'items'   => get_field( $key . '_services_items' ),
+			'classes' => 'x-services_service',
+		)
+	);
+
+	get_template_part(
+		'partials/request',
+		null,
+		array(
+			'hide'        => get_field( $key . '_request_hide' ),
+			'title'       => get_field( $key . '_request_title' ),
+			'threats'     => get_field( $key . '_request_threats' ),
+			'description' => get_field( $key . '_request_description' ),
+			'phone'       => get_field( $key . '_request_phone' ),
+			'email'       => get_field( $key . '_request_email' ),
+			'cta'         => get_field( $key . '_request_cta' ),
+			'classes'     => 'x-request_service',
+		)
+	);
 } else {
 	get_template_part(
 		'partials/single-hero',
