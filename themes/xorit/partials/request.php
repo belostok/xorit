@@ -24,6 +24,10 @@ $email       = $email ? $email : trim_string( get_field( Constants::ACF_FIELD_OP
 $cta         = get_link_details( $args['cta'] ?? array() );
 $cta         = ! empty( $cta ) ? $cta : get_array( get_field( Constants::ACF_FIELD_OPTIONS . '_request_cta', 'option' ) );
 $classes     = trim_string( $args['classes'] ?? '' );
+
+if ( ! empty( $threats ) ) {
+	$classes .= ' x-request_threats';
+}
 ?>
 <section class="x-request container <?php echo esc_attr( $classes ); ?>">
 	<div class="x-request__wrapper wrapper relative">

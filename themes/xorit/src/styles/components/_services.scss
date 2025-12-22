@@ -8,6 +8,13 @@
 		text-align: center;
 	}
 
+	&_service {
+
+		@include md-down {
+			padding-bottom: inEm(48px);
+		}
+	}
+
 	&__items {
 		margin-top: inEm(64px);
 		overflow: hidden;
