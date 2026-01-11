@@ -358,7 +358,7 @@ acf_add_local_field_group(
 			),
 
 			// Infographic
-			get_infofraph_fields( Constants::ACF_FIELD_SERVICES ),
+			...get_infofraph_fields( Constants::ACF_FIELD_SERVICES ),
 
 			// Services
 			...get_faq_fields(
