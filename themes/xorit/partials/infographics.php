@@ -55,7 +55,7 @@ xorit_inline_style( 'infographics' );
 										<div class="x-infographics__graph-title-container relative">
 											<span class="x-infographics__graph-title-icon absolute"></span>
 											<h3 class="x-infographics__graph-title h3">
-												<?php echo esc_html( $graph_title ); ?>
+												<?php echo wp_kses_post( $graph_title ); ?>
 											</h3>
 										</div>
 									<?php endif; ?>
@@ -85,7 +85,7 @@ xorit_inline_style( 'infographics' );
 										<div class="x-infographics__graph-title-container relative">
 											<span class="x-infographics__graph-title-icon absolute"></span>
 											<h3 class="x-infographics__graph-title h3">
-												<?php echo esc_html( $graph_title ); ?>
+												<?php echo wp_kses_post( $graph_title ); ?>
 											</h3>
 										</div>
 									<?php endif; ?>

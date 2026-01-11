@@ -40,6 +40,8 @@
 
 			&-inner {
 				width: inEm(1050px);
+				max-width: 100%;
+				margin-inline: auto;
 
 				@include md-down {
 					row-gap: inEm(28px);
@@ -163,9 +165,6 @@
 		}
 
 		&-inner {
-			margin-inline: auto;
-			width: inEm(930px);
-			max-width: 100%;
 			row-gap: $gap;
 
 			&::before {
@@ -220,6 +219,7 @@
 
 						&-inner {
 							padding-right: inEm(28px);
+							padding-left: 0;
 						}
 					}
 				}
@@ -279,19 +279,30 @@
 			}
 		}
 
+		&-title,
+		&-description {
+
+			br {
+
+				@include md-down {
+					display: none;
+				}
+			}
+		}
+
 		&-title-icon {
 			width: inEm(16px);
 			height: inEm(16px);
 			border-radius: 50%;
 			border: 1px solid $clr-light-point;
 			background: $clr-base;
-			margin-block: auto;
-			inset-block: 0;
+			inset-block-start: inEm(9px);
 			inset-inline-start: inEm(-36px);
 
 			@include md-down {
 				width: inEm(15px);
 				height: inEm(15px);
+				inset-block-start: inEm(3px);
 				inset-inline-start: inEm(-29px);
 			}
 
