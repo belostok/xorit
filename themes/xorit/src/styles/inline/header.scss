@@ -70,7 +70,7 @@
 	&__menu-container {
 
 		@include md-down {
-			visibility: hidden;
+			display: none;
 			opacity: 0;
 			position: fixed;
 			top: inEm(48px);
@@ -338,7 +338,7 @@
 			}
 
 			&__menu-container {
-				visibility: visible;
+				display: block;
 				opacity: 1;
 				transition: opacity $transition-default;
 			}
