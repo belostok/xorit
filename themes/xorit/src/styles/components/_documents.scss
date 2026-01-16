@@ -1,0 +1,62 @@
+.x-documents {
+	padding-block: inEm(96px);
+	background: $clr-base;
+	color: $clr-soft-gray;
+
+	@include md-down {
+		padding-block: inEm(48px);
+		text-align: center;
+	}
+
+	&__items {
+		margin: inEm(54px) inEm(-10px) inEm(-10px);
+
+		@include md-down {
+			margin: inEm(31px) inEm(-4px) inEm(-4px);
+		}
+	}
+
+	&__item {
+		flex: 0 0 33.3333%;
+		max-width: 33.3333%;
+		padding: inEm(10px);
+
+		@include md-down {
+			flex: 0 0 50%;
+			max-width: 50%;
+			padding: inEm(4px);
+
+			&:nth-child(3n) {
+				flex: 0 0 100%;
+				max-width: 100%;
+			}
+		}
+
+		&-inner {
+			background: $clr-dark-gray;
+			color: $clr-base;
+			min-height: inEm(158px);
+			height: 100%;
+			padding: inEm(20px);
+			text-align: center;
+
+			@include md-down {
+				min-height: inEm(73px);
+				padding: inEm(10px);
+			}
+		}
+
+		&-title {
+
+			@include md-down {
+				font-size: inEm(14px);
+				line-height: 1;
+				font-weight: 500;
+
+				br {
+					display: none;
+				}
+			}
+		}
+	}
+}

@@ -36,7 +36,8 @@ body {
 		}
 	}
 
-	&.child-service {
+	&.child-service,
+	&.page-template-contacts {
 
 		.main {
 			padding-bottom: 0;
