@@ -55,6 +55,7 @@ function register_fields() {
 
 	$items = [
 		'options',
+		'post',
 		'services',
 		'services-child',
 		'home',

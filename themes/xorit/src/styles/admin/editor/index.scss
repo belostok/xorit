@@ -40,3 +40,21 @@
 html :where(.wp-block) {
 	max-width: $base-container-width;
 }
+
+ol.wp-block-list {
+	list-style: none;
+	counter-reset: item;
+
+	> li {
+		counter-increment: item;
+
+		&::before {
+			content: counters(item, ".") ". ";
+			margin-right: 0.3em;
+		}
+
+		> div {
+			display: inline;
+		}
+	}
+}

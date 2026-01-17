@@ -6,7 +6,6 @@
 use xoritTheme\Constants\Constants;
 
 use function xoritTheme\Helpers\get_link_details;
-use function xoritTheme\Helpers\get_tel;
 use function xoritTheme\Helpers\trim_string;
 
 get_header();

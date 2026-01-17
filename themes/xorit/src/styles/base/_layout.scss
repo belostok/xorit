@@ -37,11 +37,18 @@ body {
 	}
 
 	&.child-service,
-	&.page-template-contacts {
+	&.page-template-contacts,
+	&.page-template-content,
+	&.error404 {
 
 		.main {
 			padding-bottom: 0;
 		}
+	}
+
+	&.error404,
+	&.page-template-content {
+		background: $clr-base;
 	}
 }
 

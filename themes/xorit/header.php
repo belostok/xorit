@@ -8,12 +8,15 @@ $logo_text   = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_logo_tex
 $email       = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_email', 'option' ) );
 $address     = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_address', 'option' ) );
 $phone       = trim_string( get_field( Constants::ACF_FIELD_OPTIONS . '_phone', 'option' ) );
+$background  = trim_string( get_field( Constants::ACF_FIELD_PAGE . '_background' ) );
 $body_class  = 'flex';
 $post_parent = wp_get_post_parent_id( get_the_ID() );
 
 if ( is_singular( 'services' ) && $post_parent ) {
 	$body_class .= ' child-service';
 }
+
+$body_style = $background ? 'style="background:' . esc_url( $background ) . ';"' : '';
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -25,7 +28,10 @@ if ( is_singular( 'services' ) && $post_parent ) {
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( $body_class ); ?>>
+<body
+	<?php body_class( $body_class ); ?>
+	<?php echo $body_style; // phpcs:ignore ?>
+>
 <?php wp_body_open(); ?>
 
 <div class="main-wrapper flex fdc relative">
