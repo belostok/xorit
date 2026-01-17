@@ -9,4 +9,5 @@ class Constants {
 	const string ACF_FIELD_HOME     = 'acf_home';
 	const string ACF_FIELD_SERVICES = 'acf_services';
 	const string ACF_FIELD_CONTACTS = 'acf_contacts';
+	const string ACF_FIELD_PAGE     = 'acf_page';
 }
