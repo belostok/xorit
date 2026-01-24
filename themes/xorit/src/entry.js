@@ -12,6 +12,7 @@ import formFields from './scripts/form-fields';
 import { documentReady } from './scripts/helpers';
 import linkScroll from './scripts/linkScroll';
 import animation from './scripts/animation';
+import services from './scripts/services';
 
 // Prevent browser scroll restoration
 if ('scrollRestoration' in history) {
@@ -24,6 +25,7 @@ documentReady( () => {
 	animation();
 
 	header();
+	services();
 	tabs();
 	faq();
 	popup();
