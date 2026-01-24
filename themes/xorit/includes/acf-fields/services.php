@@ -10,6 +10,7 @@ use function xoritTheme\ACF\FieldSets\get_advantages_fields;
 use function xoritTheme\ACF\FieldSets\get_hero_fields;
 use function xoritTheme\ACF\FieldSets\get_infofraph_fields;
 use function xoritTheme\ACF\FieldSets\get_three_cards_fields;
+use function xoritTheme\ACF\FieldSets\get_tabs_fields;
 
 $suffix = md5( Constants::ACF_FIELD_SERVICES );
 
@@ -152,6 +153,27 @@ acf_add_local_field_group(
 				'ui_on_text'        => '',
 				'ui_off_text'       => '',
 				'ui'                => 1,
+			),
+			array(
+				'key'               => 'field_68fc79c91ckl7' . $suffix,
+				'label'             => esc_attr__( 'Заголовок', 'xorit' ),
+				'name'              => Constants::ACF_FIELD_SERVICES . '_cards_title',
+				'aria-label'        => '',
+				'type'              => 'textarea',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'maxlength'         => '',
+				'allow_in_bindings' => 0,
+				'rows'              => 2,
+				'placeholder'       => '',
+				'new_lines'         => 'br',
 			),
 			array(
 				'key'               => 'field_692c86a4c9f14' . $suffix,
@@ -370,6 +392,9 @@ acf_add_local_field_group(
 					'items_instructions' => '',
 				)
 			),
+
+			// Tabs
+			...get_tabs_fields( Constants::ACF_FIELD_SERVICES ),
 
 			// Advantages
 			...get_advantages_fields(

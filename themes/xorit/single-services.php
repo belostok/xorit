@@ -96,6 +96,7 @@ if ( $post_parent ) {
 		null,
 		array(
 			'hide'  => get_field( Constants::ACF_FIELD_SERVICES . '_cards_hide' ),
+			'title' => get_field( Constants::ACF_FIELD_SERVICES . '_cards_title' ),
 			'items' => get_field( Constants::ACF_FIELD_SERVICES . '_cards_items' ),
 		)
 	);

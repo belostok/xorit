@@ -386,32 +386,17 @@
 			column-gap: inEm(32px);
 
 			@include md-down {
-				align-items: flex-start;
 				column-gap: inEm(13px);
 			}
 
 			&-icon {
 				flex-shrink: 0;
-				width: inEm(43px);
-				height: inEm(43px);
+				width: inEm(30px);
+				height: inEm(30px);
 
 				@include md-down {
-					width: inEm(35px);
-					height: inEm(35px);
-					margin-left: inEm(-7px);
-					margin-right: inEm(-3px);
-				}
-
-				&_yes {
-					width: inEm(30px);
-					height: inEm(30px);
-
-					@include md-down {
-						width: inEm(25px);
-						height: inEm(25px);
-						margin-left: 0;
-						margin-right: 0;
-					}
+					width: inEm(25px);
+					height: inEm(25px);
 				}
 			}
 		}
