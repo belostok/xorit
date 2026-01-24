@@ -113,13 +113,16 @@ if ( $is_categories ) {
 						$item_description = trim_string( $item['description'] ?? '' );
 						$item_quote       = '';
 						$item_link        = '';
+						$item_list        = array();
 
 						if ( is_numeric( $item ) ) {
 							$item_title       = trim_string( get_field( Constants::ACF_FIELD_SERVICES . '_child_title', $item ) );
-							$item_title       = $item_title ? $item_title : get_the_title( $item );
+							$item_title       = $item_title ? $item_title : ( $is_categories ? '' : get_the_title( $item ) );
 							$item_description = trim_string( get_field( Constants::ACF_FIELD_SERVICES . '_child_description', $item ) );
 							$item_quote       = trim_string( get_field( Constants::ACF_FIELD_SERVICES . '_child_quote', $item ) );
-							$item_link        = get_permalink( $item );
+							$item_cta_hide    = (bool) get_field( Constants::ACF_FIELD_SERVICES . '_child_cta_hide', $item );
+							$item_link        = $item_cta_hide ? '' : get_permalink( $item );
+							$item_list        = get_array( get_field( Constants::ACF_FIELD_SERVICES . '_child_list', $item ) );
 						}
 
 						if ( ! $item_title && ! $item_description ) {
@@ -137,6 +140,24 @@ if ( $is_categories ) {
 							<?php if ( $item_description ) : ?>
 								<div class="x-clients__item-description-container">
 									<?php echo wp_kses_post( $item_description ); ?>
+								</div>
+							<?php endif; ?>
+							<?php if ( ! empty( $item_list ) ) : ?>
+								<div class="x-clients__item-list-container">
+									<ul class="x-clients__item-list">
+										<?php
+										foreach ( $item_list as $list_item ) :
+											$list_item = trim_string( $list_item['item'] ?? '' );
+
+											if ( ! $list_item ) {
+												continue;
+											}
+											?>
+											<li class="x-clients__item-list-item">
+												<?php echo wp_kses_post( $list_item ); ?>
+											</li>
+										<?php endforeach; ?>
+									</ul>
 								</div>
 							<?php endif; ?>
 							<?php if ( $item_quote ) : ?>

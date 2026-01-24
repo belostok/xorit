@@ -154,7 +154,7 @@ xorit_inline_style( 'infographics' );
 						<div class="x-infographics__card-points flex fdc">
 							<?php
 							foreach ( $points as $point ) :
-								$yes         = (bool) ( $point['yes_no'] ?? false );
+								$icon        = (int) ( $point['icon'] ?? 0 );
 								$point_title = trim_string( $point['point'] ?? '' );
 
 								if ( ! $point_title ) {
@@ -162,35 +162,11 @@ xorit_inline_style( 'infographics' );
 								}
 								?>
 								<div class="x-infographics__card-point flex aic">
-									<div class="x-infographics__card-point-icon img-contain <?php echo esc_attr( $yes ? 'x-infographics__card-point-icon_yes' : '' ); ?>">
-										<?php if ( $yes ) : ?>
-											<?php if ( $is_h1 ) : ?>
-												<svg width="33" height="24" viewBox="0 0 33 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M0.755859 5.65366L14.6365 21.6318L31.7559 0.631836" stroke="#C32F33" stroke-width="2"/>
-												</svg>
-											<?php else : ?>
-												<svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-													xmlns="http://www.w3.org/2000/svg">
-													<path d="M0 15L30 15" stroke="#597DA6" stroke-width="2"/>
-													<path d="M15 0L15 30" stroke="#597DA6" stroke-width="2"/>
-												</svg>
-											<?php endif; ?>
-										<?php else : ?>
-											<?php if ( $is_h1 ) : ?>
-												<svg width="38" height="26" viewBox="0 0 38 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M0 12.2947H36M36 12.2947L20.9455 0.794678M36 12.2947L20.9455 24.7947" stroke="#597DA6" stroke-width="2"/>
-												</svg>
-											<?php else : ?>
-												<svg width="43" height="43" viewBox="0 0 43 43" fill="none"
-													xmlns="http://www.w3.org/2000/svg">
-													<path d="M10.6058 10.6074L31.819 31.8206" stroke="#C32F33"
-														stroke-width="2"/>
-													<path d="M31.8206 10.6074L10.6074 31.8206" stroke="#C32F33"
-														stroke-width="2"/>
-												</svg>
-											<?php endif; ?>
-										<?php endif; ?>
-									</div>
+									<?php if ( $icon ) : ?>
+										<div class="x-infographics__card-point-icon img-contain">
+											<?php xorit_the_image( $icon ); ?>
+										</div>
+									<?php endif; ?>
 									<div class="x-infographics__card-point-title-container">
 										<p class="x-infographics__card-point-title body-1">
 											<?php echo wp_kses_post( $point_title ); ?>

@@ -154,7 +154,8 @@
 		}
 
 
-		&-description-container {
+		&-description-container,
+		&-list-container {
 			@include list($path-static-media + '/hero-point.svg');
 
 			@include md-down {

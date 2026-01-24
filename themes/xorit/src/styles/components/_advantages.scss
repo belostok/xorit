@@ -223,6 +223,8 @@
 				background-repeat: no-repeat;
 				background-size: contain;
 				background-image: url($path-static-media + '/hero-point.svg');
+				background-color: $clr-base;
+				border-radius: 50%;
 				top: 0;
 				inset-inline-start: 50%;
 				transform: translateX(-50%) translateY(-50%);

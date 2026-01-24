@@ -1,0 +1,28 @@
+@import '../helpers';
+@import '../helpers/helpers-front-only';
+
+.x-post {
+
+	@include md-down {
+	}
+
+	&__title-container {
+		padding-top: inEm(194px);
+		padding-bottom: inEm(64px);
+		background: $clr-base;
+		color: $clr-soft-gray;
+
+		@include md-down {
+			padding-top: inEm(83px);
+			padding-bottom: inEm(36px);
+		}
+	}
+
+	&__content-container {
+		margin-top: inEm(64px);
+
+		@include md-down {
+			margin-top: inEm(36px);
+		}
+	}
+}
