@@ -8,7 +8,7 @@
 		"start": "wp-scripts start --webpack-copy-php --config src/webpack.config.js"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^26.9.0",
+		"@wordpress/scripts": "30.26.2",
 		"autoprefixer": "^10.4.14",
 		"glob": "^8.1.0",
 		"postcss-sort-media-queries": "^5.2.0",

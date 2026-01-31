@@ -50,6 +50,13 @@ body {
 	&.page-template-content {
 		background: $clr-base;
 	}
+
+	&.single-post {
+
+		.x-header {
+			background: $clr-base;
+		}
+	}
 }
 
 body.admin-bar {

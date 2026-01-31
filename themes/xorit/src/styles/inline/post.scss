@@ -1,16 +1,11 @@
 @import '../helpers';
 @import '../helpers/helpers-front-only';
 
-.x-post {
-
-	@include md-down {
-	}
+.x-post-page {
 
 	&__title-container {
-		padding-top: inEm(194px);
+		padding-top: inEm(272px);
 		padding-bottom: inEm(64px);
-		background: $clr-base;
-		color: $clr-soft-gray;
 
 		@include md-down {
 			padding-top: inEm(83px);
@@ -18,11 +13,76 @@
 		}
 	}
 
-	&__content-container {
-		margin-top: inEm(64px);
+	&__content {
+		line-height: 1.46;
 
-		@include md-down {
-			margin-top: inEm(36px);
+		@include md-up {
+			width: inEm(1015px);
+			max-width: 100%;
+		}
+
+		& > * {
+
+			&:not(:first-child) {
+				margin-block: inRem(32px);
+			}
+		}
+
+		a {
+			text-decoration: underline;
+		}
+
+		h2 {
+
+			@include md-up {
+				width: inRem(1226px);
+			}
+
+			&:not(:first-child) {
+				margin-block: inRem(192px) inRem(64px);
+
+				@include md-down {
+					margin-block: inRem(64px) inRem(32px);
+				}
+			}
+		}
+
+		h5 {
+
+			strong {
+
+				&::before {
+					content: '•';
+					margin-right: .5em;
+				}
+			}
+
+			&:not(:first-child) {
+				margin-block: inRem(-8px) inRem(-16px);
+			}
+		}
+
+		.wp-block-columns {
+
+			&:not(:last-child) {
+				margin-block: inRem(64px);
+			}
+		}
+
+		.wp-block-image {
+
+			figcaption {
+				margin-block: inRem(16px) 0;
+				font-size: inRem(14px);
+				line-height: normal;
+				color: $clr-base;
+				text-align: left;
+
+				em {
+					font-style: normal;
+					color: rgba(32, 32, 44, 0.7);
+				}
+			}
 		}
 	}
 }

@@ -10,19 +10,15 @@ get_header();
 		<div class="entry-content">
 			<?php if ( is_singular( 'post' ) ) : ?>
 				<?php xorit_inline_style( 'post' ); ?>
-				<div class="x-post">
-					<div class="x-post__wrapper">
-						<div class="x-post__title-container container">
-							<div class="x-post__title-wrapper wrapper">
-								<h1 class="x-post__title h1">
-									<?php the_title(); ?>
-								</h1>
-							</div>
+				<div class="x-post-page container">
+					<div class="x-post-page__wrapper wrapper">
+						<div class="x-post-page__title-container">
+							<h1 class="x-post-page__title h1">
+								<?php the_title(); ?>
+							</h1>
 						</div>
-						<div class="x-post__content-container container">
-							<div class="x-post__content-wrapper wrapper">
-								<?php the_content(); ?>
-							</div>
+						<div class="x-post-page__content">
+							<?php the_content(); ?>
 						</div>
 					</div>
 				</div>
